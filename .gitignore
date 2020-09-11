@@ -1,0 +1,9 @@
+
+.vs
+Structures/Debug
+Structures/packages/
+Structures/packages.config
+Structures/Structures.vcxproj
+Structures/Structures.vcxproj.filters
+Structures/Structures.vcxproj.user
+Structures/Structures.sln
