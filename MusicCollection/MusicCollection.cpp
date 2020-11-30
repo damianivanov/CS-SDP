@@ -1,12 +1,13 @@
-// MusicCollection.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-#include "User.h"
 #include <iostream>
+#include <sstream>
+#include "User.h"
+#include <locale>
+
 
 int main()
 {
-    User u1;
-    
+    User u1("damian.iv", "pass1", "Damian Ivanov", std::vector<std::string> {"pop","rap","slow"}, std::vector<Playlist> {},"30/10/2020");
+
 }
 
 

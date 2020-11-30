@@ -140,9 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MusicCollection.cpp" />
+    <ClCompile Include="Playlist.cpp" />
+    <ClCompile Include="Song.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers.h" />
     <ClInclude Include="Playlist.h" />
     <ClInclude Include="Song.h" />
     <ClInclude Include="User.h" />
