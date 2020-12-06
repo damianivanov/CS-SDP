@@ -7,3 +7,5 @@ Structures/Structures.vcxproj
 Structures/Structures.vcxproj.filters
 Structures/Structures.vcxproj.user
 Structures/Structures.sln
+*.pdb
+MusicCollection/Debug/vc142.idb

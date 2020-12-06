@@ -1,0 +1,4 @@
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Seminar\SinglyLinkedList\Debug\SinglyLinkedList.exe
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Seminar\SinglyLinkedList\Debug\SinglyLinkedList.pdb
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Practicum\SinglyLinkedList\Debug\SinglyLinkedList.exe
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Practicum\SinglyLinkedList\Debug\SinglyLinkedList.pdb

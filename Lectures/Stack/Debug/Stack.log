@@ -1,0 +1,23 @@
+﻿  hanoi.cpp
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoiplayer.h(4,25): error C2653: 'HanoiPlayer': is not a class or namespace name
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoiplayer.h(5,1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoiplayer.h(6,5): error C2065: 's': undeclared identifier
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoiplayer.h(7,1): warning C4508: 'HanoiPlayer': function should return a value; 'void' return type assumed
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoiplayer.h(9,23): error C2653: 'HanoiPlayer': is not a class or namespace name
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoiplayer.h(9,44): error C2653: 'HanoiPlayer': is not a class or namespace name
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoiplayer.h(9,44): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoiplayer.h(9,36): error C2146: syntax error: missing ';' before identifier 'nextMove'
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoiplayer.h(10,1): error C2143: syntax error: missing ';' before '{'
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoiplayer.h(10,1): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoiplayer.h(27,28): error C2653: 'HanoiPlayer': is not a class or namespace name
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoiplayer.h(29,13): error C2065: 's': undeclared identifier
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoi.cpp(55,17): error C2146: syntax error: missing ';' before identifier 'player'
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoi.cpp(55,5): warning C4551: function call missing argument list
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoi.cpp(55,17): error C3861: 'player': identifier not found
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoi.cpp(57,12): error C2065: 'player': undeclared identifier
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoi.cpp(59,40): error C2653: 'HanoiPlayer': is not a class or namespace name
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoi.cpp(59,40): error C2146: syntax error: missing ';' before identifier 'move'
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoi.cpp(59,40): error C2065: 'move': undeclared identifier
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoi.cpp(59,47): error C2065: 'player': undeclared identifier
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoi.cpp(60,55): error C2065: 'move': undeclared identifier
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\Stack\hanoi.cpp(60,78): error C2065: 'move': undeclared identifier

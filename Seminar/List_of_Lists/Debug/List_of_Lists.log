@@ -1,0 +1,10 @@
+﻿  List_of_Lists.cpp
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Seminar\List_of_Lists\List_of_Lists.cpp(43,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Seminar\List_of_Lists\List_of_Lists.cpp(15,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Seminar\List_of_Lists\List_of_Lists.cpp(31): message : see reference to function template instantiation 'std::list<double,std::allocator<double>> createList<double>(std::list<double,std::allocator<double>> &,std::_List_iterator<std::_List_val<std::_List_simple_types<_Ty>>> &,int)' being compiled
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Seminar\List_of_Lists\List_of_Lists.cpp(50): message : see reference to function template instantiation 'std::list<std::list<double,std::allocator<double>>,std::allocator<std::list<double,std::allocator<double>>>> chunk<double>(std::list<double,std::allocator<double>>,int)' being compiled
+  List_of_Lists.vcxproj -> C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Seminar\Zadachi\Debug\List_of_Lists.exe

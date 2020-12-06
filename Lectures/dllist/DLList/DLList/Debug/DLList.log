@@ -1,0 +1,5 @@
+﻿  dllist.cpp
+  main.cpp
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\dllist\DLList\DLList\main.cpp(78,37): warning C4101: 'e': unreferenced local variable
+  Generating Code...
+  DLList.vcxproj -> C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\dllist\DLList\DLList\Debug\DLList.exe

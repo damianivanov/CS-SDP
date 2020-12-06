@@ -1,0 +1,2 @@
+C:\Users\Damian's PC\Documents\GitHub\CS-FP\Practicum\SLList\Debug\SLList.exe
+C:\Users\Damian's PC\Documents\GitHub\CS-FP\Practicum\SLList\Debug\SLList.pdb

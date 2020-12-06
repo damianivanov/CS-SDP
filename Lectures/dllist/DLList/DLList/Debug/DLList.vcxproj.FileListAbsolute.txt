@@ -1,0 +1,2 @@
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\dllist\DLList\DLList\Debug\DLList.exe
+C:\Users\Damian's PC\Documents\GitHub\CS-SDP\Lectures\dllist\DLList\DLList\Debug\DLList.pdb
