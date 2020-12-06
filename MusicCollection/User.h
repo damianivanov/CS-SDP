@@ -3,9 +3,9 @@
 #include <algorithm>
 #include <time.h>
 #include <vector>
-#include "sha3.h"
+
 #include "Playlist.h"
-#include "nlohmann/json.hpp"
+
 #include "Guid.h"
 class Playlist;
 /*Represents the basic structure
@@ -49,7 +49,7 @@ public:
 	void add_playlist(Playlist _playlist);
 	void add_favorite_genre(std::string _genre);
 	void remove_favorite_genre(std::string _genre);
-
+	bool check_password(std::string _candidate);
 private:
 
 	//fields

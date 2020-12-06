@@ -1,6 +1,6 @@
 #pragma once
 #include "User.h"
-using json = nlohmann::json;
+
 User::User() :username(""), password(""), fullname("")
 {
 	time_t now = time(0);
@@ -10,11 +10,7 @@ User::User() :username(""), password(""), fullname("")
 User::User(std::string _username, std::string _password, std::string _fullname, std::vector<std::string> _favorite_genres,std::vector<Playlist> _playlists,std::string _birthday)
 {
 	username = _username;
-	password = Chocobo1::SHA3_512()
-		.addData(password.c_str(), password.length())
-		.finalize()
-		.toString();
-
+	password = _password;
 	fullname = _fullname;
 	favorite_genres = _favorite_genres;
 	playlists = _playlists;
@@ -75,6 +71,11 @@ void User::remove_favorite_genre(std::string _genre)
 	}
 }
 
+bool User::check_password(std::string _candidate)
+{
+	return false;
+}
+
 //WORKING ONLY FOR FORMAT DD/MM/YYYY
 tm User::string_to_tm(std::string birthday)
 {
@@ -98,23 +99,3 @@ void User::copy(const User& other) {
 	}
 }
 
-void to_json(json& j, const User& u) {
-	j = json {
-		{"username", u.get_username()}, 
-		{"password", u.get_password()},
-		{"fullname", u.get_fullname()},
-		{"birthday", u.birthday_to_string()},
-		{"favorite genres", u.get_favorite_genres()},
-		//{"Playlist", u.get_playlists()} need to_json, from_json
-	};
-}
-void from_json(const json& j, User& p) {
-	p.set_username(j.at("username"));
-	p.set_password(j.at("password"));
-	p.set_fullname(j.at("fullname"));
-	p.set_birthday(j.at("birthday"));
-	p.set_favorite_genres(j.at("favorite genres"));
-
-
-
-}

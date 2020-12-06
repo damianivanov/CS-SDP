@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\Database">
+      <UniqueIdentifier>{b2d066cb-874f-42c5-bcae-034300cef420}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MusicCollection.cpp">
@@ -28,6 +31,9 @@
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="MusicPlayer.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DatabaseContext.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,5 +56,16 @@
     <ClInclude Include="Guid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Users.json">
+      <Filter>Resource Files\Database</Filter>
+    </None>
+    <None Include="Songs.json">
+      <Filter>Resource Files\Database</Filter>
+    </None>
+    <None Include="Playlists.json">
+      <Filter>Resource Files\Database</Filter>
+    </None>
   </ItemGroup>
 </Project>

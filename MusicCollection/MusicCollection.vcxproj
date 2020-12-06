@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DatabaseContext.cpp" />
     <ClCompile Include="MusicCollection.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="Playlist.cpp" />
@@ -152,6 +153,11 @@
     <ClInclude Include="Playlist.h" />
     <ClInclude Include="Song.h" />
     <ClInclude Include="User.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Playlists.json" />
+    <None Include="Songs.json" />
+    <None Include="Users.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

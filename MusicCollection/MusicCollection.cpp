@@ -7,7 +7,10 @@ using json = nlohmann::json;
 
 int main()
 {
-    User u1("damian.iv", "pass1", "Damian Ivanov", std::vector<std::string> {"pop", "rap", "slow"}, std::vector<Playlist> {}, "30/07/1998");
+    Context db;
+    db.Serialization();
+    db.Deserialization();
+   /* User u1("damian.iv", "pass1", "Damian Ivanov", std::vector<std::string> {"pop", "rap", "slow"}, std::vector<Playlist> {}, "30/07/1998");
     auto users = std::vector<User*>();
     users.push_back(&u1);
 
@@ -18,7 +21,7 @@ int main()
     p1.add_song(&BOP);
     p1.set_name("DaBaby");
     u1.add_playlist(p1);
-    std::cout<<u1.get_playlists().front().get_songs().front()->get_name();
+    std::cout<<u1.get_playlists().front().get_songs().front()->get_name();*/
 }
 
 
