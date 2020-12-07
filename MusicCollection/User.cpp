@@ -7,7 +7,13 @@ User::User() :username(""), password(""), fullname("")
 	localtime_s(&birthday, &now);
 	id = new_guid();
 }
-User::User(std::string _username, std::string _password, std::string _fullname, std::vector<std::string> _favorite_genres,std::vector<Playlist> _playlists,std::string _birthday)
+
+User::User(std::string _username, 
+		std::string _password, 
+		std::string _fullname, 
+		std::string _birthday,
+		std::vector<std::string> _favorite_genres,
+		std::vector<Playlist> _playlists)
 {
 	username = _username;
 	password = _password;
@@ -17,6 +23,7 @@ User::User(std::string _username, std::string _password, std::string _fullname, 
 	birthday = string_to_tm(_birthday);
 	id = new_guid();
 }
+
 User& User::operator=(const User& other)
 {
 	if (this!=&other)

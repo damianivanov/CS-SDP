@@ -1,41 +1,73 @@
 #include "DatabaseContext.h"
+//getters like methods
 
-User& Context::get_user_by_id(std::string _id)
+User* Context::get_user_by_id(std::string _id)
 {
-	auto it = std::find_if(get_all_users().begin(), get_all_users().end(), [&_id](const User& user) {return user.get_id() == _id; });
-	User user;
-	if (it != get_all_users().end())
+	User* u=new User();
+	for (auto user : users)
 	{
-		user = *it;
-		auto index = std::distance(get_all_users().begin(), it);
+		if (user.get_id() == _id)
+		{
+			return &user;
+		}
 	}
-	return user;
+	return u;
 }
-User& Context::get_user_by_username(std::string _username)
+User* Context::get_user_by_username(std::string _username)
 {
-	auto it = std::find_if(get_all_users().begin(), get_all_users().end(), [&_username](const User& user) {return user.get_username() == _username; });
-	User user;
-	if (it != get_all_users().end())
+	User* u=new User();
+	for (auto user : users)
 	{
-		user = *it;
-		auto index = std::distance(get_all_users().begin(), it);
+		if (user.get_username()==_username)
+		{
+			return &user;
+		}
 	}
-	return user;
+	return u;
 }
-bool Context::validate_user(std::string _username, std::string _password)
-{
-	User user = get_user_by_username(_username);
-	if (user.get_username() == "")
-		return false;
+//
 
-	std::string result = user.get_password();
-	std::string candidate = Chocobo1::SHA3_512()
-		.addData(_password.c_str(), _password.length())
-		.finalize()
-		.toString();
+//methods required by the json library
+	
 
-	return result == candidate;
+	//Song
+void to_json(json& j, const Song& s) {
+	j = json{
+		{"artist", s.get_artist()},
+		{"name", s.get_name()},
+		{"genre", s.get_genre()},
+		{"rating", s.get_rating()},
+		{"album", s.get_album()},
+		{"release year",s.get_release_year()},
+	};
 }
+void from_json(const json& j, Song& s) {
+	s.set_artist(j.at("artist"));
+	s.set_name(j.at("name"));
+	s.set_genre(j.at("genre"));
+	s.set_rating(j.at("rating"));
+	s.set_album(j.at("album"));
+	s.set_release_year(j.at("release year"));
+}
+
+	//Playlist
+void to_json(json& j, const Playlist& p) {
+	j = json {
+		{"creator", p.get_creator()->get_id()},
+		{"songs", p.get_songs()},
+		{"name", p.get_name()}
+	};
+}
+void from_json(const json& j, Playlist& p) {
+	Context db;
+	User* creator = db.get_user_by_id(j.at("ctreator"));
+	p.set_creator(creator);
+	p.set_name(j.at("name"));
+	p.set_songs((j.at("songs")));
+	
+}
+
+	//User
 void to_json(json& j, const User& u) {
 	j = json{
 		{"username", u.get_username()},
@@ -44,7 +76,7 @@ void to_json(json& j, const User& u) {
 		{"birthday", u.birthday_to_string()},
 		{"favorite genres", u.get_favorite_genres()},
 		{"id",u.get_id()},
-		//{"Playlist", u.get_playlists()} //need to_json, from_json
+		{"Playlist", u.get_playlists()}
 	};
 }
 void from_json(const json& j, User& u) {
@@ -54,7 +86,41 @@ void from_json(const json& j, User& u) {
 	u.set_birthday(j.at("birthday"));
 	u.set_favorite_genres(j.at("favorite genres"));
 	u.set_id(j.at("id"));
+	//TODO::Playlists
 }
+//
+
+bool Context::available_username(std::string _username)
+{
+	User* user = get_user_by_username(_username);
+	return user->get_username() == "";
+}
+bool Context::login_validation(std::string _username, std::string _password)
+{
+	if (available_username(_username))
+		return false;
+
+	User* user = get_user_by_username(_username);
+	std::string result = user->get_password();
+	std::string candidate = Chocobo1::SHA3_512()
+		.addData(_password.c_str(), _password.length())
+		.finalize()
+		.toString();
+
+	return result == candidate;
+}
+bool Context::add_user(User _user)
+{
+	if (available_username(_user.get_username()))
+	{
+		users.push_back(_user);
+		return true;
+	}
+		return false;
+	
+}
+
+//working with .json files
 void Context::Serialization()
 {
 
@@ -67,11 +133,45 @@ void Context::Serialization()
 		s.append(line);
 	}
 	in.close();
-		
-	json = json::parse(s);
-	users = json.get<std::vector<User>>();
-}
+	if (!s.empty())
+	{
+		json = json::parse(s);
+		users = json.get<std::vector<User>>();
+		json.clear();
+	}
+	//
+	in.open("Songs.json");
+	s.clear();
+	while (in)
+	{
+		std::string line;
+		std::getline(in, line);
+		s.append(line);
+	}
+	in.close();
+	if (!s.empty())
+	{
+		json = json::parse(s);
+		songs = json.get<std::vector<Song>>();
+		json.clear();
 
+	}
+	//
+	in.open("Playlists.json");
+	s.clear();
+	while (in)
+	{
+		std::string line;
+		std::getline(in, line);
+		s.append(line);
+	}
+	in.close();
+	if (!s.empty())
+	{
+		json = json::parse(s);
+		playlists = json.get<std::vector<Playlist>>();
+	}
+}
 void Context::Deserialization()
 {
 	json.clear();
@@ -79,5 +179,19 @@ void Context::Deserialization()
 	std::ofstream out("Users.json");
 	out << json.dump(formating_spaces);
 	out.close();
+
+	json.clear();
+	out.open("Songs.json");
+	json = songs;
+	out << json.dump(formating_spaces);
+	out.close();
+
+	json.clear();
+	out.open("Playlists.json");
+	json = playlists;
+	out << json.dump(formating_spaces);
+	out.close();
+	json.clear();
 }
+//
 

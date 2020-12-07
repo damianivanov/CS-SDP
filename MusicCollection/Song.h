@@ -7,7 +7,7 @@ public:
 	Song();
 	Song(std::string _artist, std::string _name, std::string _genre, float _rating, std::string album, int _release_year);
 	~Song();
-
+	bool operator==(const Song& other);
 	const std::string get_artist() const { return this->artist; }
 	const std::string get_name() const { return this->name; }
 	const std::string get_genre() const { return this->genre; }

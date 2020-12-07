@@ -1,27 +1,47 @@
 [
-        {
-                "birthday": "19/10/2020",
-                "favorite genres": [
-                        "pop",
-                        "rap",
-                        "chill"
-                ],
-                "fullname": "Damian Ivanov",
-                "id": "long id",
-                "password": "parola123",
-                "username": "damian.iv"
-        },
-        {
-                "birthday": "22/10/2020",
-                "favorite genres": [
-                        "pop",
-                        "rap",
-                        "chill",
-                        "very chill"
-                ],
-                "fullname": "Damian Iv",
-                "id": "very long id",
-                "password": "par23",
-                "username": "damian"
-        }
+    {
+        "Playlist": [],
+        "birthday": "19/10/2020",
+        "favorite genres": [
+            "pop",
+            "rap",
+            "chill"
+        ],
+        "fullname": "Damian Ivanov",
+        "id": "long id",
+        "password": "parola123",
+        "username": "damian.iv"
+    },
+    {
+        "Playlist": [],
+        "birthday": "22/10/2020",
+        "favorite genres": [
+            "pop",
+            "rap",
+            "chill",
+            "very chill"
+        ],
+        "fullname": "Damian Iv",
+        "id": "very long id",
+        "password": "par23",
+        "username": "damian"
+    },
+    {
+        "Playlist": [],
+        "birthday": "12/11/2020",
+        "favorite genres": [],
+        "fullname": "Damian Ivanov",
+        "id": "484r6113-q210-6zk5-py0q-a253h3600z27",
+        "password": "5ac27c55a943d048497fe734b192ef57fbeda4b1ce1103108ef7e7ecd35f1b1786b2fc408f1b36d4cdfa3e3538cd0510108c3da651e63bcf9ebe684f522f24a1",
+        "username": "damianivanovv'"
+    },
+    {
+        "Playlist": [],
+        "birthday": "12/10/2020",
+        "favorite genres": [],
+        "fullname": "Damian IV",
+        "id": "0mgbb5k2-cs65-a0ub-456s-4ji00757bexy",
+        "password": "1c623b103ee41fdc31cfcce37d38269b1455f5ed278697f779fa3d2813411ca3d4a705addc44cff6882cb12c9afdd75a74141f3f8d9dbb4edb06d03fe56a1cae",
+        "username": "dam"
+    }
 ]

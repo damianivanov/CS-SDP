@@ -9,3 +9,8 @@ Structures/Structures.vcxproj.user
 Structures/Structures.sln
 *.pdb
 MusicCollection/Debug/vc142.idb
+Debug
+MusicCollection/Users.json
+MusicCollection/Songs.json
+MusicCollection/Playlists.json
+MusicCollection/Users.json

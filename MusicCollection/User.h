@@ -3,10 +3,9 @@
 #include <algorithm>
 #include <time.h>
 #include <vector>
+#include "Guid.h"
 
 #include "Playlist.h"
-
-#include "Guid.h"
 class Playlist;
 /*Represents the basic structure
 for every user*/
@@ -14,7 +13,12 @@ class User
 {
 public:
 	User();
-	User(std::string _username, std::string _password, std::string _fullname, std::vector<std::string> _favorite_genres, std::vector<Playlist> _playlists, std::string _birthday);
+	User(std::string _username, 
+		std::string _password, 
+		std::string _fullname, 
+		std::string _birthday,
+		std::vector<std::string> _favorite_genres = std::vector<std::string>(),
+		std::vector<Playlist> _playlists = std::vector<Playlist>());
 	User& operator=(const User& other);
 	~User();
 
@@ -60,6 +64,7 @@ private:
 	std::vector<std::string> favorite_genres;
 	std::vector<Playlist> playlists;
 	std::string id;
+
 	tm string_to_tm(std::string);
 	void copy(const User& other);
 };

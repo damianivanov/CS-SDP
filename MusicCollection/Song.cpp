@@ -17,3 +17,9 @@ Song::Song(std::string _artist, std::string _name, std::string _genre, float _ra
 Song::~Song()
 {
 }
+
+bool Song::operator==(const Song& other)
+{
+	return *this == other;
+}
+
