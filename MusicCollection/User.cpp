@@ -42,7 +42,7 @@ void User::add_playlist(Playlist _playlist)
 {
 	for (auto playlist: playlists)
 	{
-		if ((playlist.get_name() == _playlist.get_name())&&(playlist.get_creator()->get_username()==_playlist.get_creator()->get_username()))
+		if ((playlist.get_name() == _playlist.get_name())&&(playlist.get_creator() == _playlist.get_creator()))
 		{
 			std::cout << "Already existing playlist " << _playlist.get_name() << std::endl;
 			return;

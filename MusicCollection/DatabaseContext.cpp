@@ -1,27 +1,26 @@
 #include "DatabaseContext.h"
 //getters like methods
 
-User* Context::get_user_by_id(std::string _id)
+User Context::get_user_by_id(std::string _id)
 {
-	User* u=new User();
+	User u;
 	for (auto user : users)
 	{
 		if (user.get_id() == _id)
 		{
-			return &user;
+			return user;
 		}
 	}
 	return u;
 }
-User* Context::get_user_by_username(std::string _username)
+User Context::get_user_by_username(std::string _username)
 {
-	User* u=new User();
+	User u;
 	for (auto user : users)
 	{
 		if (user.get_username()==_username)
 		{
-			u = &user;
-			return u;
+			return user;
 		}
 	}
 	return u;
@@ -54,15 +53,13 @@ void from_json(const json& j, Song& s) {
 	//Playlist
 void to_json(json& j, const Playlist& p) {
 	j = json {
-		{"creator", p.get_creator()->get_id()},
+		{"creator", p.get_creator()},
 		{"songs", p.get_songs()},
 		{"name", p.get_name()}
 	};
 }
 void from_json(const json& j, Playlist& p) {
-	Context db;
-	User* creator = db.get_user_by_id(j.at("ctreator"));
-	p.set_creator(creator);
+	p.set_creator("creator");
 	p.set_name(j.at("name"));
 	p.set_songs((j.at("songs")));
 	
@@ -93,16 +90,16 @@ void from_json(const json& j, User& u) {
 
 bool Context::available_username(std::string _username)
 {
-	User* user = get_user_by_username(_username);
-	return user->get_username() == "";
+	User user = get_user_by_username(_username);
+	return user.get_username() == "";
 }
 bool Context::login_validation(std::string _username, std::string _password)
 {
 	if (available_username(_username))
 		return false;
 
-	User* user = get_user_by_username(_username);
-	std::string result = user->get_password();
+	User user = get_user_by_username(_username);
+	std::string result = user.get_password();
 	std::string candidate = Chocobo1::SHA3_512()
 		.addData(_password.c_str(), _password.length())
 		.finalize()

@@ -8,7 +8,7 @@ using json = nlohmann::json;
 int main()
 {
     MusicPlayer mp;
-   // mp.Register();
+    mp.Register();
     mp.Login();
     //db.Serialization();
    
