@@ -21,7 +21,7 @@ public:
 	void set_rating(float _rating) { this->rating =	_rating; }
 	void set_album(std::string _album) { this->album = _album; }
 	void set_release_year(int _release_year) { this->release_year = _release_year; } //maybe out of scope 
-
+	void print();
 private:
 	std::string artist;
 	std::string name;

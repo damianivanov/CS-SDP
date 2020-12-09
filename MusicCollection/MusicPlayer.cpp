@@ -11,16 +11,13 @@ MusicPlayer::~MusicPlayer()
 bool MusicPlayer::Register()
 {
 	//user by reference
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	int k = 14;
-	SetConsoleTextAttribute(hConsole, k);
 	std::string username;
 	do
 	{
 		std::cout << "Enter a username: ";
 		std::cin >> username;
-		std::cin.ignore(1,'\n');
-		std::cin.clear();
+		std::cin.ignore(INT_MAX, '\n');
+		
 	} while (!db.available_username(username));
 
 	std::string password;
@@ -40,10 +37,26 @@ bool MusicPlayer::Register()
 	std::cout << "Enter your birtday (ONLY IN DD/MM/YYYY FORMAT): ";
 	//maybe valdiation method
 	std::cin >> birthday;
-	std::cin.ignore(1,'\n');
-	std::cin.clear();
+	std::cin.ignore(INT_MAX, '\n');
 	User new_user(username, password, fullname, birthday);
 	return db.add_user(new_user);
-	SetConsoleTextAttribute(hConsole, 15);
 
+}
+bool MusicPlayer::Login()
+{
+	std::string username;
+	std::cout << "Enter a username: ";
+	std::cin >> username;
+	std::cin.ignore(INT_MAX, '\n');
+
+	std::string password;
+	std::cout << "Enter a password: ";
+	std::cin >> password;
+	std::cin.ignore(INT_MAX, '\n');
+
+	if (db.login_validation(username, password)) {
+		user = db.get_user_by_username(username);
+		return true;
+	}
+	return false;
 }

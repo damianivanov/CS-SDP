@@ -20,7 +20,8 @@ User* Context::get_user_by_username(std::string _username)
 	{
 		if (user.get_username()==_username)
 		{
-			return &user;
+			u = &user;
+			return u;
 		}
 	}
 	return u;

@@ -8,8 +8,8 @@ using json = nlohmann::json;
 int main()
 {
     MusicPlayer mp;
-    mp.Register();
-
+   // mp.Register();
+    mp.Login();
     //db.Serialization();
    
     /* User u1("damian.iv", "pass1", "Damian Ivanov", std::vector<std::string> {"pop", "rap", "slow"}, std::vector<Playlist> {}, "30/07/1998");

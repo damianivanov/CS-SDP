@@ -23,3 +23,13 @@ bool Song::operator==(const Song& other)
 	return *this == other;
 }
 
+void Song::print()
+{
+	std::cout << "Song name: " << name << std::endl;
+	std::cout << "Artist: " << artist << std::endl;
+	std::cout << "Genre: " << genre << std::endl;
+	std::cout << "Rating: " << rating << std::endl;	
+	std::cout << "Album: " << album << std::endl;	
+	std::cout << "Release Year: " << release_year << std::endl;	
+}
+
