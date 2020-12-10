@@ -16,7 +16,8 @@ public:
 	User(std::string _username, 
 		std::string _password, 
 		std::string _fullname, 
-		std::string _birthday,
+		std::string _birthday, 
+		std::string _id,
 		std::vector<std::string> _favorite_genres = std::vector<std::string>(),
 		std::vector<Playlist> _playlists = std::vector<Playlist>());
 	User& operator=(const User& other);
@@ -53,7 +54,7 @@ public:
 	void add_playlist(Playlist _playlist);
 	void add_favorite_genre(std::string _genre);
 	void remove_favorite_genre(std::string _genre);
-	bool check_password(std::string _candidate);
+		
 private:
 
 	//fields

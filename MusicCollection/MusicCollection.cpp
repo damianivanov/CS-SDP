@@ -8,8 +8,14 @@ using json = nlohmann::json;
 int main()
 {
     MusicPlayer mp;
-    mp.Register();
-    mp.Login();
+    //mp.Register();
+    mp.Login(); 
+    mp.get_logged_user()->add_favorite_genre("rap");
+    mp.get_logged_user()->add_favorite_genre("pop");
+    mp.get_logged_user()->add_favorite_genre("chill");
+    mp.get_logged_user()->add_favorite_genre("rap");
+    mp.get_logged_user()->remove_favorite_genre("rap");
+    ;
     //db.Serialization();
    
     /* User u1("damian.iv", "pass1", "Damian Ivanov", std::vector<std::string> {"pop", "rap", "slow"}, std::vector<Playlist> {}, "30/07/1998");
@@ -23,7 +29,7 @@ int main()
     p1.add_song(BOP);
     p1.set_name("DaBaby");
     u1.add_playlist(p1);*/
-    std::cout << "Hi" << std::endl;
+    std::cout << mp.get_logged_user()->get_favorite_genres()[0] << std::endl;
     }
 
 //TODO:: Song should have print method

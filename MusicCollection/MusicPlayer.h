@@ -8,6 +8,7 @@ public:
 	MusicPlayer();
 	MusicPlayer(std::vector<Playlist> _playlists, User _user);
 	~MusicPlayer();
+	User* get_logged_user() { return &this->user; }
 	bool Register();
 	bool Login();
 private:

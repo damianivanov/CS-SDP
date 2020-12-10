@@ -1,17 +1,17 @@
 #pragma once
 #include "User.h"
 
-User::User() :username(""), password(""), fullname("")
+User::User() :username(""), password(""), fullname(""),id("")
 {
 	time_t now = time(0);
 	localtime_s(&birthday, &now);
-	id = new_guid();
 }
 
 User::User(std::string _username, 
 		std::string _password, 
 		std::string _fullname, 
 		std::string _birthday,
+		std::string _id,
 		std::vector<std::string> _favorite_genres,
 		std::vector<Playlist> _playlists)
 {
@@ -21,7 +21,7 @@ User::User(std::string _username,
 	favorite_genres = _favorite_genres;
 	playlists = _playlists;
 	birthday = string_to_tm(_birthday);
-	id = new_guid();
+	id = _id;
 }
 
 User& User::operator=(const User& other)
@@ -78,11 +78,6 @@ void User::remove_favorite_genre(std::string _genre)
 	}
 }
 
-bool User::check_password(std::string _candidate)
-{
-	return false;
-}
-
 //WORKING ONLY FOR FORMAT DD/MM/YYYY
 tm User::string_to_tm(std::string birthday)
 {
@@ -97,6 +92,7 @@ tm User::string_to_tm(std::string birthday)
 void User::copy(const User& other) {
 	if (this != &other)
 	{
+		id = other.id;
 		username = other.username;
 		password = other.password;
 		fullname = other.fullname;

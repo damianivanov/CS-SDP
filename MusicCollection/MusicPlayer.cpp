@@ -3,14 +3,11 @@
 MusicPlayer::MusicPlayer(){}
 
 MusicPlayer::MusicPlayer(std::vector<Playlist> _playlists,User _user): user(_user),playlists(_playlists){}
-MusicPlayer::~MusicPlayer()
-{
-	
-}
+MusicPlayer::~MusicPlayer()	{}
 
 bool MusicPlayer::Register()
 {
-	//user by reference
+	std::cout << "--------Register--------" << std::endl;
 	std::string username;
 	do
 	{
@@ -38,11 +35,11 @@ bool MusicPlayer::Register()
 	//maybe valdiation method
 	std::cin >> birthday;
 	std::cin.ignore(INT_MAX, '\n');
-	User new_user(username, password, fullname, birthday);
+	User new_user(username,password, fullname, birthday,new_guid());
 	bool success= db.add_user(new_user);
 	if (success)
 	{
-		std::cout << "> Successfully registered in as " << new_user.get_username() << std::endl;
+		std::cout << "> Successfully registered " << new_user.get_username() << std::endl;
 		return true;
 	}
 	else {
@@ -53,6 +50,7 @@ bool MusicPlayer::Register()
 }
 bool MusicPlayer::Login()
 {
+	std::cout << "--------Login--------" << std::endl;
 	std::string username;
 	std::cout << "> Enter a username: ";
 	std::cin >> username;
@@ -68,5 +66,6 @@ bool MusicPlayer::Login()
 		std::cout << "> Successfully logged in as " << user.get_username() << std::endl;
 		return true;
 	}
+	std::cout << "> Login failed " << std::endl;
 	return false;
 }
