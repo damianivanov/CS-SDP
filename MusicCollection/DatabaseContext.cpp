@@ -13,17 +13,17 @@ User Context::get_user_by_id(std::string _id)
 	}
 	return u;
 }
-User Context::get_user_by_username(std::string _username)
+User* Context::get_user_by_username(std::string _username)
 {
 	User u;
-	for (auto user : users)
+	for (User& user : users)
 	{
 		if (user.get_username()==_username)
 		{
-			return user;
+			return &user;
 		}
 	}
-	return u;
+	return &u;
 }
 //
 
@@ -90,16 +90,16 @@ void from_json(const json& j, User& u) {
 
 bool Context::available_username(std::string _username)
 {
-	User user = get_user_by_username(_username);
-	return user.get_username() == "";
+	User* user = get_user_by_username(_username);
+	return user->get_username() == "";
 }
 bool Context::login_validation(std::string _username, std::string _password)
 {
 	if (available_username(_username))
 		return false;
 
-	User user = get_user_by_username(_username);
-	std::string result = user.get_password();
+	User* user = get_user_by_username(_username);
+	std::string result = user->get_password();
 	std::string candidate = Chocobo1::SHA3_512()
 		.addData(_password.c_str(), _password.length())
 		.finalize()

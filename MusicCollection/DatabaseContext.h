@@ -10,7 +10,7 @@ class Context
 {
 public:
 	User get_user_by_id(std::string _id);
-	User get_user_by_username(std::string _username);
+	User* get_user_by_username(std::string _username);
 
 	std::vector<User> get_all_users() { return users; }
 	std::vector<Playlist> get_all_playlists() { return playlists; }

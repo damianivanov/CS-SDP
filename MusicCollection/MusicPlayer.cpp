@@ -2,14 +2,14 @@
 
 MusicPlayer::MusicPlayer(){}
 
-MusicPlayer::MusicPlayer(std::vector<Playlist> _playlists,User _user): user(_user),playlists(_playlists){}
+MusicPlayer::MusicPlayer(std::vector<Playlist> _playlists,User* _user): user(_user),playlists(_playlists){}
 MusicPlayer::~MusicPlayer()	{}
 
 bool MusicPlayer::Register()
 {
 	std::cout << "--------Register--------" << std::endl;
 	std::string username;
-	do
+	do 
 	{
 		std::cout << "> Enter a username: ";
 		std::cin >> username;
@@ -43,7 +43,7 @@ bool MusicPlayer::Register()
 		return true;
 	}
 	else {
-		std::cout << "> User " << user.get_username() <<" already exists!"<< std::endl;
+		std::cout << "> User " << user->get_username() <<" already exists!"<< std::endl;
 		return false;
 	}
 
@@ -63,7 +63,7 @@ bool MusicPlayer::Login()
 
 	if (db.login_validation(username, password)) {
 		user = db.get_user_by_username(username);
-		std::cout << "> Successfully logged in as " << user.get_username() << std::endl;
+		std::cout << "> Successfully logged in as " << user->get_username() << std::endl;
 		return true;
 	}
 	std::cout << "> Login failed " << std::endl;

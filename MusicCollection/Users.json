@@ -2,7 +2,10 @@
     {
         "Playlist": [],
         "birthday": "30/7/1998",
-        "favorite genres": [],
+        "favorite genres": [
+            "pop",
+            "chill"
+        ],
         "fullname": "Damian Ivanov",
         "id": "f15jx21e-gn80-pau0-5b2m-d6q404e34ao4",
         "password": "9120a6f86a3e8c43cc6404f7af17acd4d569c2c30b492f9032ebec33db59b43a030ee9e1712f3b7119987541327d7e78be494279ebe8def5f7442e78d5782487",

@@ -29,7 +29,7 @@ int main()
     p1.add_song(BOP);
     p1.set_name("DaBaby");
     u1.add_playlist(p1);*/
-    std::cout << mp.get_logged_user()->get_favorite_genres()[0] << std::endl;
+    //std::cout << mp.get_logged_user()->get_favorite_genres()[0] << std::endl;
     }
 
 //TODO:: Song should have print method
