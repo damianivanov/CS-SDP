@@ -151,11 +151,13 @@
     <ClInclude Include="Guid.h" />
     <ClInclude Include="MusicPlayer.h" />
     <ClInclude Include="Playlist.h" />
+    <ClInclude Include="Rating.h" />
     <ClInclude Include="Song.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Playlists.json" />
+    <None Include="Ratings.json" />
     <None Include="Songs.json" />
     <None Include="Users.json" />
   </ItemGroup>

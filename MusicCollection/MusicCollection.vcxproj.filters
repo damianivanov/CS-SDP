@@ -56,6 +56,9 @@
     <ClInclude Include="Guid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Rating.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Users.json">
@@ -65,6 +68,9 @@
       <Filter>Resource Files\Database</Filter>
     </None>
     <None Include="Playlists.json">
+      <Filter>Resource Files\Database</Filter>
+    </None>
+    <None Include="Ratings.json">
       <Filter>Resource Files\Database</Filter>
     </None>
   </ItemGroup>

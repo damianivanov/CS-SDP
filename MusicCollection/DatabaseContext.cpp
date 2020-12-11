@@ -1,18 +1,18 @@
 #include "DatabaseContext.h"
-//getters like methods
 
-User Context::get_user_by_id(std::string _id)
-{
-	User u;
-	for (auto user : users)
-	{
-		if (user.get_id() == _id)
-		{
-			return user;
-		}
-	}
-	return u;
-}
+//getters like methods
+//User Context::get_user_by_id(std::string _id)
+//{
+//	User u;
+//	for (auto user : users)
+//	{
+//		if (user.get_id() == _id)
+//		{
+//			return user;
+//		}
+//	}
+//	return u;
+//}
 User* Context::get_user_by_username(std::string _username)
 {
 	User u;
@@ -25,14 +25,47 @@ User* Context::get_user_by_username(std::string _username)
 	}
 	return &u;
 }
+Song* Context::get_song_by_name_and_artist(std::string _name, std::string _artist)
+{
+	Song s;
+	for (Song& song : songs)
+	{
+		std::string name = song.get_name();
+		std::string artist = song.get_artist();
+
+		transform(name.begin(), name.end(), name.begin(), ::tolower);
+		transform(artist.begin(), artist.end(), artist.begin(), ::tolower);
+		transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
+		transform(_artist.begin(), _artist.end(), _artist.begin(), ::tolower);
+
+		if (name == _name && artist==_artist)
+		{
+			return &song;
+		}
+	}
+	return &s;
+}
+std::vector<Rating> Context::get_ratings_by_song_id(std::string _song_id)
+{
+	std::vector<Rating> all_ratings;
+	for (Rating& r:ratings)
+	{
+		if (r.song_id == _song_id)
+		{
+			all_ratings.push_back(r);
+		}
+	}
+	return all_ratings;
+}
 //
 
-//methods required by the json library
-	
 
+//methods required by the json library
 	//Song
-void to_json(json& j, const Song& s) {
+void to_json(json& j, const Song& s) 
+{
 	j = json{
+		{"id", s.get_id()},
 		{"artist", s.get_artist()},
 		{"name", s.get_name()},
 		{"genre", s.get_genre()},
@@ -41,7 +74,9 @@ void to_json(json& j, const Song& s) {
 		{"release year",s.get_release_year()},
 	};
 }
-void from_json(const json& j, Song& s) {
+void from_json(const json& j, Song& s) 
+{
+	s.set_id(j.at("id"));
 	s.set_artist(j.at("artist"));
 	s.set_name(j.at("name"));
 	s.set_genre(j.at("genre"));
@@ -51,14 +86,16 @@ void from_json(const json& j, Song& s) {
 }
 
 	//Playlist
-void to_json(json& j, const Playlist& p) {
+void to_json(json& j, const Playlist& p) 
+{
 	j = json {
 		{"creator", p.get_creator()},
 		{"songs", p.get_songs()},
 		{"name", p.get_name()}
 	};
 }
-void from_json(const json& j, Playlist& p) {
+void from_json(const json& j, Playlist& p) 
+{
 	p.set_creator("creator");
 	p.set_name(j.at("name"));
 	p.set_songs((j.at("songs")));
@@ -66,7 +103,8 @@ void from_json(const json& j, Playlist& p) {
 }
 
 	//User
-void to_json(json& j, const User& u) {
+void to_json(json& j, const User& u)
+{
 	j = json{
 		{"username", u.get_username()},
 		{"password", u.get_password()},
@@ -77,7 +115,8 @@ void to_json(json& j, const User& u) {
 		{"Playlist", u.get_playlists()}
 	};
 }
-void from_json(const json& j, User& u) {
+void from_json(const json& j, User& u) 
+{
 	u.set_username(j.at("username"));
 	u.set_password(j.at("password"));
 	u.set_fullname(j.at("fullname"));
@@ -86,7 +125,24 @@ void from_json(const json& j, User& u) {
 	u.set_id(j.at("id"));
 	//TODO::Playlists
 }
+
+	//Rating
+void to_json(json& j, const Rating& r) 
+{
+	j = json{
+		{"User_id", r.user_id},
+		{"Song_id", r.song_id},
+		{"Rating",r.rating}
+	};
+}
+void from_json(const json& j, Rating& r) 
+{
+	r.user_id=j.at("User_id");
+	r.song_id=j.at("Song_id");
+	r.rating=j.at("Rating");
+}
 //
+
 
 bool Context::available_username(std::string _username)
 {
@@ -107,6 +163,34 @@ bool Context::login_validation(std::string _username, std::string _password)
 
 	return result == candidate;
 }
+bool Context::rated_song(std::string _user_id, std::string _song_id)
+{
+	//maybe the rating should me modified
+	for (auto r : ratings)
+	{
+		if (r.user_id==_user_id && r.song_id == _song_id)
+		{
+			return true;
+		}
+	}
+	return false;
+
+
+}
+
+bool Context::song_exists(Song _song)
+{
+	for (auto s:songs)
+	{
+		if (s==_song)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+
 bool Context::add_user(User _user)
 {
 	if (available_username(_user.get_username()))
@@ -116,6 +200,26 @@ bool Context::add_user(User _user)
 	}
 		return false;
 	
+}
+bool Context::add_song(Song _song)
+{
+	if (!song_exists(_song))
+	{
+		songs.push_back(_song);
+		return true;
+	}
+	return false;
+}
+bool Context::add_rating(std::string _user_id, std::string _song_id,float _rating)
+{
+	
+	if (rated_song(_user_id,_song_id))
+	{
+		return false; // za sega
+	}
+	Rating r{ _user_id,_song_id,_rating };
+	ratings.push_back(r);
+	return true;
 }
 
 //working with .json files
@@ -169,6 +273,21 @@ void Context::Serialization()
 		json = json::parse(s);
 		playlists = json.get<std::vector<Playlist>>();
 	}
+	//
+	in.open("Ratings.json");
+	s.clear();
+	while (in)
+	{
+		std::string line;
+		std::getline(in, line);
+		s.append(line);
+	}
+	in.close();
+	if (!s.empty())
+	{
+		json = json::parse(s);
+		ratings = json.get<std::vector<Rating>>();
+	}
 }
 void Context::Deserialization()
 {
@@ -189,7 +308,15 @@ void Context::Deserialization()
 	json = playlists;
 	out << json.dump(formating_spaces);
 	out.close();
+
 	json.clear();
+	out.open("Ratings.json");
+	json = ratings;
+	out << json.dump(formating_spaces);
+	out.close();
+
+	json.clear();
+
 }
 //
 

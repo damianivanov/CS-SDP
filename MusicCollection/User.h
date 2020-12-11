@@ -54,7 +54,7 @@ public:
 	void add_playlist(Playlist _playlist);
 	void add_favorite_genre(std::string _genre);
 	void remove_favorite_genre(std::string _genre);
-		
+	std::string genres_print();
 private:
 
 	//fields

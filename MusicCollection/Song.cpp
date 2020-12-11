@@ -1,11 +1,12 @@
 #pragma once
 #include "Song.h"
 
-Song::Song() :artist(""), name(""), genre(""),
+Song::Song() :artist(""), name(""), genre(""),id(""),
 			rating(0.0f), album(""),release_year(1900){}
 
-Song::Song(std::string _artist, std::string _name, std::string _genre, float _rating, std::string _album, int _release_year)
+Song::Song(std::string _id,std::string _artist, std::string _name, std::string _genre, std::string _album, int _release_year, float _rating)
 {
+	id = _id;
 	artist =_artist ;
 	name = _name ;
 	genre= _genre;
@@ -15,12 +16,15 @@ Song::Song(std::string _artist, std::string _name, std::string _genre, float _ra
 }
 
 Song::~Song()
-{
-}
+{}
 
 bool Song::operator==(const Song& other)
 {
-	return *this == other;
+	return this->name == other.name &&
+		   this->artist == other.artist &&
+		   this->release_year == other.release_year &&
+		   this->album == other.album &&
+		   this->genre == other.genre;
 }
 
 void Song::print()

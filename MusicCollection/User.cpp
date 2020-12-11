@@ -50,7 +50,6 @@ void User::add_playlist(Playlist _playlist)
 	}
 	playlists.push_back(_playlist);
 }
-
 void User::add_favorite_genre(std::string _genre)
 {
 
@@ -76,6 +75,20 @@ void User::remove_favorite_genre(std::string _genre)
 			favorite_genres.erase(std::remove(favorite_genres.begin(), favorite_genres.end(), _genre), favorite_genres.end());
 		}
 	}
+}
+
+std::string User::genres_print()
+{
+	std::string s="{ ";
+	for (auto g: favorite_genres)
+	{
+		s.append(g);
+		s.append(", ");
+	}
+	s.pop_back();
+	s.pop_back();
+	s.append(" }");
+	return s;
 }
 
 //WORKING ONLY FOR FORMAT DD/MM/YYYY
