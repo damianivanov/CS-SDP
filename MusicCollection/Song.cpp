@@ -20,11 +20,7 @@ Song::~Song()
 
 bool Song::operator==(const Song& other)
 {
-	return this->name == other.name &&
-		   this->artist == other.artist &&
-		   this->release_year == other.release_year &&
-		   this->album == other.album &&
-		   this->genre == other.genre;
+	return this->id == other.id;
 }
 
 void Song::print()

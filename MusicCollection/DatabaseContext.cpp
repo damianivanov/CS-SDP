@@ -1,18 +1,6 @@
 #include "DatabaseContext.h"
 
 //getters like methods
-//User Context::get_user_by_id(std::string _id)
-//{
-//	User u;
-//	for (auto user : users)
-//	{
-//		if (user.get_id() == _id)
-//		{
-//			return user;
-//		}
-//	}
-//	return u;
-//}
 User* Context::get_user_by_username(std::string _username)
 {
 	User u;
@@ -23,7 +11,7 @@ User* Context::get_user_by_username(std::string _username)
 			return &user;
 		}
 	}
-	return &u;
+	return &u; //TODO nullptr
 }
 Song* Context::get_song_by_name_and_artist(std::string _name, std::string _artist)
 {
@@ -43,7 +31,7 @@ Song* Context::get_song_by_name_and_artist(std::string _name, std::string _artis
 			return &song;
 		}
 	}
-	return &s;
+	return nullptr;
 }
 std::vector<Rating> Context::get_ratings_by_song_id(std::string _song_id)
 {
@@ -57,8 +45,93 @@ std::vector<Rating> Context::get_ratings_by_song_id(std::string _song_id)
 	}
 	return all_ratings;
 }
-//
 
+std::vector<Song> Context::get_n_ordered_songs(size_t _count)
+{
+	sort(songs.begin(),songs.end(), [](Song& s1, Song& s2)
+		{
+			return s1.get_name() < s2.get_name();
+		});
+	auto end = std::next(songs.begin(), std::min(_count, songs.size()));
+	std::vector<Song> result(songs.begin(), end);
+
+	return result;
+}
+
+std::vector<Song> Context::get_songs_by_list_of_genres(std::vector<std::string> _genres)
+{
+	std::vector<Song> s;
+	std::copy_if(songs.begin(), songs.end(), std::back_inserter(s), [&](Song _song) 
+		{
+			return std::find(_genres.begin(),_genres.end(), _song.get_genre()) != _genres.end(); 
+		});
+	return s;
+}
+std::vector<Song> Context::get_songs_except_genres(std::vector<std::string> _genres)
+{
+	std::vector<Song> s;
+	std::copy_if(songs.begin(), songs.end(), std::back_inserter(s), [&](Song _song) 
+		{
+			return std::find(_genres.begin(), _genres.end(), _song.get_genre()) == _genres.end(); 
+		});
+	return s;
+}
+std::vector<Song> Context::get_songs_by_rating(float _rating)
+{
+	 std::vector<Song> s;
+	 std::copy_if(songs.begin(), songs.end(), std::back_inserter(s), [&](Song _song) 
+		 {
+			 return _song.get_rating() >= _rating; 
+		 });
+	 return s;
+}
+std::vector<Song> Context::get_songs_from_year(int _year)
+{
+	std::vector<Song> s;
+	std::copy_if(songs.begin(), songs.end(), std::back_inserter(s), [&](Song _song) 
+		{
+			return _song.get_release_year() == _year; 
+		});
+	return s;
+}
+std::vector<Song> Context::get_songs_before_year(int _year)
+{
+	std::vector<Song> s;
+	std::copy_if(songs.begin(), songs.end(), std::back_inserter(s), [&](Song _song) 
+		{
+			return _song.get_release_year() < _year; 
+		});
+	return s;
+}
+std::vector<Song> Context::get_songs_after_year(int _year)
+{
+
+	std::vector<Song> s;
+	std::copy_if(songs.begin(), songs.end(), std::back_inserter(s), [&](Song _song) 
+		{
+			return _song.get_release_year() > _year; 
+		});
+	return s;
+}
+
+Playlist* Context::get_playlist_by_name_and_user_id(std::string _name, std::string _user_id)
+{
+	Playlist p;
+	for (Playlist& playlist: playlists)
+	{
+		std::string name = playlist.get_name();
+
+		transform(name.begin(), name.end(), name.begin(), ::tolower);
+		transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
+
+		if (name == _name && playlist.get_creator_id() == _user_id)
+		{
+			return &playlist;
+		}
+	}
+	return &p; //TODO::nullptr
+}
+//
 
 //methods required by the json library
 	//Song
@@ -89,16 +162,16 @@ void from_json(const json& j, Song& s)
 void to_json(json& j, const Playlist& p) 
 {
 	j = json {
-		{"creator", p.get_creator()},
+		{"creator id", p.get_creator_id()},
 		{"songs", p.get_songs()},
 		{"name", p.get_name()}
 	};
 }
 void from_json(const json& j, Playlist& p) 
 {
-	p.set_creator("creator");
+	p.set_creator("creator id");
 	p.set_name(j.at("name"));
-	p.set_songs((j.at("songs")));
+	//p.set_songs((j.at("songs")));
 	
 }
 
@@ -111,8 +184,8 @@ void to_json(json& j, const User& u)
 		{"fullname", u.get_fullname()},
 		{"birthday", u.birthday_to_string()},
 		{"favorite genres", u.get_favorite_genres()},
-		{"id",u.get_id()},
-		{"Playlist", u.get_playlists()}
+		{"id",u.get_id()}
+		//{"Playlist", u.get_playlists()}
 	};
 }
 void from_json(const json& j, User& u) 
@@ -189,6 +262,17 @@ bool Context::song_exists(Song _song)
 	}
 	return false;
 }
+bool Context::playlist_exists(Playlist _playlist)
+{
+	for (Playlist p : playlists)
+	{
+		if (p == _playlist)
+		{
+			return true;
+		}
+	}
+	return false;
+}
 
 
 bool Context::add_user(User _user)
@@ -206,6 +290,15 @@ bool Context::add_song(Song _song)
 	if (!song_exists(_song))
 	{
 		songs.push_back(_song);
+		return true;
+	}
+	return false;
+}
+bool Context::add_playlist(Playlist _playlist)
+{
+	if (!playlist_exists(_playlist))
+	{
+		playlists.push_back(_playlist);
 		return true;
 	}
 	return false;

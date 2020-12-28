@@ -5,5 +5,5 @@ struct Rating
 {
 	std::string user_id;
 	std::string song_id;
-	float rating;
+	float rating=0.0;
 };

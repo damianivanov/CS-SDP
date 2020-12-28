@@ -12,14 +12,15 @@ User::User(std::string _username,
 		std::string _fullname, 
 		std::string _birthday,
 		std::string _id,
-		std::vector<std::string> _favorite_genres,
-		std::vector<Playlist> _playlists)
+		std::vector<std::string> _favorite_genres
+		//std::vector<Playlist> _playlists
+)
 {
 	username = _username;
 	password = _password;
 	fullname = _fullname;
 	favorite_genres = _favorite_genres;
-	playlists = _playlists;
+	//playlists = _playlists;
 	birthday = string_to_tm(_birthday);
 	id = _id;
 }
@@ -35,21 +36,22 @@ User& User::operator=(const User& other)
 }
 User::~User() {
 	favorite_genres.clear();
-	playlists.clear();
+	//playlists.clear();
 }
 
-void User::add_playlist(Playlist _playlist)
-{
-	for (auto playlist: playlists)
-	{
-		if ((playlist.get_name() == _playlist.get_name())&&(playlist.get_creator() == _playlist.get_creator()))
-		{
-			std::cout << "Already existing playlist " << _playlist.get_name() << std::endl;
-			return;
-		}
-	}
-	playlists.push_back(_playlist);
-}
+//void User::add_playlist(Playlist _playlist) //maybe * + not sure if needed
+//{
+//	for (auto playlist: playlists)
+//	{
+//		if ((playlist.get_name() == _playlist.get_name()) && (playlist.get_creator_id() == _playlist.get_creator_id()))
+//		{
+//			std::cout << "Already existing playlist " << _playlist.get_name() << std::endl;
+//			return;
+//		}
+//	}
+//	playlists.push_back(_playlist);
+//}
+
 void User::add_favorite_genre(std::string _genre)
 {
 
@@ -111,7 +113,7 @@ void User::copy(const User& other) {
 		fullname = other.fullname;
 		birthday = other.birthday;
 		favorite_genres = other.favorite_genres;
-		playlists = std::vector<Playlist>(other.playlists);
+		//playlists = std::vector<Playlist>(other.playlists);
 	}
 }
 

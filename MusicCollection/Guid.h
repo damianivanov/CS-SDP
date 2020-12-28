@@ -2,9 +2,10 @@
 #include <time.h>
 #include <string>
 
-//GUID Format - 8-4-4-4-12  
+//Different from GUID and the way that is generated but with the same use
+//GUID Format - 8-4-4-4-12
 
-//Generates 4 random chars(small letters or numbers) as string
+//Generates len random chars (small letters or numbers) as string
 static std::string part(int len) {
 	std::string temp;
 	for (int i = 0; i < len; i++)
@@ -25,8 +26,9 @@ static std::string part(int len) {
 	return temp;
 }
 
-static std::string new_guid() {
-	srand(time(NULL));
+static std::string new_guid() 
+{
+	srand((unsigned)time(NULL));
 	std::string guid;
 	guid.append(part(8));
 	guid.append("-");

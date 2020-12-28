@@ -2,7 +2,6 @@
 #include "Playlist.h"
 
 Playlist::Playlist(){}
-
 Playlist::~Playlist(){}
 
 void Playlist::print_all_songs()
@@ -14,7 +13,6 @@ void Playlist::print_all_songs()
 		x.print();
 	}
 }
-
 void Playlist::add_song(const Song song)
 {
 	if (!std::count(songs.begin(), songs.end(), song))

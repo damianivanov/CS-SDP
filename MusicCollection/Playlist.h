@@ -14,18 +14,20 @@ public:
 
 	Playlist();
 	~Playlist();
+	bool operator== (const Playlist& other) { return name == other.name && creator_id == other.creator_id; }
 
 	const std::string get_name() const { return this->name; }
 	const std::vector<Song> get_songs() const { return this->songs; }
-	const std::string get_creator() const { return this->creator_id; }
+	const std::string get_creator_id() const { return this->creator_id; }
 
 	void set_creator(std::string _creator_id) { this->creator_id = _creator_id;}
 	void set_name(std::string _name) { this->name = _name; }
-	void set_songs(std::vector<Song> _songs) { this->songs = _songs; }
+	void set_songs(std::vector<Song>& _songs) { 
+		this->songs = _songs;
+	}
 
 	void add_song(Song song); // ne na 100 procent
 	void print_all_songs();
-
 private:
 
 	std::string creator_id;
