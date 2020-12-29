@@ -13,5 +13,4 @@ private:
 	MusicPlayer* mp;
 
 	void help();
-	void exit();
 };

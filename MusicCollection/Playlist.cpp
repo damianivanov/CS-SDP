@@ -1,21 +1,20 @@
 #pragma once
 #include "Playlist.h"
 
-Playlist::Playlist(){}
+Playlist::Playlist() {}
 Playlist::~Playlist(){}
 
 void Playlist::print_all_songs()
 {
-	std::cout << name << " with " << songs.size() << " songs:" << std::endl;
-	for (auto x : this->songs)
+	for (Song s : songs)
 	{
-		std::cout << '\t';
-		x.print();
+		std::cout << std::endl;
+		s.print();
 	}
 }
-void Playlist::add_song(const Song song)
+void Playlist::add_song(Song song)
 {
-	if (!std::count(songs.begin(), songs.end(), song))
+	if (songs.size()==0 || !std::count(songs.begin(), songs.end(), song))
 	{
 		songs.push_back(song);
 		std::cout << song.get_name() << " added in the Playlist" << std::endl;

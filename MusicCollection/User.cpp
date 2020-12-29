@@ -1,26 +1,24 @@
 #pragma once
 #include "User.h"
 
-User::User() :username(""), password(""), fullname(""),id("")
+User::User() :username(""), password(""), fullname(""),id("") 
 {
 	time_t now = time(0);
 	localtime_s(&birthday, &now);
 }
-
+User::~User() {}
 User::User(std::string _username, 
 		std::string _password, 
 		std::string _fullname, 
 		std::string _birthday,
 		std::string _id,
 		std::vector<std::string> _favorite_genres
-		//std::vector<Playlist> _playlists
 )
 {
 	username = _username;
 	password = _password;
 	fullname = _fullname;
 	favorite_genres = _favorite_genres;
-	//playlists = _playlists;
 	birthday = string_to_tm(_birthday);
 	id = _id;
 }
@@ -32,26 +30,7 @@ User& User::operator=(const User& other)
 		copy(other);
 	}
 	return *this;
-	
 }
-User::~User() {
-	favorite_genres.clear();
-	//playlists.clear();
-}
-
-//void User::add_playlist(Playlist _playlist) //maybe * + not sure if needed
-//{
-//	for (auto playlist: playlists)
-//	{
-//		if ((playlist.get_name() == _playlist.get_name()) && (playlist.get_creator_id() == _playlist.get_creator_id()))
-//		{
-//			std::cout << "Already existing playlist " << _playlist.get_name() << std::endl;
-//			return;
-//		}
-//	}
-//	playlists.push_back(_playlist);
-//}
-
 void User::add_favorite_genre(std::string _genre)
 {
 
@@ -78,7 +57,16 @@ void User::remove_favorite_genre(std::string _genre)
 		}
 	}
 }
-
+const std::string User::birthday_to_string() const
+{
+	std::string s;
+	s.append(std::to_string(this->birthday.tm_mday));
+	s.append("/");
+	s.append(std::to_string(1 + this->birthday.tm_mon));
+	s.append("/");
+	s.append(std::to_string(1900 + this->birthday.tm_year));
+	return s;
+}
 std::string User::genres_print()
 {
 	std::string s="{ ";
@@ -103,7 +91,6 @@ tm User::string_to_tm(std::string birthday)
 	result.tm_mon -= 1;
 	return result;
 }
-
 void User::copy(const User& other) {
 	if (this != &other)
 	{

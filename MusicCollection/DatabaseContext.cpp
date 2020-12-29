@@ -3,19 +3,17 @@
 //getters like methods
 User* Context::get_user_by_username(std::string _username)
 {
-	User u;
 	for (User& user : users)
 	{
 		if (user.get_username()==_username)
-		{
 			return &user;
-		}
 	}
-	return &u; //TODO nullptr
+	return nullptr; 
 }
 Song* Context::get_song_by_name_and_artist(std::string _name, std::string _artist)
 {
-	Song s;
+	transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
+	transform(_artist.begin(), _artist.end(), _artist.begin(), ::tolower);
 	for (Song& song : songs)
 	{
 		std::string name = song.get_name();
@@ -23,16 +21,26 @@ Song* Context::get_song_by_name_and_artist(std::string _name, std::string _artis
 
 		transform(name.begin(), name.end(), name.begin(), ::tolower);
 		transform(artist.begin(), artist.end(), artist.begin(), ::tolower);
-		transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
-		transform(_artist.begin(), _artist.end(), _artist.begin(), ::tolower);
 
 		if (name == _name && artist==_artist)
-		{
 			return &song;
-		}
 	}
 	return nullptr;
 }
+Playlist* Context::get_playlist_by_name_and_user_id(std::string _name, std::string _user_id)
+{
+	transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
+	for (Playlist& playlist: playlists)
+	{
+		std::string name = playlist.get_name();
+		transform(name.begin(), name.end(), name.begin(), ::tolower);
+
+		if (name == _name && playlist.get_creator_id() == _user_id)
+			return &playlist;
+	}
+	return nullptr; 
+}
+
 std::vector<Rating> Context::get_ratings_by_song_id(std::string _song_id)
 {
 	std::vector<Rating> all_ratings;
@@ -45,16 +53,15 @@ std::vector<Rating> Context::get_ratings_by_song_id(std::string _song_id)
 	}
 	return all_ratings;
 }
-
 std::vector<Song> Context::get_n_ordered_songs(size_t _count)
 {
 	sort(songs.begin(),songs.end(), [](Song& s1, Song& s2)
 		{
 			return s1.get_name() < s2.get_name();
 		});
+
 	auto end = std::next(songs.begin(), std::min(_count, songs.size()));
 	std::vector<Song> result(songs.begin(), end);
-
 	return result;
 }
 
@@ -82,6 +89,10 @@ std::vector<Song> Context::get_songs_by_rating(float _rating)
 	 std::copy_if(songs.begin(), songs.end(), std::back_inserter(s), [&](Song _song) 
 		 {
 			 return _song.get_rating() >= _rating; 
+		 });
+	 sort(s.begin(), s.end(), [](Song& s1, Song& s2)
+		 {
+			 return s1.get_rating() > s2.get_rating();
 		 });
 	 return s;
 }
@@ -113,23 +124,17 @@ std::vector<Song> Context::get_songs_after_year(int _year)
 		});
 	return s;
 }
-
-Playlist* Context::get_playlist_by_name_and_user_id(std::string _name, std::string _user_id)
+std::vector<std::string> Context::get_all_playlists_by_cretor_id(std::string _crteator_id)
 {
-	Playlist p;
-	for (Playlist& playlist: playlists)
+	std::vector<std::string> playlists_name;
+	for (Playlist& p : playlists)
 	{
-		std::string name = playlist.get_name();
-
-		transform(name.begin(), name.end(), name.begin(), ::tolower);
-		transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
-
-		if (name == _name && playlist.get_creator_id() == _user_id)
+		if (p.get_creator_id()==_crteator_id)
 		{
-			return &playlist;
+			playlists_name.push_back(p.get_name());
 		}
 	}
-	return &p; //TODO::nullptr
+	return playlists_name;
 }
 //
 
@@ -169,9 +174,9 @@ void to_json(json& j, const Playlist& p)
 }
 void from_json(const json& j, Playlist& p) 
 {
-	p.set_creator("creator id");
+	p.set_creator(j.at("creator id"));
 	p.set_name(j.at("name"));
-	//p.set_songs((j.at("songs")));
+	p.set_songs((j.at("songs")));
 	
 }
 
@@ -185,7 +190,6 @@ void to_json(json& j, const User& u)
 		{"birthday", u.birthday_to_string()},
 		{"favorite genres", u.get_favorite_genres()},
 		{"id",u.get_id()}
-		//{"Playlist", u.get_playlists()}
 	};
 }
 void from_json(const json& j, User& u) 
@@ -196,7 +200,6 @@ void from_json(const json& j, User& u)
 	u.set_birthday(j.at("birthday"));
 	u.set_favorite_genres(j.at("favorite genres"));
 	u.set_id(j.at("id"));
-	//TODO::Playlists
 }
 
 	//Rating
@@ -216,11 +219,10 @@ void from_json(const json& j, Rating& r)
 }
 //
 
-
 bool Context::available_username(std::string _username)
 {
 	User* user = get_user_by_username(_username);
-	return user->get_username() == "";
+	return user->get_username().empty();
 }
 bool Context::login_validation(std::string _username, std::string _password)
 {
@@ -273,7 +275,6 @@ bool Context::playlist_exists(Playlist _playlist)
 	}
 	return false;
 }
-
 
 bool Context::add_user(User _user)
 {

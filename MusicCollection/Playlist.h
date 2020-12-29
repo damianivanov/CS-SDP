@@ -22,9 +22,7 @@ public:
 
 	void set_creator(std::string _creator_id) { this->creator_id = _creator_id;}
 	void set_name(std::string _name) { this->name = _name; }
-	void set_songs(std::vector<Song>& _songs) { 
-		this->songs = _songs;
-	}
+	void set_songs(std::vector<Song> _songs) {this->songs = _songs; }
 
 	void add_song(Song song); // ne na 100 procent
 	void print_all_songs();

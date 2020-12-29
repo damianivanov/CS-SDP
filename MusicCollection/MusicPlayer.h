@@ -30,6 +30,8 @@ public:
 	bool load_playlist();
 	bool print_playlist();
 
+	void my_playlists();
+
 	
 
 

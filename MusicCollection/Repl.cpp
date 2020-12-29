@@ -17,7 +17,7 @@ void Repl::repl()
 		if (input == "help")
 			help();
 		else if (input == "exit")
-			exit();
+			break;
 		else if (input == "login")
 			mp->login();
 		else if (input == "register")
@@ -48,6 +48,8 @@ void Repl::repl()
 			mp->load_playlist();
 		else if (input == "print playlist")
 			mp->print_playlist();
+		else if (input == "my playlists")
+			mp->my_playlists();
 		else
 			std::cout << input << " - is not recognized as valid command" << std::endl;	
 	}
@@ -74,9 +76,5 @@ void Repl::help()
 	std::cout << "	- save playlist --- saves the current playlist" << std::endl;
 	std::cout << "	- load playlist --- loads playlist from the database" << std::endl;
 	std::cout << "	- print playlist --- prints info for every song in the playlist" << std::endl;
-}
-void Repl::exit()
-{
-	std::cout << "Exiting the music player ..." << std::endl;
-	std::exit(0);
+	std::cout << "	- my playlists --- prints info for every playlist created from the logged user" << std::endl;
 }

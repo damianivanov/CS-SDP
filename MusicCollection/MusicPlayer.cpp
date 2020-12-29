@@ -1,7 +1,84 @@
 #include "MusicPlayer.h"
 
-MusicPlayer::MusicPlayer() :user(nullptr),playlist(nullptr) {}
+MusicPlayer::MusicPlayer() :user(new User()),playlist(new Playlist()) {}
 MusicPlayer::~MusicPlayer() {}
+
+//Working with user
+bool MusicPlayer::Register()
+{
+	std::cout << "--------Register--------" << std::endl;
+	std::string username;
+	do
+	{
+		std::cout << "Enter a username: ";
+		std::cin >> username;
+		std::cin.ignore(INT_MAX, '\n');
+	} while (!db.available_username(username));
+
+	std::string password;
+	std::cout << "Enter a password: ";
+	std::cin >> password;
+	std::cin.ignore(INT_MAX, '\n');
+	password = Chocobo1::SHA3_512()
+		.addData(password.c_str(), password.length())
+		.finalize()
+		.toString();
+
+	std::string fullname;
+	std::cout << "Enter a fullname: ";
+	std::getline(std::cin, fullname);
+
+	std::string birthday;
+	std::cout << "Enter your birtday (ONLY IN DD/MM/YYYY FORMAT): ";
+	std::cin >> birthday;
+	std::cin.ignore(INT_MAX, '\n');
+	User new_user(username, password, fullname, birthday, new_guid());
+	bool success = db.add_user(new_user);
+	if (success)
+	{
+		std::cout << "Successfully registered " << new_user.get_username() << std::endl;
+		return true;
+	}
+	else 
+	{
+		std::cout << "User " << user->get_username() << " already exists!" << std::endl;
+		return false;
+	}
+
+}
+bool MusicPlayer::login()
+{
+
+	std::cout << "--------Login--------" << std::endl;
+	std::string username;
+	std::cout << "Enter a username: ";
+	std::cin >> username;
+	std::cin.ignore(INT_MAX, '\n');
+
+	std::string password;
+	std::cout << "Enter a password: ";
+	std::cin >> password;
+	std::cin.ignore(INT_MAX, '\n');
+
+	if (db.login_validation(username, password)) {
+		user = db.get_user_by_username(username);
+		std::cout << "Successfully logged in as " << user->get_username() << std::endl;
+		return true;
+	}
+	std::cout << "Login failed " << std::endl;
+	return false;
+}
+bool MusicPlayer::logout()
+{
+	if (logged())
+	{
+		std::cout << "Successfully logged out from " << user->get_username() << std::endl;
+		user = nullptr;
+		return true;
+	}
+	std::cout << "There is no logged user!"<< std::endl;
+	return false;
+}
 
 //functionality for logged users
 bool MusicPlayer::create_song()
@@ -93,7 +170,11 @@ bool MusicPlayer::rate_song()
 	std::cout << "Enter the rating: ";
 	std::cin >> rating;
 	std::cin.ignore(INT_MAX, '\n');
-
+	if (rating>6.00 || rating < 2.00)
+	{
+		std::cout << "Invalid rating, the value should be between 2.00 and 6.00" << std::endl;
+		return false;
+	}
 	Song* song = db.get_song_by_name_and_artist(song_name, artist);
 
 	if (song!=nullptr)
@@ -208,7 +289,6 @@ bool MusicPlayer::change_username()
 	return false;
 }
 
-//Generating playlist
 std::vector<Song> MusicPlayer::songs_above_rating()
 {
 	float rating;
@@ -266,6 +346,7 @@ std::vector<Song> MusicPlayer::songs_by_release_year(const std::string keyword)
 	return songs;
 }
 
+//Working with playlists
 bool MusicPlayer::generating_playlist()
 {
 	if (!logged())
@@ -273,11 +354,7 @@ bool MusicPlayer::generating_playlist()
 		std::cout << "To be able to generate playlist, you have to be logged in. " << std::endl;
 		return false;
 	}
-	size_t songs_count;
 	std::cout << "--------Generating a playlist--------" << std::endl;
-	std::cout << "Enter a song count: ";
-	std::cin >> songs_count;
-	std::cin.ignore(INT_MAX, '\n');
 
 	std::cout << "Enter multiple criterias ordered by priority and combined with operators AND , OR: " << std::endl;
 	std::cout << "	-Songs with rating ABOVE the given rating ---> above" << std::endl;
@@ -287,15 +364,27 @@ bool MusicPlayer::generating_playlist()
 	std::cout << "	-Songs FROM release year ---> from" << std::endl;
 	std::cout << "	-Songs AFTER release year ---> after" << std::endl;
 	std::cout << "	-Songs BEFORE release year ---> before" << std::endl;
+	std::cout << "	-All songs ---> all" << std::endl;
 																										
 	std::string line;
 	std::getline(std::cin, line);
-
-	std::vector<Song> songs = evaluate(line);
-	fill(songs, songs_count);
-	this->playlist->set_songs(songs);
-	this->playlist->set_creator(user->get_id());
-
+	std::vector<Song> songs;
+	if (line == "all")
+	{
+		songs = db.get_all_songs();
+	}
+	else
+	{
+		size_t songs_count;
+		std::cout << "Enter a song count: ";
+		std::cin >> songs_count;
+		std::cin.ignore(INT_MAX, '\n');
+		songs = evaluate(line);
+		fill(songs, songs_count);
+	}
+	playlist->set_songs(songs);
+	playlist->set_creator(user->get_id());
+	std::cout << "Successfully generated playlist with " << playlist->get_songs().size() << " songs!" << std::endl;
 	return true;
 }
 bool MusicPlayer::load_playlist()
@@ -309,12 +398,12 @@ bool MusicPlayer::load_playlist()
 	std::cout << "--------Loading a playlist--------" << std::endl;
 	std::string name;
 	std::cout << "Enter playlist name: ";
-	std::cin >> name;
-	std::cin.ignore(INT_MAX, '\n');
+	std::getline(std::cin, name);
 	playlist = db.get_playlist_by_name_and_user_id(name,user->get_id());
-	//TODO playlist should be nullptr
-	if (playlist->get_creator_id()!= "")
+	if (playlist)
 	{
+
+		std::cout << "Successfully loaded playlist called " << name << " with " << playlist->get_songs().size()<<" songs:"<< std::endl;
 		playlist->print_all_songs();
 		return true;
 	}
@@ -340,14 +429,31 @@ bool MusicPlayer::save_playlist()
 	std::cout << "Playlist " << playlist->get_name() << " already exists!" << std::endl;
 	return true;
 }
+void MusicPlayer::my_playlists() 
+{
+	if (!logged())
+	{
+		std::cout << "To get all of your playlists, you have to be logged in. " << std::endl;
+		return;
+	}
+	std::vector<std::string> playlists = db.get_all_playlists_by_cretor_id(user->get_id());
+	std::cout << "All playlists by: "<<user->get_username() << std::endl;
+	for (std::string name:playlists)
+		std::cout <<" - " << name << std::endl;
+}
 bool MusicPlayer::print_playlist()
 {
+	if (!logged())
+	{
+		std::cout << "To print a playlist, you have to be logged in. " << std::endl;
+		return false;
+	}
 	if (playlist)
 	{
 		playlist->print_all_songs();
 		return true;
 	}
-	std::cout << "There is no loaded playlist!"<< std::endl;
+	std::cout << "There is no loaded playlist!" << std::endl;
 	return false;
 }
 
@@ -412,6 +518,10 @@ std::vector<Song> MusicPlayer::evaluate(const std::string _expression)
 		else
 			token=tmp;
 	}
+	if (songs.empty()&&!token.empty())
+	{
+		songs = filter(token);
+	}
 	return songs;
 }
 
@@ -465,86 +575,11 @@ void MusicPlayer::fill(std::vector<Song> &_songs, size_t _final_size)
 	if (songs.size() < _final_size)
 	{
 		size_t songs_to_fill = _final_size - songs.size();
-		std::vector<Song> fillers = db.get_n_ordered_songs(songs_to_fill+_songs.size()); // the worst case scenario the songs after the query are sorted
+		std::vector<Song> fillers = db.get_n_ordered_songs(songs_to_fill + _songs.size()); // the worst case scenario the songs after the query are sorted
 		_songs = merge_or(_songs, fillers);
 	}
+	else
+		_songs = songs;
 
 }
 
-//Working with user
-bool MusicPlayer::Register()
-{
-	std::cout << "--------Register--------" << std::endl;
-	std::string username;
-	do
-	{
-		std::cout << "Enter a username: ";
-		std::cin >> username;
-		std::cin.ignore(INT_MAX, '\n');
-
-	} while (!db.available_username(username));
-
-	std::string password;
-	std::cout << "Enter a password: ";
-	std::cin >> password;
-	std::cin.ignore(INT_MAX, '\n');
-	password = Chocobo1::SHA3_512()
-		.addData(password.c_str(), password.length())
-		.finalize()
-		.toString();
-
-	std::string fullname;
-	std::cout << "Enter a fullname: ";
-	std::getline(std::cin, fullname);
-
-	std::string birthday;
-	std::cout << "Enter your birtday (ONLY IN DD/MM/YYYY FORMAT): ";
-	//maybe valdiation method
-	std::cin >> birthday;
-	std::cin.ignore(INT_MAX, '\n');
-	User new_user(username, password, fullname, birthday, new_guid());
-	bool success = db.add_user(new_user);
-	if (success)
-	{
-		std::cout << "Successfully registered " << new_user.get_username() << std::endl;
-		return true;
-	}
-	else {
-		std::cout << "User " << user->get_username() << " already exists!" << std::endl;
-		return false;
-	}
-
-}
-bool MusicPlayer::login()
-{
-
-	std::cout << "--------Login--------" << std::endl;
-	std::string username;
-	std::cout << "Enter a username: ";
-	std::cin >> username;
-	std::cin.ignore(INT_MAX, '\n');
-
-	std::string password;
-	std::cout << "Enter a password: ";
-	std::cin >> password;
-	std::cin.ignore(INT_MAX, '\n');
-
-	if (db.login_validation(username, password)) {
-		user = db.get_user_by_username(username);
-		std::cout << "Successfully logged in as " << user->get_username() << std::endl;
-		return true;
-	}
-	std::cout << "Login failed " << std::endl;
-	return false;
-}
-bool MusicPlayer::logout()
-{
-	if (logged())
-	{
-		std::cout << "Successfully logged out from " << user->get_username() << std::endl;
-		user = nullptr;
-		return true;
-	}
-	std::cout << "There is no logged user!"<< std::endl;
-	return false;
-}
