@@ -15,14 +15,7 @@ Song::Song(std::string _id,std::string _artist, std::string _name, std::string _
 	release_year = _release_year;
 }
 
-Song::~Song()
-{}
-
-bool Song::operator==(const Song& other)
-{
-	return this->id == other.id;
-}
-
+Song::~Song(){}
 void Song::print()
 {
 	std::cout << "Song name: " << name << std::endl;

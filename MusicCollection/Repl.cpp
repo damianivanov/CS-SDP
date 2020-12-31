@@ -1,11 +1,9 @@
 #include "Repl.h"
 
-Repl::Repl() {
-	mp = new MusicPlayer();
-}
+Repl::Repl() { mp = new MusicPlayer(); }
 Repl::~Repl() { delete mp; }
 
-void Repl::repl()
+void Repl::run()
 {
 	std::cout << "--------Welcome to SpotiFly--------" << std::endl;
 	std::cout << "Enter a command or type \"help\" to see all supported commands " << std::endl;
@@ -14,6 +12,7 @@ void Repl::repl()
 		std::string input;
 		std::cout << "> ";
 		std::getline(std::cin, input);
+
 		if (input == "help")
 			help();
 		else if (input == "exit")
@@ -26,6 +25,8 @@ void Repl::repl()
 			mp->logout();
 		else if (input == "change username")
 			mp->change_username();
+		else if (input == "user info")
+			mp->user_info();
 		else if (input == "change password")
 			mp->change_password();
 		else if (input == "change fullname")
@@ -64,6 +65,7 @@ void Repl::help()
 	std::cout << "	- register --- register new user" << std::endl;
 	std::cout << "Functionality for logged users" << std::endl;
 	std::cout << "	- logout --- logout only if you are already logged in" << std::endl;
+	std::cout << "	- user info --- prints information for the logged user" << std::endl;
 	std::cout << "	- change username --- changes current user username" << std::endl;
 	std::cout << "	- change password --- changes current user password" << std::endl;
 	std::cout << "	- change fullname --- changes current user fullname" << std::endl;

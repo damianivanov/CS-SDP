@@ -1,0 +1,520 @@
+\hypertarget{class_context}{}\doxysection{Context Class Reference}
+\label{class_context}\index{Context@{Context}}
+
+
+{\ttfamily \#include $<$Database\+Context.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_context_a652cdcd2eedc8dbd9110bd284c5d5cf0}{Context}} ()
+\item 
+\mbox{\hyperlink{class_context_a2d34e4556448e40693f61d15e091b604}{$\sim$\+Context}} ()
+\item 
+\mbox{\hyperlink{class_user}{User}} $\ast$ \mbox{\hyperlink{class_context_ad41de8361cb1bcbdad2ed183359012c3}{get\+\_\+user\+\_\+by\+\_\+username}} (std\+::string \+\_\+username)
+\item 
+\mbox{\hyperlink{class_song}{Song}} $\ast$ \mbox{\hyperlink{class_context_ad54bf7dcfc3ef26b4ff3896afd27de4b}{get\+\_\+song\+\_\+by\+\_\+name\+\_\+and\+\_\+artist}} (std\+::string \+\_\+name, std\+::string \+\_\+artist)
+\item 
+\mbox{\hyperlink{class_playlist}{Playlist}} $\ast$ \mbox{\hyperlink{class_context_a78a6ce724605824bf092e6e773a160cb}{get\+\_\+playlist\+\_\+by\+\_\+name\+\_\+and\+\_\+user\+\_\+id}} (std\+::string \+\_\+name, std\+::string \+\_\+user\+\_\+id)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_context_a3629cf15f330473d91f92ef03d60f64f}{get\+\_\+all\+\_\+playlists\+\_\+by\+\_\+cretor\+\_\+id}} (std\+::string \+\_\+creator\+\_\+id)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_rating}{Rating}} $>$ \mbox{\hyperlink{class_context_a8459a5acead76b8c764ccbfeacdc9199}{get\+\_\+ratings\+\_\+by\+\_\+song\+\_\+id}} (std\+::string \+\_\+song\+\_\+id)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_context_ad5fdec607dcdc315972ffa42535ff3bd}{get\+\_\+all\+\_\+songs}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_context_ab75b52cb69d9637a1dfb1adf97a72075}{get\+\_\+n\+\_\+ordered\+\_\+songs}} (size\+\_\+t \+\_\+count)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_context_ac07606aaf14ae1dc9daa2716264714e0}{get\+\_\+songs\+\_\+by\+\_\+list\+\_\+of\+\_\+genres}} (std\+::vector$<$ std\+::string $>$ \+\_\+genres)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_context_a1594ef8d94b41a0748b969a5be1f74e6}{get\+\_\+songs\+\_\+except\+\_\+genres}} (std\+::vector$<$ std\+::string $>$ \+\_\+genres)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_context_af585f8405ffa2c57e05836884169a93e}{get\+\_\+songs\+\_\+by\+\_\+rating}} (float \+\_\+rating)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_context_a3a3907b1c3fd4f06b3576bed167cd220}{get\+\_\+songs\+\_\+from\+\_\+year}} (int \+\_\+year)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_context_ac261e12e5e1d97130e943cfb551098af}{get\+\_\+songs\+\_\+before\+\_\+year}} (int \+\_\+year)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_context_a95fc6f7891968549d7051e64129ff39e}{get\+\_\+songs\+\_\+after\+\_\+year}} (int \+\_\+year)
+\item 
+bool \mbox{\hyperlink{class_context_a2be7bfb3912f76d9b7c17a6fd7df5c73}{available\+\_\+username}} (std\+::string \+\_\+username)
+\item 
+bool \mbox{\hyperlink{class_context_a5763208a9343d0b7700f7ed9bfbb873b}{login\+\_\+validation}} (std\+::string \+\_\+username, std\+::string \+\_\+password)
+\item 
+bool \mbox{\hyperlink{class_context_a6e9a595098101e5b4a7d6bdea88cfe97}{rated\+\_\+song}} (std\+::string \+\_\+user\+\_\+id, std\+::string \+\_\+song\+\_\+id)
+\item 
+bool \mbox{\hyperlink{class_context_a50cb3e5f2e7f6f93d982ee7c6f1c8f2e}{song\+\_\+exists}} (\mbox{\hyperlink{class_song}{Song}} \+\_\+song)
+\item 
+bool \mbox{\hyperlink{class_context_a7d351967e8f921271f7dae22835db38c}{playlist\+\_\+exists}} (\mbox{\hyperlink{class_playlist}{Playlist}} \+\_\+playlist)
+\item 
+bool \mbox{\hyperlink{class_context_a564f4b551a6e25d1f9dcd4b6731437f5}{add\+\_\+user}} (\mbox{\hyperlink{class_user}{User}} \+\_\+user)
+\item 
+bool \mbox{\hyperlink{class_context_a1095036cec434b0c0fada30884adf863}{add\+\_\+song}} (\mbox{\hyperlink{class_song}{Song}} \+\_\+song)
+\item 
+bool \mbox{\hyperlink{class_context_a8401c84e112fd5e11db2ad1528d66af5}{add\+\_\+playlist}} (\mbox{\hyperlink{class_playlist}{Playlist}} \+\_\+playlist)
+\item 
+bool \mbox{\hyperlink{class_context_a74dde706ef053a304bd586c7d8141722}{add\+\_\+rating}} (std\+::string \+\_\+user\+\_\+id, std\+::string \+\_\+song\+\_\+id, float \+\_\+rating)
+\item 
+void \mbox{\hyperlink{class_context_ad6547e7a4eb88c3d6f7cd43d4a9eb8bb}{Serialization}} ()
+\item 
+void \mbox{\hyperlink{class_context_a1999ac108c83c689d709df9289fedbe0}{Deserialization}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned int \mbox{\hyperlink{class_context_aab2f10a0a6e48c243d8b935d6290fa76}{formating\+\_\+spaces}} = 4
+\item 
+const std\+::string \mbox{\hyperlink{class_context_a7012ead4fea59c5fe29dfd74b081d6fd}{users\+\_\+address}} = \char`\"{}Users.\+json\char`\"{}
+\item 
+const std\+::string \mbox{\hyperlink{class_context_a67efb70d6ddbbcee0916beb5676fdea5}{playlists\+\_\+address}} = \char`\"{}Songs.\+json\char`\"{}
+\item 
+const std\+::string \mbox{\hyperlink{class_context_a1a142ee4a57308058fec07a33d2eccd3}{songs\+\_\+address}} = \char`\"{}Playlists.\+json\char`\"{}
+\item 
+const std\+::string \mbox{\hyperlink{class_context_a147f938e9dffc9b67339f09c0dc6fa4b}{ratings\+\_\+address}} = \char`\"{}Ratings.\+json\char`\"{}
+\item 
+json \mbox{\hyperlink{class_context_a6966cb238bae109f891f21ee73adf90c}{json}}
+\begin{DoxyCompactList}\small\item\em Json object which reads and writes in json format. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{class_context_a9cadf85d53a803dbc87a0adcf71d5288}{users}}
+\begin{DoxyCompactList}\small\item\em vector of all users in the database \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_playlist}{Playlist}} $>$ \mbox{\hyperlink{class_context_a05752332d6f3f3dc9aa7c1ac59b8cb05}{playlists}}
+\begin{DoxyCompactList}\small\item\em vector of all playlists in the database \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_context_a7d526db11c1aa237c3076eb82ac76060}{songs}}
+\begin{DoxyCompactList}\small\item\em vector of all songs in the database \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_rating}{Rating}} $>$ \mbox{\hyperlink{class_context_abad868e18f98280f00691cba84484412}{ratings}}
+\begin{DoxyCompactList}\small\item\em vector of all ratings in the database \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_context_a652cdcd2eedc8dbd9110bd284c5d5cf0}\label{class_context_a652cdcd2eedc8dbd9110bd284c5d5cf0}} 
+\index{Context@{Context}!Context@{Context}}
+\index{Context@{Context}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{Context()}{Context()}}
+{\footnotesize\ttfamily Context\+::\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{class_context_ad6547e7a4eb88c3d6f7cd43d4a9eb8bb}{Serialization()}} method is called when \mbox{\hyperlink{class_context}{Context}} is created with \mbox{\hyperlink{class_context_ad6547e7a4eb88c3d6f7cd43d4a9eb8bb}{Serialization()}} -\/ songs,playlists,ratings,users are loaded and converted to ready to use vectors from json files \mbox{\Hypertarget{class_context_a2d34e4556448e40693f61d15e091b604}\label{class_context_a2d34e4556448e40693f61d15e091b604}} 
+\index{Context@{Context}!````~Context@{$\sim$Context}}
+\index{````~Context@{$\sim$Context}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{$\sim$Context()}{~Context()}}
+{\footnotesize\ttfamily Context\+::$\sim$\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{class_context_a1999ac108c83c689d709df9289fedbe0}{Deserialization()}} method is called when \mbox{\hyperlink{class_context}{Context}} is destructed with \mbox{\hyperlink{class_context_a1999ac108c83c689d709df9289fedbe0}{Deserialization()}} -\/ songs,playlists,ratings,users are saved to json files 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_context_a8401c84e112fd5e11db2ad1528d66af5}\label{class_context_a8401c84e112fd5e11db2ad1528d66af5}} 
+\index{Context@{Context}!add\_playlist@{add\_playlist}}
+\index{add\_playlist@{add\_playlist}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{add\_playlist()}{add\_playlist()}}
+{\footnotesize\ttfamily bool Context\+::add\+\_\+playlist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_playlist}{Playlist}}}]{\+\_\+playlist }\end{DoxyParamCaption})}
+
+Adds user to the database If playlist\+\_\+exists(\+\_\+playlist) returns true which means there is a \mbox{\hyperlink{class_playlist}{Playlist}} with the same name and creator this function dont add \+\_\+playlist to the database and returns false, else returns true and adds \+\_\+playlist ~\newline
+ \mbox{\Hypertarget{class_context_a74dde706ef053a304bd586c7d8141722}\label{class_context_a74dde706ef053a304bd586c7d8141722}} 
+\index{Context@{Context}!add\_rating@{add\_rating}}
+\index{add\_rating@{add\_rating}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{add\_rating()}{add\_rating()}}
+{\footnotesize\ttfamily bool Context\+::add\+\_\+rating (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+user\+\_\+id,  }\item[{std\+::string}]{\+\_\+song\+\_\+id,  }\item[{float}]{\+\_\+rating }\end{DoxyParamCaption})}
+
+Bussines logic behind adding rating uses \mbox{\hyperlink{class_context_a6e9a595098101e5b4a7d6bdea88cfe97}{rated\+\_\+song()}} to determine if there is already vote for \+\_\+song by \+\_\+user 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+user\+\_\+id} & \mbox{\hyperlink{class_user}{User}} id\\
+\hline
+{\em \+\_\+song\+\_\+id} & \mbox{\hyperlink{class_song}{Song}} id\\
+\hline
+{\em \+\_\+rating} & \mbox{\hyperlink{struct_rating}{Rating}} value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the adding is successful,else if its not
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_a1095036cec434b0c0fada30884adf863}\label{class_context_a1095036cec434b0c0fada30884adf863}} 
+\index{Context@{Context}!add\_song@{add\_song}}
+\index{add\_song@{add\_song}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{add\_song()}{add\_song()}}
+{\footnotesize\ttfamily bool Context\+::add\+\_\+song (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_song}{Song}}}]{\+\_\+song }\end{DoxyParamCaption})}
+
+Adds \mbox{\hyperlink{class_song}{Song}} to the database If song\+\_\+exists(\+\_\+song) returns true which means there is a \mbox{\hyperlink{class_song}{Song}} with the same name,artist,album and genre this function dont add \+\_\+song to the database and return false, else returns true and adds \+\_\+song ~\newline
+ \mbox{\Hypertarget{class_context_a564f4b551a6e25d1f9dcd4b6731437f5}\label{class_context_a564f4b551a6e25d1f9dcd4b6731437f5}} 
+\index{Context@{Context}!add\_user@{add\_user}}
+\index{add\_user@{add\_user}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{add\_user()}{add\_user()}}
+{\footnotesize\ttfamily bool Context\+::add\+\_\+user (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_user}{User}}}]{\+\_\+user }\end{DoxyParamCaption})}
+
+Adds \mbox{\hyperlink{class_user}{User}} to the database If \mbox{\hyperlink{class_context_a2be7bfb3912f76d9b7c17a6fd7df5c73}{available\+\_\+username()}} returns true which means there is not a \mbox{\hyperlink{class_user}{User}} with the same username this function add \+\_\+user to the database and return true, else returns false \mbox{\Hypertarget{class_context_a2be7bfb3912f76d9b7c17a6fd7df5c73}\label{class_context_a2be7bfb3912f76d9b7c17a6fd7df5c73}} 
+\index{Context@{Context}!available\_username@{available\_username}}
+\index{available\_username@{available\_username}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{available\_username()}{available\_username()}}
+{\footnotesize\ttfamily bool Context\+::available\+\_\+username (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+username }\end{DoxyParamCaption})}
+
+Check if \+\_\+username is available 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+username} & given username\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the username is available, False if its not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_a1999ac108c83c689d709df9289fedbe0}\label{class_context_a1999ac108c83c689d709df9289fedbe0}} 
+\index{Context@{Context}!Deserialization@{Deserialization}}
+\index{Deserialization@{Deserialization}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{Deserialization()}{Deserialization()}}
+{\footnotesize\ttfamily void Context\+::\+Deserialization (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The logic behind converting objects to json files
+
+for that there has to be methods
+\begin{DoxyItemize}
+\item to\+\_\+json() -\/ tells the json library how to convert object of specific type to json then the conversation is as easy as\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::ofstream out(\textcolor{stringliteral}{"{}Filename.json"{}});}
+\DoxyCodeLine{json json = std::vector<Type>();}
+\DoxyCodeLine{out << json.dump(\mbox{\hyperlink{class_context_aab2f10a0a6e48c243d8b935d6290fa76}{formating\_spaces}}); -\/ formated json file of objects}
+
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\mbox{\Hypertarget{class_context_a3629cf15f330473d91f92ef03d60f64f}\label{class_context_a3629cf15f330473d91f92ef03d60f64f}} 
+\index{Context@{Context}!get\_all\_playlists\_by\_cretor\_id@{get\_all\_playlists\_by\_cretor\_id}}
+\index{get\_all\_playlists\_by\_cretor\_id@{get\_all\_playlists\_by\_cretor\_id}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_all\_playlists\_by\_cretor\_id()}{get\_all\_playlists\_by\_cretor\_id()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Context\+::get\+\_\+all\+\_\+playlists\+\_\+by\+\_\+cretor\+\_\+id (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+creator\+\_\+id }\end{DoxyParamCaption})}
+
+All playlists by creators id 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+creator\+\_\+id} & Creators id\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of playlists names
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_ad5fdec607dcdc315972ffa42535ff3bd}\label{class_context_ad5fdec607dcdc315972ffa42535ff3bd}} 
+\index{Context@{Context}!get\_all\_songs@{get\_all\_songs}}
+\index{get\_all\_songs@{get\_all\_songs}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_all\_songs()}{get\_all\_songs()}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_song}{Song}}$>$ Context\+::get\+\_\+all\+\_\+songs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+All songs in the database \begin{DoxyReturn}{Returns}
+vector of \mbox{\hyperlink{class_song}{Song}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_ab75b52cb69d9637a1dfb1adf97a72075}\label{class_context_ab75b52cb69d9637a1dfb1adf97a72075}} 
+\index{Context@{Context}!get\_n\_ordered\_songs@{get\_n\_ordered\_songs}}
+\index{get\_n\_ordered\_songs@{get\_n\_ordered\_songs}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_n\_ordered\_songs()}{get\_n\_ordered\_songs()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ Context\+::get\+\_\+n\+\_\+ordered\+\_\+songs (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{\+\_\+count }\end{DoxyParamCaption})}
+
+First n songs ordered by name ascending order 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+count} & how many songs to get returned\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of \mbox{\hyperlink{class_song}{Song}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_a78a6ce724605824bf092e6e773a160cb}\label{class_context_a78a6ce724605824bf092e6e773a160cb}} 
+\index{Context@{Context}!get\_playlist\_by\_name\_and\_user\_id@{get\_playlist\_by\_name\_and\_user\_id}}
+\index{get\_playlist\_by\_name\_and\_user\_id@{get\_playlist\_by\_name\_and\_user\_id}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_playlist\_by\_name\_and\_user\_id()}{get\_playlist\_by\_name\_and\_user\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_playlist}{Playlist}} $\ast$ Context\+::get\+\_\+playlist\+\_\+by\+\_\+name\+\_\+and\+\_\+user\+\_\+id (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+name,  }\item[{std\+::string}]{\+\_\+user\+\_\+id }\end{DoxyParamCaption})}
+
+Get \mbox{\hyperlink{class_playlist}{Playlist}} by given name and user id
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+name} & playlists name\\
+\hline
+{\em \+\_\+user\+\_\+id} & creator id\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the playlist, nullptr if the pointer doesn\textquotesingle{}t exist
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_a8459a5acead76b8c764ccbfeacdc9199}\label{class_context_a8459a5acead76b8c764ccbfeacdc9199}} 
+\index{Context@{Context}!get\_ratings\_by\_song\_id@{get\_ratings\_by\_song\_id}}
+\index{get\_ratings\_by\_song\_id@{get\_ratings\_by\_song\_id}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_ratings\_by\_song\_id()}{get\_ratings\_by\_song\_id()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{struct_rating}{Rating}} $>$ Context\+::get\+\_\+ratings\+\_\+by\+\_\+song\+\_\+id (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+song\+\_\+id }\end{DoxyParamCaption})}
+
+All ratngs for a given song 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+song\+\_\+id} & \mbox{\hyperlink{class_song}{Song}} id\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of \mbox{\hyperlink{struct_rating}{Rating}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_ad54bf7dcfc3ef26b4ff3896afd27de4b}\label{class_context_ad54bf7dcfc3ef26b4ff3896afd27de4b}} 
+\index{Context@{Context}!get\_song\_by\_name\_and\_artist@{get\_song\_by\_name\_and\_artist}}
+\index{get\_song\_by\_name\_and\_artist@{get\_song\_by\_name\_and\_artist}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_song\_by\_name\_and\_artist()}{get\_song\_by\_name\_and\_artist()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_song}{Song}} $\ast$ Context\+::get\+\_\+song\+\_\+by\+\_\+name\+\_\+and\+\_\+artist (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+name,  }\item[{std\+::string}]{\+\_\+artist }\end{DoxyParamCaption})}
+
+Get \mbox{\hyperlink{class_song}{Song}} with given name and artist name
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+name} & searched \mbox{\hyperlink{class_song}{Song}} name\\
+\hline
+{\em \+\_\+artist} & artist name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the \mbox{\hyperlink{class_song}{Song}} with this name and artist, and nullptr if there is not such \mbox{\hyperlink{class_song}{Song}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_a95fc6f7891968549d7051e64129ff39e}\label{class_context_a95fc6f7891968549d7051e64129ff39e}} 
+\index{Context@{Context}!get\_songs\_after\_year@{get\_songs\_after\_year}}
+\index{get\_songs\_after\_year@{get\_songs\_after\_year}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_songs\_after\_year()}{get\_songs\_after\_year()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ Context\+::get\+\_\+songs\+\_\+after\+\_\+year (\begin{DoxyParamCaption}\item[{int}]{\+\_\+year }\end{DoxyParamCaption})}
+
+All songs with realease year more than \+\_\+year 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+year} & year\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector \mbox{\hyperlink{class_song}{Song}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_ac261e12e5e1d97130e943cfb551098af}\label{class_context_ac261e12e5e1d97130e943cfb551098af}} 
+\index{Context@{Context}!get\_songs\_before\_year@{get\_songs\_before\_year}}
+\index{get\_songs\_before\_year@{get\_songs\_before\_year}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_songs\_before\_year()}{get\_songs\_before\_year()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ Context\+::get\+\_\+songs\+\_\+before\+\_\+year (\begin{DoxyParamCaption}\item[{int}]{\+\_\+year }\end{DoxyParamCaption})}
+
+All songs with realease year less than \+\_\+year 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+year} & year\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector \mbox{\hyperlink{class_song}{Song}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_ac07606aaf14ae1dc9daa2716264714e0}\label{class_context_ac07606aaf14ae1dc9daa2716264714e0}} 
+\index{Context@{Context}!get\_songs\_by\_list\_of\_genres@{get\_songs\_by\_list\_of\_genres}}
+\index{get\_songs\_by\_list\_of\_genres@{get\_songs\_by\_list\_of\_genres}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_songs\_by\_list\_of\_genres()}{get\_songs\_by\_list\_of\_genres()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ Context\+::get\+\_\+songs\+\_\+by\+\_\+list\+\_\+of\+\_\+genres (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{\+\_\+genres }\end{DoxyParamCaption})}
+
+All songs with genre in the given list of genres 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+genres} & list of genres\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of \mbox{\hyperlink{class_song}{Song}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_af585f8405ffa2c57e05836884169a93e}\label{class_context_af585f8405ffa2c57e05836884169a93e}} 
+\index{Context@{Context}!get\_songs\_by\_rating@{get\_songs\_by\_rating}}
+\index{get\_songs\_by\_rating@{get\_songs\_by\_rating}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_songs\_by\_rating()}{get\_songs\_by\_rating()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ Context\+::get\+\_\+songs\+\_\+by\+\_\+rating (\begin{DoxyParamCaption}\item[{float}]{\+\_\+rating }\end{DoxyParamCaption})}
+
+All songs with rating more than \+\_\+rating 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+rating} & given rating\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector \mbox{\hyperlink{class_song}{Song}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_a1594ef8d94b41a0748b969a5be1f74e6}\label{class_context_a1594ef8d94b41a0748b969a5be1f74e6}} 
+\index{Context@{Context}!get\_songs\_except\_genres@{get\_songs\_except\_genres}}
+\index{get\_songs\_except\_genres@{get\_songs\_except\_genres}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_songs\_except\_genres()}{get\_songs\_except\_genres()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ Context\+::get\+\_\+songs\+\_\+except\+\_\+genres (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{\+\_\+genres }\end{DoxyParamCaption})}
+
+All songs with genre that are not in the given list of genres 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+genres} & lsit of genres\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of \mbox{\hyperlink{class_song}{Song}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_a3a3907b1c3fd4f06b3576bed167cd220}\label{class_context_a3a3907b1c3fd4f06b3576bed167cd220}} 
+\index{Context@{Context}!get\_songs\_from\_year@{get\_songs\_from\_year}}
+\index{get\_songs\_from\_year@{get\_songs\_from\_year}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_songs\_from\_year()}{get\_songs\_from\_year()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ Context\+::get\+\_\+songs\+\_\+from\+\_\+year (\begin{DoxyParamCaption}\item[{int}]{\+\_\+year }\end{DoxyParamCaption})}
+
+All songs with realease year equal than \+\_\+year 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+year} & year\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector \mbox{\hyperlink{class_song}{Song}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_ad41de8361cb1bcbdad2ed183359012c3}\label{class_context_ad41de8361cb1bcbdad2ed183359012c3}} 
+\index{Context@{Context}!get\_user\_by\_username@{get\_user\_by\_username}}
+\index{get\_user\_by\_username@{get\_user\_by\_username}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{get\_user\_by\_username()}{get\_user\_by\_username()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_user}{User}} $\ast$ Context\+::get\+\_\+user\+\_\+by\+\_\+username (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+username }\end{DoxyParamCaption})}
+
+Get \mbox{\hyperlink{class_user}{User}} with given username
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+username} & searched username\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the \mbox{\hyperlink{class_user}{User}} with this username, and nullptr if there is not such \mbox{\hyperlink{class_user}{User}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_a5763208a9343d0b7700f7ed9bfbb873b}\label{class_context_a5763208a9343d0b7700f7ed9bfbb873b}} 
+\index{Context@{Context}!login\_validation@{login\_validation}}
+\index{login\_validation@{login\_validation}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{login\_validation()}{login\_validation()}}
+{\footnotesize\ttfamily bool Context\+::login\+\_\+validation (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+username,  }\item[{std\+::string}]{\+\_\+password }\end{DoxyParamCaption})}
+
+Checks if there is user with this username and this password 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+username} & username\\
+\hline
+{\em \+\_\+password} & password\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if its valid login,False if there is no user with this username or the password is wrong 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_a7d351967e8f921271f7dae22835db38c}\label{class_context_a7d351967e8f921271f7dae22835db38c}} 
+\index{Context@{Context}!playlist\_exists@{playlist\_exists}}
+\index{playlist\_exists@{playlist\_exists}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{playlist\_exists()}{playlist\_exists()}}
+{\footnotesize\ttfamily bool Context\+::playlist\+\_\+exists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_playlist}{Playlist}}}]{\+\_\+playlist }\end{DoxyParamCaption})}
+
+Check if there is existing playlist with the same name by the same creator 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+playlist} & \mbox{\hyperlink{class_playlist}{Playlist}} to get compared to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there is playlist with the same name and creator,False if there is not
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_a6e9a595098101e5b4a7d6bdea88cfe97}\label{class_context_a6e9a595098101e5b4a7d6bdea88cfe97}} 
+\index{Context@{Context}!rated\_song@{rated\_song}}
+\index{rated\_song@{rated\_song}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{rated\_song()}{rated\_song()}}
+{\footnotesize\ttfamily bool Context\+::rated\+\_\+song (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+user\+\_\+id,  }\item[{std\+::string}]{\+\_\+song\+\_\+id }\end{DoxyParamCaption})}
+
+Checks if user is already voted for particular song 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+user\+\_\+id} & \mbox{\hyperlink{class_user}{User}} id\\
+\hline
+{\em \+\_\+song\+\_\+id} & \mbox{\hyperlink{class_song}{Song}} id\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if song is already voted for, False if its not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_context_ad6547e7a4eb88c3d6f7cd43d4a9eb8bb}\label{class_context_ad6547e7a4eb88c3d6f7cd43d4a9eb8bb}} 
+\index{Context@{Context}!Serialization@{Serialization}}
+\index{Serialization@{Serialization}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{Serialization()}{Serialization()}}
+{\footnotesize\ttfamily void Context\+::\+Serialization (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The logic behind converting json files to objects
+
+for that there has to be methods
+\begin{DoxyItemize}
+\item from\+\_\+json() -\/ tells the json library how to convert json to specific class type then the conversation is as easy as\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::string s; -\/ json fortmated \textcolor{keywordtype}{string}}
+\DoxyCodeLine{json json = json::parse(s);}
+\DoxyCodeLine{std::vector<Type> v = json.get<std::vector<Type>>(); -\/ vector of objects  }
+
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\mbox{\Hypertarget{class_context_a50cb3e5f2e7f6f93d982ee7c6f1c8f2e}\label{class_context_a50cb3e5f2e7f6f93d982ee7c6f1c8f2e}} 
+\index{Context@{Context}!song\_exists@{song\_exists}}
+\index{song\_exists@{song\_exists}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{song\_exists()}{song\_exists()}}
+{\footnotesize\ttfamily bool Context\+::song\+\_\+exists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_song}{Song}}}]{\+\_\+song }\end{DoxyParamCaption})}
+
+Checks if there is already song with this information Checks if the name,artist,album,genre are the same as any song in the database 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+song} & \mbox{\hyperlink{class_song}{Song}} to get compared to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there is song with this information, False if there is not
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_context_aab2f10a0a6e48c243d8b935d6290fa76}\label{class_context_aab2f10a0a6e48c243d8b935d6290fa76}} 
+\index{Context@{Context}!formating\_spaces@{formating\_spaces}}
+\index{formating\_spaces@{formating\_spaces}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{formating\_spaces}{formating\_spaces}}
+{\footnotesize\ttfamily const unsigned int Context\+::formating\+\_\+spaces = 4\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_context_a6966cb238bae109f891f21ee73adf90c}\label{class_context_a6966cb238bae109f891f21ee73adf90c}} 
+\index{Context@{Context}!json@{json}}
+\index{json@{json}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{json}{json}}
+{\footnotesize\ttfamily json Context\+::json\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Json object which reads and writes in json format. 
+
+\mbox{\Hypertarget{class_context_a05752332d6f3f3dc9aa7c1ac59b8cb05}\label{class_context_a05752332d6f3f3dc9aa7c1ac59b8cb05}} 
+\index{Context@{Context}!playlists@{playlists}}
+\index{playlists@{playlists}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{playlists}{playlists}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_playlist}{Playlist}}$>$ Context\+::playlists\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+vector of all playlists in the database 
+
+\mbox{\Hypertarget{class_context_a67efb70d6ddbbcee0916beb5676fdea5}\label{class_context_a67efb70d6ddbbcee0916beb5676fdea5}} 
+\index{Context@{Context}!playlists\_address@{playlists\_address}}
+\index{playlists\_address@{playlists\_address}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{playlists\_address}{playlists\_address}}
+{\footnotesize\ttfamily const std\+::string Context\+::playlists\+\_\+address = \char`\"{}Songs.\+json\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_context_abad868e18f98280f00691cba84484412}\label{class_context_abad868e18f98280f00691cba84484412}} 
+\index{Context@{Context}!ratings@{ratings}}
+\index{ratings@{ratings}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{ratings}{ratings}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_rating}{Rating}}$>$ Context\+::ratings\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+vector of all ratings in the database 
+
+\mbox{\Hypertarget{class_context_a147f938e9dffc9b67339f09c0dc6fa4b}\label{class_context_a147f938e9dffc9b67339f09c0dc6fa4b}} 
+\index{Context@{Context}!ratings\_address@{ratings\_address}}
+\index{ratings\_address@{ratings\_address}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{ratings\_address}{ratings\_address}}
+{\footnotesize\ttfamily const std\+::string Context\+::ratings\+\_\+address = \char`\"{}Ratings.\+json\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_context_a7d526db11c1aa237c3076eb82ac76060}\label{class_context_a7d526db11c1aa237c3076eb82ac76060}} 
+\index{Context@{Context}!songs@{songs}}
+\index{songs@{songs}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{songs}{songs}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_song}{Song}}$>$ Context\+::songs\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+vector of all songs in the database 
+
+\mbox{\Hypertarget{class_context_a1a142ee4a57308058fec07a33d2eccd3}\label{class_context_a1a142ee4a57308058fec07a33d2eccd3}} 
+\index{Context@{Context}!songs\_address@{songs\_address}}
+\index{songs\_address@{songs\_address}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{songs\_address}{songs\_address}}
+{\footnotesize\ttfamily const std\+::string Context\+::songs\+\_\+address = \char`\"{}Playlists.\+json\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_context_a9cadf85d53a803dbc87a0adcf71d5288}\label{class_context_a9cadf85d53a803dbc87a0adcf71d5288}} 
+\index{Context@{Context}!users@{users}}
+\index{users@{users}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{users}{users}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_user}{User}}$>$ Context\+::users\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+vector of all users in the database 
+
+\mbox{\Hypertarget{class_context_a7012ead4fea59c5fe29dfd74b081d6fd}\label{class_context_a7012ead4fea59c5fe29dfd74b081d6fd}} 
+\index{Context@{Context}!users\_address@{users\_address}}
+\index{users\_address@{users\_address}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{users\_address}{users\_address}}
+{\footnotesize\ttfamily const std\+::string Context\+::users\+\_\+address = \char`\"{}Users.\+json\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+

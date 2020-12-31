@@ -26,22 +26,17 @@ User::User(std::string _username,
 User& User::operator=(const User& other)
 {
 	if (this!=&other)
-	{
 		copy(other);
-	}
 	return *this;
 }
 void User::add_favorite_genre(std::string _genre)
 {
-
 	transform(_genre.begin(), _genre.end(), _genre.begin(), ::tolower);
 	for (std::string genre: favorite_genres)
 	{
 		transform(genre.begin(), genre.end(), genre.begin(), ::tolower);
 		if (genre ==_genre)
-		{
 			return;
-		}
 	}
 	favorite_genres.push_back(_genre);
 }
@@ -52,9 +47,7 @@ void User::remove_favorite_genre(std::string _genre)
 	{
 		transform(genre.begin(), genre.end(), genre.begin(), ::tolower);
 		if (genre == _genre)
-		{
 			favorite_genres.erase(std::remove(favorite_genres.begin(), favorite_genres.end(), _genre), favorite_genres.end());
-		}
 	}
 }
 const std::string User::birthday_to_string() const
@@ -67,10 +60,18 @@ const std::string User::birthday_to_string() const
 	s.append(std::to_string(1900 + this->birthday.tm_year));
 	return s;
 }
-std::string User::genres_print()
+void User::print_user()
+{
+	std::cout << "Username: " << username << std::endl;
+	std::cout << "Fullname: " << fullname << std::endl;
+	std::cout << "Favorite genres: " << genres_print() << std::endl;
+	std::cout << "Birthday: " << birthday_to_string() << std::endl;
+	std::cout << "Id: " << id << std::endl;
+}
+std::string User::genres_print() const
 {
 	std::string s="{ ";
-	for (auto g: favorite_genres)
+	for (std::string g: favorite_genres)
 	{
 		s.append(g);
 		s.append(", ");
@@ -82,25 +83,23 @@ std::string User::genres_print()
 }
 
 //WORKING ONLY FOR FORMAT DD/MM/YYYY
-tm User::string_to_tm(std::string birthday)
+tm User::string_to_tm(const std::string _birthday)
 {
 	struct tm result;
-
-	sscanf_s(birthday.c_str(), R"(%d/%d/%d)", &result.tm_mday, &result.tm_mon, &result.tm_year);
+	sscanf_s(_birthday.c_str(), R"(%d/%d/%d)", &result.tm_mday, &result.tm_mon, &result.tm_year);
 	result.tm_year -= 1900;
 	result.tm_mon -= 1;
 	return result;
 }
-void User::copy(const User& other) {
-	if (this != &other)
+void User::copy(const User& _other) {
+	if (this != &_other)
 	{
-		id = other.id;
-		username = other.username;
-		password = other.password;
-		fullname = other.fullname;
-		birthday = other.birthday;
-		favorite_genres = other.favorite_genres;
-		//playlists = std::vector<Playlist>(other.playlists);
+		id = _other.id;
+		username = _other.username;
+		password = _other.password;
+		fullname = _other.fullname;
+		birthday = _other.birthday;
+		favorite_genres = _other.favorite_genres;
 	}
 }
 

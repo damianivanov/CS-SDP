@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['save_5fplaylist_210',['save_playlist',['../class_music_player.html#a82bb3b9ff6c42cb3aaeec5389a463534',1,'MusicPlayer']]],
+  ['serialization_211',['Serialization',['../class_context.html#ad6547e7a4eb88c3d6f7cd43d4a9eb8bb',1,'Context']]],
+  ['set_5falbum_212',['set_album',['../class_song.html#ac893abf43cc67404361204d69706ec89',1,'Song']]],
+  ['set_5fartist_213',['set_artist',['../class_song.html#a53402ec3af8de3253cd30431dbbee579',1,'Song']]],
+  ['set_5fbirthday_214',['set_birthday',['../class_user.html#af6ad81ce0176834a557bfcf35a471df8',1,'User::set_birthday(tm _birthday)'],['../class_user.html#a54b59845f3647657a70a42a03ca55cbc',1,'User::set_birthday(std::string _birthday)']]],
+  ['set_5fcreator_215',['set_creator',['../class_playlist.html#adb0373f13e7429ad3f2d820d899c8f4a',1,'Playlist']]],
+  ['set_5ffavorite_5fgenres_216',['set_favorite_genres',['../class_user.html#aeafe802aca660a7606c2d27eddace3bc',1,'User']]],
+  ['set_5ffullname_217',['set_fullname',['../class_user.html#a16635ddb2ed2754b4d32101cd212bf5d',1,'User']]],
+  ['set_5fgenre_218',['set_genre',['../class_song.html#a5262bdb3a8d46724e05a3a7537fac1a8',1,'Song']]],
+  ['set_5fid_219',['set_id',['../class_song.html#a04439dbe4daad14cafdeaa88314834ae',1,'Song::set_id()'],['../class_user.html#ae32cf5e423c6e345d5dbaacf86472661',1,'User::set_id()']]],
+  ['set_5fname_220',['set_name',['../class_playlist.html#a2a412926cbe8f4038603b9b48e1eb303',1,'Playlist::set_name()'],['../class_song.html#aa74c6795f60237efa99a47a7c1b74061',1,'Song::set_name()']]],
+  ['set_5fpassword_221',['set_password',['../class_user.html#af9efada31f5b33adf3c13efb2278da5f',1,'User']]],
+  ['set_5frating_222',['set_rating',['../class_song.html#aac43bf4a3c0f7fd4e2352363d41057ed',1,'Song']]],
+  ['set_5frelease_5fyear_223',['set_release_year',['../class_song.html#af94ad0be95737f754223ac5caabf99ed',1,'Song']]],
+  ['set_5fsongs_224',['set_songs',['../class_playlist.html#a02b7719d182173376913aab825c24142',1,'Playlist']]],
+  ['set_5fusername_225',['set_username',['../class_user.html#a5b678803bc132f5bfd75b8e986ae5128',1,'User']]],
+  ['song_226',['Song',['../class_song.html#a1a73ff262627ce78860ec622859cf249',1,'Song::Song()'],['../class_song.html#aca74baec9f82d3bac63ceee7d19e3522',1,'Song::Song(std::string _id, std::string _artist, std::string _name, std::string _genre, std::string album, int _release_year, float _rating=0.0)']]],
+  ['song_5fexists_227',['song_exists',['../class_context.html#a50cb3e5f2e7f6f93d982ee7c6f1c8f2e',1,'Context']]],
+  ['songs_5fabove_5frating_228',['songs_above_rating',['../class_music_player.html#a0a5ab23a7f531562bb36004b736babcb',1,'MusicPlayer']]],
+  ['songs_5fby_5frelease_5fyear_229',['songs_by_release_year',['../class_music_player.html#a5b181f97e53f649a0b2ada110bcb0de2',1,'MusicPlayer']]],
+  ['songs_5fwith_5fgenres_230',['songs_with_genres',['../class_music_player.html#acbac47393bd5ba0064a13c53535673c9',1,'MusicPlayer']]],
+  ['songs_5fwithout_5fgenres_231',['songs_without_genres',['../class_music_player.html#acc56d81f395ced9d67a457f1c4204853',1,'MusicPlayer']]],
+  ['string_5fto_5ftm_232',['string_to_tm',['../class_user.html#a1713b761dd205380dfc2ca37b420424c',1,'User']]]
+];

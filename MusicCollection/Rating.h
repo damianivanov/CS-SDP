@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
-//many to many table
+
+//structure for many to many table in database
 struct Rating
 {
 	std::string user_id;

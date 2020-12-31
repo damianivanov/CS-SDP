@@ -1,0 +1,415 @@
+\hypertarget{class_user}{}\doxysection{User Class Reference}
+\label{class_user}\index{User@{User}}
+
+
+{\ttfamily \#include $<$User.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}} ()
+\item 
+\mbox{\hyperlink{class_user_a06a529d3e9f9f0a37891b940b97ce0c6}{User}} (std\+::string \+\_\+username, std\+::string \+\_\+password, std\+::string \+\_\+fullname, std\+::string \+\_\+birthday, std\+::string \+\_\+id=\char`\"{}\char`\"{}, std\+::vector$<$ std\+::string $>$ \+\_\+favorite\+\_\+genres=std\+::vector$<$ std\+::string $>$())
+\item 
+\mbox{\hyperlink{class_user}{User}} \& \mbox{\hyperlink{class_user_a00fe82353b0ee8cf6abb1088d36e125b}{operator=}} (const \mbox{\hyperlink{class_user}{User}} \&other)
+\item 
+\mbox{\hyperlink{class_user_ac00b72ad64eb4149f7b21b9f5468c2b2}{$\sim$\+User}} ()
+\item 
+const std\+::string \mbox{\hyperlink{class_user_a3e0bb3b4c89204cf53aff2381a02fd73}{get\+\_\+username}} () const
+\item 
+const std\+::string \mbox{\hyperlink{class_user_a865222047f440ad8ebb2f5c1769a4274}{get\+\_\+password}} () const
+\item 
+const std\+::string \mbox{\hyperlink{class_user_a5f8a9ffaa316400890f02d4ba6c047e0}{get\+\_\+fullname}} () const
+\item 
+const std\+::string \mbox{\hyperlink{class_user_a02d85b5a85ea8a724bcccaeb5a6a47b2}{get\+\_\+id}} () const
+\item 
+const tm \mbox{\hyperlink{class_user_a2c03acd6946bc32cc417b54b12bdd70a}{get\+\_\+birthday}} () const
+\item 
+const std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{class_user_a960e460bf7289c547446aeb4f948aec0}{get\+\_\+favorite\+\_\+genres}} () const
+\item 
+void \mbox{\hyperlink{class_user_a5b678803bc132f5bfd75b8e986ae5128}{set\+\_\+username}} (std\+::string \+\_\+username)
+\item 
+void \mbox{\hyperlink{class_user_af9efada31f5b33adf3c13efb2278da5f}{set\+\_\+password}} (std\+::string \+\_\+password)
+\item 
+void \mbox{\hyperlink{class_user_a16635ddb2ed2754b4d32101cd212bf5d}{set\+\_\+fullname}} (std\+::string \+\_\+fullname)
+\item 
+void \mbox{\hyperlink{class_user_ae32cf5e423c6e345d5dbaacf86472661}{set\+\_\+id}} (std\+::string \+\_\+id)
+\item 
+void \mbox{\hyperlink{class_user_aeafe802aca660a7606c2d27eddace3bc}{set\+\_\+favorite\+\_\+genres}} (std\+::vector$<$ std\+::string $>$ \+\_\+favorite\+\_\+genres)
+\item 
+void \mbox{\hyperlink{class_user_af6ad81ce0176834a557bfcf35a471df8}{set\+\_\+birthday}} (tm \+\_\+birthday)
+\item 
+void \mbox{\hyperlink{class_user_a54b59845f3647657a70a42a03ca55cbc}{set\+\_\+birthday}} (std\+::string \+\_\+birthday)
+\item 
+void \mbox{\hyperlink{class_user_a9c8e586b1153d4a25c004ac3de4129f6}{add\+\_\+favorite\+\_\+genre}} (std\+::string \+\_\+genre)
+\item 
+void \mbox{\hyperlink{class_user_a659387a06ae85e85b8c19a8597556ce2}{remove\+\_\+favorite\+\_\+genre}} (std\+::string \+\_\+genre)
+\item 
+std\+::string \mbox{\hyperlink{class_user_a83f959d25d4e331db57e0c6c5ff4adcd}{genres\+\_\+print}} () const
+\item 
+const std\+::string \mbox{\hyperlink{class_user_a2a388a6caa37328732ebc1fd2447090c}{birthday\+\_\+to\+\_\+string}} () const
+\item 
+void \mbox{\hyperlink{class_user_ac4e55d5489ea7d01f7e0b3eada7975f9}{print\+\_\+user}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+tm \mbox{\hyperlink{class_user_a1713b761dd205380dfc2ca37b420424c}{string\+\_\+to\+\_\+tm}} (const std\+::string \+\_\+str)
+\item 
+void \mbox{\hyperlink{class_user_a972de6683b07d6a7ee15d94cea58f6cd}{copy}} (const \mbox{\hyperlink{class_user}{User}} \&\+\_\+other)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_user_aacbb807e514280f69e00bec7d71f3aee}{username}}
+\item 
+std\+::string \mbox{\hyperlink{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}{password}}
+\item 
+std\+::string \mbox{\hyperlink{class_user_aa37f981a564b92cb131a4e62e2bd53df}{fullname}}
+\item 
+tm \mbox{\hyperlink{class_user_aef99b906c8334280c746a2616aa3a4f7}{birthday}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_user_a353ccf0e6f1422de2173c508e46da496}{favorite\+\_\+genres}}
+\item 
+std\+::string \mbox{\hyperlink{class_user_a290593888be78ccd4214e99c8ee43b4e}{id}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representation of a \mbox{\hyperlink{class_user}{User}} and his information 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_user_a4a0137053e591fbb79d9057dd7d2283d}\label{class_user_a4a0137053e591fbb79d9057dd7d2283d}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor
+
+assigns all strings to empty strings, and the birthday for 1900 \mbox{\Hypertarget{class_user_a06a529d3e9f9f0a37891b940b97ce0c6}\label{class_user_a06a529d3e9f9f0a37891b940b97ce0c6}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+username,  }\item[{std\+::string}]{\+\_\+password,  }\item[{std\+::string}]{\+\_\+fullname,  }\item[{std\+::string}]{\+\_\+birthday,  }\item[{std\+::string}]{\+\_\+id = {\ttfamily \char`\"{}\char`\"{}},  }\item[{std\+::vector$<$ std\+::string $>$}]{\+\_\+favorite\+\_\+genres = {\ttfamily std\+:\+:vector$<$std\+:\+:string$>$()} }\end{DoxyParamCaption})}
+
+Constructor with parameters
+
+assigns all of the properties with the given values 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+username} & username\\
+\hline
+{\em \+\_\+password} & password\\
+\hline
+{\em \+\_\+fullname} & fullname\\
+\hline
+{\em \+\_\+birthday} & birthday\\
+\hline
+{\em \+\_\+id} & id\\
+\hline
+{\em \+\_\+favorite\+\_\+genres} & vector with favorite genres\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_ac00b72ad64eb4149f7b21b9f5468c2b2}\label{class_user_ac00b72ad64eb4149f7b21b9f5468c2b2}} 
+\index{User@{User}!````~User@{$\sim$User}}
+\index{````~User@{$\sim$User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{$\sim$User()}{~User()}}
+{\footnotesize\ttfamily User\+::$\sim$\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_user_a9c8e586b1153d4a25c004ac3de4129f6}\label{class_user_a9c8e586b1153d4a25c004ac3de4129f6}} 
+\index{User@{User}!add\_favorite\_genre@{add\_favorite\_genre}}
+\index{add\_favorite\_genre@{add\_favorite\_genre}!User@{User}}
+\doxysubsubsection{\texorpdfstring{add\_favorite\_genre()}{add\_favorite\_genre()}}
+{\footnotesize\ttfamily void User\+::add\+\_\+favorite\+\_\+genre (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+genre }\end{DoxyParamCaption})}
+
+Adds genre from favorites, if it\textquotesingle{}s not in the list already
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+genre} & -\/ adds the given genre from the list with favorites \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_a2a388a6caa37328732ebc1fd2447090c}\label{class_user_a2a388a6caa37328732ebc1fd2447090c}} 
+\index{User@{User}!birthday\_to\_string@{birthday\_to\_string}}
+\index{birthday\_to\_string@{birthday\_to\_string}!User@{User}}
+\doxysubsubsection{\texorpdfstring{birthday\_to\_string()}{birthday\_to\_string()}}
+{\footnotesize\ttfamily const std\+::string User\+::birthday\+\_\+to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Converting tm structure to string
+
+Used for saving in .json files \begin{DoxyReturn}{Returns}
+string in format DD/\+MM/\+YYYY representing the birthday 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_a972de6683b07d6a7ee15d94cea58f6cd}\label{class_user_a972de6683b07d6a7ee15d94cea58f6cd}} 
+\index{User@{User}!copy@{copy}}
+\index{copy@{copy}!User@{User}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily void User\+::copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{\+\_\+other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+helper function for copying \mbox{\hyperlink{class_user}{User}} object
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & -\/ const reference to the object, to get copied from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_a83f959d25d4e331db57e0c6c5ff4adcd}\label{class_user_a83f959d25d4e331db57e0c6c5ff4adcd}} 
+\index{User@{User}!genres\_print@{genres\_print}}
+\index{genres\_print@{genres\_print}!User@{User}}
+\doxysubsubsection{\texorpdfstring{genres\_print()}{genres\_print()}}
+{\footnotesize\ttfamily std\+::string User\+::genres\+\_\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Beautiful print for favorite genres
+
+used only for printing in console, not in any business logic \begin{DoxyReturn}{Returns}
+beautiful string containing all favorite genres 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_a2c03acd6946bc32cc417b54b12bdd70a}\label{class_user_a2c03acd6946bc32cc417b54b12bdd70a}} 
+\index{User@{User}!get\_birthday@{get\_birthday}}
+\index{get\_birthday@{get\_birthday}!User@{User}}
+\doxysubsubsection{\texorpdfstring{get\_birthday()}{get\_birthday()}}
+{\footnotesize\ttfamily const tm User\+::get\+\_\+birthday (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple getter for the birthday
+
+\begin{DoxyReturn}{Returns}
+the birthday in tm structure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_a960e460bf7289c547446aeb4f948aec0}\label{class_user_a960e460bf7289c547446aeb4f948aec0}} 
+\index{User@{User}!get\_favorite\_genres@{get\_favorite\_genres}}
+\index{get\_favorite\_genres@{get\_favorite\_genres}!User@{User}}
+\doxysubsubsection{\texorpdfstring{get\_favorite\_genres()}{get\_favorite\_genres()}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$\& User\+::get\+\_\+favorite\+\_\+genres (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple getter for the vector of favorite genres
+
+\begin{DoxyReturn}{Returns}
+the vector with the favorite genres 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_a5f8a9ffaa316400890f02d4ba6c047e0}\label{class_user_a5f8a9ffaa316400890f02d4ba6c047e0}} 
+\index{User@{User}!get\_fullname@{get\_fullname}}
+\index{get\_fullname@{get\_fullname}!User@{User}}
+\doxysubsubsection{\texorpdfstring{get\_fullname()}{get\_fullname()}}
+{\footnotesize\ttfamily const std\+::string User\+::get\+\_\+fullname (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple getter for the fullname
+
+\begin{DoxyReturn}{Returns}
+the fullname 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_a02d85b5a85ea8a724bcccaeb5a6a47b2}\label{class_user_a02d85b5a85ea8a724bcccaeb5a6a47b2}} 
+\index{User@{User}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!User@{User}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+{\footnotesize\ttfamily const std\+::string User\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple getter for the identification
+
+\begin{DoxyReturn}{Returns}
+the identification 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_a865222047f440ad8ebb2f5c1769a4274}\label{class_user_a865222047f440ad8ebb2f5c1769a4274}} 
+\index{User@{User}!get\_password@{get\_password}}
+\index{get\_password@{get\_password}!User@{User}}
+\doxysubsubsection{\texorpdfstring{get\_password()}{get\_password()}}
+{\footnotesize\ttfamily const std\+::string User\+::get\+\_\+password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple getter for the password
+
+\begin{DoxyReturn}{Returns}
+the hashed password 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_a3e0bb3b4c89204cf53aff2381a02fd73}\label{class_user_a3e0bb3b4c89204cf53aff2381a02fd73}} 
+\index{User@{User}!get\_username@{get\_username}}
+\index{get\_username@{get\_username}!User@{User}}
+\doxysubsubsection{\texorpdfstring{get\_username()}{get\_username()}}
+{\footnotesize\ttfamily const std\+::string User\+::get\+\_\+username (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple getter for the username
+
+\begin{DoxyReturn}{Returns}
+username 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_a00fe82353b0ee8cf6abb1088d36e125b}\label{class_user_a00fe82353b0ee8cf6abb1088d36e125b}} 
+\index{User@{User}!operator=@{operator=}}
+\index{operator=@{operator=}!User@{User}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_user}{User}} \& User\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_user_ac4e55d5489ea7d01f7e0b3eada7975f9}\label{class_user_ac4e55d5489ea7d01f7e0b3eada7975f9}} 
+\index{User@{User}!print\_user@{print\_user}}
+\index{print\_user@{print\_user}!User@{User}}
+\doxysubsubsection{\texorpdfstring{print\_user()}{print\_user()}}
+{\footnotesize\ttfamily void User\+::print\+\_\+user (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_user_a659387a06ae85e85b8c19a8597556ce2}\label{class_user_a659387a06ae85e85b8c19a8597556ce2}} 
+\index{User@{User}!remove\_favorite\_genre@{remove\_favorite\_genre}}
+\index{remove\_favorite\_genre@{remove\_favorite\_genre}!User@{User}}
+\doxysubsubsection{\texorpdfstring{remove\_favorite\_genre()}{remove\_favorite\_genre()}}
+{\footnotesize\ttfamily void User\+::remove\+\_\+favorite\+\_\+genre (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+genre }\end{DoxyParamCaption})}
+
+Removes genre from favorites, if the genre is in the list
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+genre} & -\/ removes the given genre from the list with favorites \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_a54b59845f3647657a70a42a03ca55cbc}\label{class_user_a54b59845f3647657a70a42a03ca55cbc}} 
+\index{User@{User}!set\_birthday@{set\_birthday}}
+\index{set\_birthday@{set\_birthday}!User@{User}}
+\doxysubsubsection{\texorpdfstring{set\_birthday()}{set\_birthday()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void User\+::set\+\_\+birthday (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+birthday }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple setter for the birthday
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+birthday} & -\/ new birthday string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_af6ad81ce0176834a557bfcf35a471df8}\label{class_user_af6ad81ce0176834a557bfcf35a471df8}} 
+\index{User@{User}!set\_birthday@{set\_birthday}}
+\index{set\_birthday@{set\_birthday}!User@{User}}
+\doxysubsubsection{\texorpdfstring{set\_birthday()}{set\_birthday()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void User\+::set\+\_\+birthday (\begin{DoxyParamCaption}\item[{tm}]{\+\_\+birthday }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple setter for the birthday
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+birthday} & -\/ new birthday tm structure ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_aeafe802aca660a7606c2d27eddace3bc}\label{class_user_aeafe802aca660a7606c2d27eddace3bc}} 
+\index{User@{User}!set\_favorite\_genres@{set\_favorite\_genres}}
+\index{set\_favorite\_genres@{set\_favorite\_genres}!User@{User}}
+\doxysubsubsection{\texorpdfstring{set\_favorite\_genres()}{set\_favorite\_genres()}}
+{\footnotesize\ttfamily void User\+::set\+\_\+favorite\+\_\+genres (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{\+\_\+favorite\+\_\+genres }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & vector with the favorite genres\\
+\hline
+{\em \+\_\+favorite\+\_\+genres} & -\/ vector with the new favorite genres \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_a16635ddb2ed2754b4d32101cd212bf5d}\label{class_user_a16635ddb2ed2754b4d32101cd212bf5d}} 
+\index{User@{User}!set\_fullname@{set\_fullname}}
+\index{set\_fullname@{set\_fullname}!User@{User}}
+\doxysubsubsection{\texorpdfstring{set\_fullname()}{set\_fullname()}}
+{\footnotesize\ttfamily void User\+::set\+\_\+fullname (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+fullname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple setter for the fullname
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fullname} & -\/ new fullname \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_ae32cf5e423c6e345d5dbaacf86472661}\label{class_user_ae32cf5e423c6e345d5dbaacf86472661}} 
+\index{User@{User}!set\_id@{set\_id}}
+\index{set\_id@{set\_id}!User@{User}}
+\doxysubsubsection{\texorpdfstring{set\_id()}{set\_id()}}
+{\footnotesize\ttfamily void User\+::set\+\_\+id (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple setter for the id
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+id} & -\/ new id ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_af9efada31f5b33adf3c13efb2278da5f}\label{class_user_af9efada31f5b33adf3c13efb2278da5f}} 
+\index{User@{User}!set\_password@{set\_password}}
+\index{set\_password@{set\_password}!User@{User}}
+\doxysubsubsection{\texorpdfstring{set\_password()}{set\_password()}}
+{\footnotesize\ttfamily void User\+::set\+\_\+password (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple setter for the password
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+password} & -\/ desired new password \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_a5b678803bc132f5bfd75b8e986ae5128}\label{class_user_a5b678803bc132f5bfd75b8e986ae5128}} 
+\index{User@{User}!set\_username@{set\_username}}
+\index{set\_username@{set\_username}!User@{User}}
+\doxysubsubsection{\texorpdfstring{set\_username()}{set\_username()}}
+{\footnotesize\ttfamily void User\+::set\+\_\+username (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+username }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple setter for the username
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+username} & -\/ desired new username \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_a1713b761dd205380dfc2ca37b420424c}\label{class_user_a1713b761dd205380dfc2ca37b420424c}} 
+\index{User@{User}!string\_to\_tm@{string\_to\_tm}}
+\index{string\_to\_tm@{string\_to\_tm}!User@{User}}
+\doxysubsubsection{\texorpdfstring{string\_to\_tm()}{string\_to\_tm()}}
+{\footnotesize\ttfamily tm User\+::string\+\_\+to\+\_\+tm (\begin{DoxyParamCaption}\item[{const std\+::string}]{\+\_\+str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+helper function for converting string (most likely user input) to structure tm
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+str} & -\/ const string in format DD/\+MM/\+YYYY \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tm structure with ready to use properties\+: tm\+\_\+year,tm\+\_\+mon,tm\+\_\+mday 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_user_aef99b906c8334280c746a2616aa3a4f7}\label{class_user_aef99b906c8334280c746a2616aa3a4f7}} 
+\index{User@{User}!birthday@{birthday}}
+\index{birthday@{birthday}!User@{User}}
+\doxysubsubsection{\texorpdfstring{birthday}{birthday}}
+{\footnotesize\ttfamily tm User\+::birthday\hspace{0.3cm}{\ttfamily [private]}}
+
+Representation of birth date for the \mbox{\hyperlink{class_user}{User}}
+
+accepts only DD/\+MM/\+YYYY format \mbox{\Hypertarget{class_user_a353ccf0e6f1422de2173c508e46da496}\label{class_user_a353ccf0e6f1422de2173c508e46da496}} 
+\index{User@{User}!favorite\_genres@{favorite\_genres}}
+\index{favorite\_genres@{favorite\_genres}!User@{User}}
+\doxysubsubsection{\texorpdfstring{favorite\_genres}{favorite\_genres}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ User\+::favorite\+\_\+genres\hspace{0.3cm}{\ttfamily [private]}}
+
+list of \mbox{\hyperlink{class_user}{User}}\textquotesingle{}s favorite genres \mbox{\Hypertarget{class_user_aa37f981a564b92cb131a4e62e2bd53df}\label{class_user_aa37f981a564b92cb131a4e62e2bd53df}} 
+\index{User@{User}!fullname@{fullname}}
+\index{fullname@{fullname}!User@{User}}
+\doxysubsubsection{\texorpdfstring{fullname}{fullname}}
+{\footnotesize\ttfamily std\+::string User\+::fullname\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{class_user}{User}}\textquotesingle{}s fullname \mbox{\Hypertarget{class_user_a290593888be78ccd4214e99c8ee43b4e}\label{class_user_a290593888be78ccd4214e99c8ee43b4e}} 
+\index{User@{User}!id@{id}}
+\index{id@{id}!User@{User}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily std\+::string User\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+Unique identification for every \mbox{\hyperlink{class_user}{User}}
+
+GUID generated when objected is created with new\+\_\+guid() -\/ extremely low chances of duplicates \mbox{\Hypertarget{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}\label{class_user_ac2f2e75b15e8eb6cbb030fc85a6cd59f}} 
+\index{User@{User}!password@{password}}
+\index{password@{password}!User@{User}}
+\doxysubsubsection{\texorpdfstring{password}{password}}
+{\footnotesize\ttfamily std\+::string User\+::password\hspace{0.3cm}{\ttfamily [private]}}
+
+Hashed version of \mbox{\hyperlink{class_user}{User}}\textquotesingle{}s password
+
+Every password is hashed withg SHA3\+\_\+512() method \mbox{\Hypertarget{class_user_aacbb807e514280f69e00bec7d71f3aee}\label{class_user_aacbb807e514280f69e00bec7d71f3aee}} 
+\index{User@{User}!username@{username}}
+\index{username@{username}!User@{User}}
+\doxysubsubsection{\texorpdfstring{username}{username}}
+{\footnotesize\ttfamily std\+::string User\+::username\hspace{0.3cm}{\ttfamily [private]}}
+
+Unique username for every \mbox{\hyperlink{class_user}{User}} 

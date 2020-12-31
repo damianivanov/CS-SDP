@@ -1,0 +1,373 @@
+\hypertarget{class_song}{}\doxysection{Song Class Reference}
+\label{class_song}\index{Song@{Song}}
+
+
+{\ttfamily \#include $<$Song.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_song_a1a73ff262627ce78860ec622859cf249}{Song}} ()
+\item 
+\mbox{\hyperlink{class_song_a0749c3367e8de89e27458c248377027b}{$\sim$\+Song}} ()
+\item 
+\mbox{\hyperlink{class_song_aca74baec9f82d3bac63ceee7d19e3522}{Song}} (std\+::string \+\_\+id, std\+::string \+\_\+artist, std\+::string \+\_\+name, std\+::string \+\_\+genre, std\+::string \mbox{\hyperlink{class_song_ae4b8a43a8bc7d6ec3b824bb932080c71}{album}}, int \+\_\+release\+\_\+year, float \+\_\+rating=0.\+0)
+\begin{DoxyCompactList}\small\item\em Construction \mbox{\hyperlink{class_song}{Song}} by\+: -\/id,artist,name,genre,album,release year,rating. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_song_a4f56e6d1354b3498b9105fdffa5ecec5}{operator==}} (const \mbox{\hyperlink{class_song}{Song}} \&other)
+\begin{DoxyCompactList}\small\item\em \begin{DoxyReturn}{Returns}
+If two songs have the same id, which means they are the same
+\end{DoxyReturn}
+\end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{class_song_ab71049104b6aacd7cc8dea13573b69b2}{get\+\_\+artist}} () const
+\begin{DoxyCompactList}\small\item\em \begin{DoxyReturn}{Returns}
+Artist of the song
+\end{DoxyReturn}
+\end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{class_song_a293c7926996587aeb957cedc7e177822}{get\+\_\+name}} () const
+\begin{DoxyCompactList}\small\item\em \begin{DoxyReturn}{Returns}
+Name of the song
+\end{DoxyReturn}
+\end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{class_song_a9a947d5705904abeeec170264d79ba99}{get\+\_\+genre}} () const
+\begin{DoxyCompactList}\small\item\em \begin{DoxyReturn}{Returns}
+Genre of the song
+\end{DoxyReturn}
+\end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{class_song_ac101baf67470e1a9ff3d34f0f0256e80}{get\+\_\+rating}} () const
+\begin{DoxyCompactList}\small\item\em \begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_rating}{Rating}} of the song 
+\end{DoxyReturn}
+\end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{class_song_af89bd37b68e8c6662a33b87d6609b9ae}{get\+\_\+album}} () const
+\begin{DoxyCompactList}\small\item\em \begin{DoxyReturn}{Returns}
+Album of the song
+\end{DoxyReturn}
+\end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_song_a2525f437b89e330b8ce021338faaf68c}{get\+\_\+release\+\_\+year}} () const
+\begin{DoxyCompactList}\small\item\em \begin{DoxyReturn}{Returns}
+The release year of the song
+\end{DoxyReturn}
+\end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{class_song_afa108f04b0cea155c6ae69a962262d0e}{get\+\_\+id}} () const
+\begin{DoxyCompactList}\small\item\em \begin{DoxyReturn}{Returns}
+Id of the song
+\end{DoxyReturn}
+\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_song_a04439dbe4daad14cafdeaa88314834ae}{set\+\_\+id}} (const std\+::string \+\_\+id)
+\begin{DoxyCompactList}\small\item\em Setter for id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_song_a53402ec3af8de3253cd30431dbbee579}{set\+\_\+artist}} (const std\+::string \+\_\+artist)
+\begin{DoxyCompactList}\small\item\em Setter for artist. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_song_aa74c6795f60237efa99a47a7c1b74061}{set\+\_\+name}} (const std\+::string \+\_\+name)
+\begin{DoxyCompactList}\small\item\em Setter for name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_song_a5262bdb3a8d46724e05a3a7537fac1a8}{set\+\_\+genre}} (const std\+::string \+\_\+genre)
+\begin{DoxyCompactList}\small\item\em Setter for genre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_song_aac43bf4a3c0f7fd4e2352363d41057ed}{set\+\_\+rating}} (const float \+\_\+rating)
+\begin{DoxyCompactList}\small\item\em Setter for rating. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_song_ac893abf43cc67404361204d69706ec89}{set\+\_\+album}} (const std\+::string \+\_\+album)
+\begin{DoxyCompactList}\small\item\em Setter for album. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_song_af94ad0be95737f754223ac5caabf99ed}{set\+\_\+release\+\_\+year}} (const int \+\_\+release\+\_\+year)
+\begin{DoxyCompactList}\small\item\em Setter for the release year. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_song_a72e3765d0de8b466944a4b0daa54f22d}{print}} ()
+\begin{DoxyCompactList}\small\item\em Print function for all of the properties. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_song_a5a02ee22227b5c3dede3648230b281a0}{id}}
+\begin{DoxyCompactList}\small\item\em Unique id for every song -\/ GUID. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_song_aafa16527b221f910c0bb43bcd9a4dab2}{artist}}
+\begin{DoxyCompactList}\small\item\em Name of the artist. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_song_ac9a7a376f0428cf9d13574b4f014049a}{name}}
+\begin{DoxyCompactList}\small\item\em Name of the song. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_song_a29e5100b4f5448bf9ca988da683d9136}{genre}}
+\begin{DoxyCompactList}\small\item\em Genre of the song. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_song_a68ccfde09373a648c37c012c3cfb9d93}{rating}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_rating}{Rating}} of the song -\/ average of all the rates. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_song_ae4b8a43a8bc7d6ec3b824bb932080c71}{album}}
+\begin{DoxyCompactList}\small\item\em Name of the album. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_song_afa5ecceada22b2cfca0dca286404e3ad}{release\+\_\+year}}
+\begin{DoxyCompactList}\small\item\em Release year of the song. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_song_a1a73ff262627ce78860ec622859cf249}\label{class_song_a1a73ff262627ce78860ec622859cf249}} 
+\index{Song@{Song}!Song@{Song}}
+\index{Song@{Song}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{Song()}{Song()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Song\+::\+Song (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_song_a0749c3367e8de89e27458c248377027b}\label{class_song_a0749c3367e8de89e27458c248377027b}} 
+\index{Song@{Song}!````~Song@{$\sim$Song}}
+\index{````~Song@{$\sim$Song}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{$\sim$Song()}{~Song()}}
+{\footnotesize\ttfamily Song\+::$\sim$\+Song (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_song_aca74baec9f82d3bac63ceee7d19e3522}\label{class_song_aca74baec9f82d3bac63ceee7d19e3522}} 
+\index{Song@{Song}!Song@{Song}}
+\index{Song@{Song}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{Song()}{Song()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Song\+::\+Song (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+id,  }\item[{std\+::string}]{\+\_\+artist,  }\item[{std\+::string}]{\+\_\+name,  }\item[{std\+::string}]{\+\_\+genre,  }\item[{std\+::string}]{album,  }\item[{int}]{\+\_\+release\+\_\+year,  }\item[{float}]{\+\_\+rating = {\ttfamily 0.0} }\end{DoxyParamCaption})}
+
+
+
+Construction \mbox{\hyperlink{class_song}{Song}} by\+: -\/id,artist,name,genre,album,release year,rating. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_song_af89bd37b68e8c6662a33b87d6609b9ae}\label{class_song_af89bd37b68e8c6662a33b87d6609b9ae}} 
+\index{Song@{Song}!get\_album@{get\_album}}
+\index{get\_album@{get\_album}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{get\_album()}{get\_album()}}
+{\footnotesize\ttfamily const std\+::string Song\+::get\+\_\+album (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\begin{DoxyReturn}{Returns}
+Album of the song
+\end{DoxyReturn}
+
+
+\mbox{\Hypertarget{class_song_ab71049104b6aacd7cc8dea13573b69b2}\label{class_song_ab71049104b6aacd7cc8dea13573b69b2}} 
+\index{Song@{Song}!get\_artist@{get\_artist}}
+\index{get\_artist@{get\_artist}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{get\_artist()}{get\_artist()}}
+{\footnotesize\ttfamily const std\+::string Song\+::get\+\_\+artist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\begin{DoxyReturn}{Returns}
+Artist of the song
+\end{DoxyReturn}
+
+
+\mbox{\Hypertarget{class_song_a9a947d5705904abeeec170264d79ba99}\label{class_song_a9a947d5705904abeeec170264d79ba99}} 
+\index{Song@{Song}!get\_genre@{get\_genre}}
+\index{get\_genre@{get\_genre}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{get\_genre()}{get\_genre()}}
+{\footnotesize\ttfamily const std\+::string Song\+::get\+\_\+genre (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\begin{DoxyReturn}{Returns}
+Genre of the song
+\end{DoxyReturn}
+
+
+\mbox{\Hypertarget{class_song_afa108f04b0cea155c6ae69a962262d0e}\label{class_song_afa108f04b0cea155c6ae69a962262d0e}} 
+\index{Song@{Song}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+{\footnotesize\ttfamily const std\+::string Song\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\begin{DoxyReturn}{Returns}
+Id of the song
+\end{DoxyReturn}
+
+
+\mbox{\Hypertarget{class_song_a293c7926996587aeb957cedc7e177822}\label{class_song_a293c7926996587aeb957cedc7e177822}} 
+\index{Song@{Song}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
+{\footnotesize\ttfamily const std\+::string Song\+::get\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\begin{DoxyReturn}{Returns}
+Name of the song
+\end{DoxyReturn}
+
+
+\mbox{\Hypertarget{class_song_ac101baf67470e1a9ff3d34f0f0256e80}\label{class_song_ac101baf67470e1a9ff3d34f0f0256e80}} 
+\index{Song@{Song}!get\_rating@{get\_rating}}
+\index{get\_rating@{get\_rating}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{get\_rating()}{get\_rating()}}
+{\footnotesize\ttfamily const float Song\+::get\+\_\+rating (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_rating}{Rating}} of the song 
+\end{DoxyReturn}
+
+
+\mbox{\Hypertarget{class_song_a2525f437b89e330b8ce021338faaf68c}\label{class_song_a2525f437b89e330b8ce021338faaf68c}} 
+\index{Song@{Song}!get\_release\_year@{get\_release\_year}}
+\index{get\_release\_year@{get\_release\_year}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{get\_release\_year()}{get\_release\_year()}}
+{\footnotesize\ttfamily const int Song\+::get\+\_\+release\+\_\+year (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\begin{DoxyReturn}{Returns}
+The release year of the song
+\end{DoxyReturn}
+
+
+\mbox{\Hypertarget{class_song_a4f56e6d1354b3498b9105fdffa5ecec5}\label{class_song_a4f56e6d1354b3498b9105fdffa5ecec5}} 
+\index{Song@{Song}!operator==@{operator==}}
+\index{operator==@{operator==}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Song\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_song}{Song}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\begin{DoxyReturn}{Returns}
+If two songs have the same id, which means they are the same
+\end{DoxyReturn}
+
+
+\mbox{\Hypertarget{class_song_a72e3765d0de8b466944a4b0daa54f22d}\label{class_song_a72e3765d0de8b466944a4b0daa54f22d}} 
+\index{Song@{Song}!print@{print}}
+\index{print@{print}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Song\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Print function for all of the properties. 
+
+\mbox{\Hypertarget{class_song_ac893abf43cc67404361204d69706ec89}\label{class_song_ac893abf43cc67404361204d69706ec89}} 
+\index{Song@{Song}!set\_album@{set\_album}}
+\index{set\_album@{set\_album}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{set\_album()}{set\_album()}}
+{\footnotesize\ttfamily void Song\+::set\+\_\+album (\begin{DoxyParamCaption}\item[{const std\+::string}]{\+\_\+album }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for album. 
+
+\mbox{\Hypertarget{class_song_a53402ec3af8de3253cd30431dbbee579}\label{class_song_a53402ec3af8de3253cd30431dbbee579}} 
+\index{Song@{Song}!set\_artist@{set\_artist}}
+\index{set\_artist@{set\_artist}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{set\_artist()}{set\_artist()}}
+{\footnotesize\ttfamily void Song\+::set\+\_\+artist (\begin{DoxyParamCaption}\item[{const std\+::string}]{\+\_\+artist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for artist. 
+
+\mbox{\Hypertarget{class_song_a5262bdb3a8d46724e05a3a7537fac1a8}\label{class_song_a5262bdb3a8d46724e05a3a7537fac1a8}} 
+\index{Song@{Song}!set\_genre@{set\_genre}}
+\index{set\_genre@{set\_genre}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{set\_genre()}{set\_genre()}}
+{\footnotesize\ttfamily void Song\+::set\+\_\+genre (\begin{DoxyParamCaption}\item[{const std\+::string}]{\+\_\+genre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for genre. 
+
+\mbox{\Hypertarget{class_song_a04439dbe4daad14cafdeaa88314834ae}\label{class_song_a04439dbe4daad14cafdeaa88314834ae}} 
+\index{Song@{Song}!set\_id@{set\_id}}
+\index{set\_id@{set\_id}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{set\_id()}{set\_id()}}
+{\footnotesize\ttfamily void Song\+::set\+\_\+id (\begin{DoxyParamCaption}\item[{const std\+::string}]{\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for id. 
+
+\mbox{\Hypertarget{class_song_aa74c6795f60237efa99a47a7c1b74061}\label{class_song_aa74c6795f60237efa99a47a7c1b74061}} 
+\index{Song@{Song}!set\_name@{set\_name}}
+\index{set\_name@{set\_name}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{set\_name()}{set\_name()}}
+{\footnotesize\ttfamily void Song\+::set\+\_\+name (\begin{DoxyParamCaption}\item[{const std\+::string}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for name. 
+
+\mbox{\Hypertarget{class_song_aac43bf4a3c0f7fd4e2352363d41057ed}\label{class_song_aac43bf4a3c0f7fd4e2352363d41057ed}} 
+\index{Song@{Song}!set\_rating@{set\_rating}}
+\index{set\_rating@{set\_rating}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{set\_rating()}{set\_rating()}}
+{\footnotesize\ttfamily void Song\+::set\+\_\+rating (\begin{DoxyParamCaption}\item[{const float}]{\+\_\+rating }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for rating. 
+
+\mbox{\Hypertarget{class_song_af94ad0be95737f754223ac5caabf99ed}\label{class_song_af94ad0be95737f754223ac5caabf99ed}} 
+\index{Song@{Song}!set\_release\_year@{set\_release\_year}}
+\index{set\_release\_year@{set\_release\_year}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{set\_release\_year()}{set\_release\_year()}}
+{\footnotesize\ttfamily void Song\+::set\+\_\+release\+\_\+year (\begin{DoxyParamCaption}\item[{const int}]{\+\_\+release\+\_\+year }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for the release year. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_song_ae4b8a43a8bc7d6ec3b824bb932080c71}\label{class_song_ae4b8a43a8bc7d6ec3b824bb932080c71}} 
+\index{Song@{Song}!album@{album}}
+\index{album@{album}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{album}{album}}
+{\footnotesize\ttfamily std\+::string Song\+::album\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Name of the album. 
+
+\mbox{\Hypertarget{class_song_aafa16527b221f910c0bb43bcd9a4dab2}\label{class_song_aafa16527b221f910c0bb43bcd9a4dab2}} 
+\index{Song@{Song}!artist@{artist}}
+\index{artist@{artist}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{artist}{artist}}
+{\footnotesize\ttfamily std\+::string Song\+::artist\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Name of the artist. 
+
+\mbox{\Hypertarget{class_song_a29e5100b4f5448bf9ca988da683d9136}\label{class_song_a29e5100b4f5448bf9ca988da683d9136}} 
+\index{Song@{Song}!genre@{genre}}
+\index{genre@{genre}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{genre}{genre}}
+{\footnotesize\ttfamily std\+::string Song\+::genre\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Genre of the song. 
+
+\mbox{\Hypertarget{class_song_a5a02ee22227b5c3dede3648230b281a0}\label{class_song_a5a02ee22227b5c3dede3648230b281a0}} 
+\index{Song@{Song}!id@{id}}
+\index{id@{id}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily std\+::string Song\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Unique id for every song -\/ GUID. 
+
+\mbox{\Hypertarget{class_song_ac9a7a376f0428cf9d13574b4f014049a}\label{class_song_ac9a7a376f0428cf9d13574b4f014049a}} 
+\index{Song@{Song}!name@{name}}
+\index{name@{name}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string Song\+::name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Name of the song. 
+
+\mbox{\Hypertarget{class_song_a68ccfde09373a648c37c012c3cfb9d93}\label{class_song_a68ccfde09373a648c37c012c3cfb9d93}} 
+\index{Song@{Song}!rating@{rating}}
+\index{rating@{rating}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{rating}{rating}}
+{\footnotesize\ttfamily float Song\+::rating\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{struct_rating}{Rating}} of the song -\/ average of all the rates. 
+
+\mbox{\Hypertarget{class_song_afa5ecceada22b2cfca0dca286404e3ad}\label{class_song_afa5ecceada22b2cfca0dca286404e3ad}} 
+\index{Song@{Song}!release\_year@{release\_year}}
+\index{release\_year@{release\_year}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{release\_year}{release\_year}}
+{\footnotesize\ttfamily int Song\+::release\+\_\+year\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Release year of the song. 
+

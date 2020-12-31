@@ -1,3 +1,4 @@
+/// \cond HIDDEN_SYMBOLS
 /*
  *  Chocobo1/Hash
  *
@@ -568,3 +569,4 @@ namespace SHA3_NS
 }
 
 #endif  // CHOCOBO1_SHA3_H
+/// \endcond

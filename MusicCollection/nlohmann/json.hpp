@@ -1,3 +1,4 @@
+/// \cond HIDDEN_SYMBOLS
 /*
     __ _____ _____ _____
  __|  |   __|     |   | |  JSON for Modern C++
@@ -25445,3 +25446,4 @@ inline nlohmann::json::json_pointer operator "" _json_pointer(const char* s, std
 
 
 #endif  // INCLUDE_NLOHMANN_JSON_HPP_
+/// \endcond

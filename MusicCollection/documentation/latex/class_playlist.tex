@@ -1,0 +1,180 @@
+\hypertarget{class_playlist}{}\doxysection{Playlist Class Reference}
+\label{class_playlist}\index{Playlist@{Playlist}}
+
+
+{\ttfamily \#include $<$Playlist.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_playlist_aef38d55e42995be147977726350f3ada}{Playlist}} ()
+\item 
+\mbox{\hyperlink{class_playlist_aacd9a69e347fc19a9a0787d7a7ce9df4}{$\sim$\+Playlist}} ()
+\item 
+bool \mbox{\hyperlink{class_playlist_aba8040faf6b9d9294fe5a277621ade99}{operator==}} (const \mbox{\hyperlink{class_playlist}{Playlist}} \&other)
+\item 
+const std\+::string \mbox{\hyperlink{class_playlist_a65687688b11d2a68a83fb4352c3a7e28}{get\+\_\+name}} () const
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_playlist_a88aef41f4822e8831414faf1011b53e5}{get\+\_\+songs}} () const
+\item 
+const std\+::string \mbox{\hyperlink{class_playlist_a71e41fb1340fc7c6a7836d55351ca467}{get\+\_\+creator\+\_\+id}} () const
+\item 
+void \mbox{\hyperlink{class_playlist_adb0373f13e7429ad3f2d820d899c8f4a}{set\+\_\+creator}} (const std\+::string \+\_\+creator\+\_\+id)
+\item 
+void \mbox{\hyperlink{class_playlist_a2a412926cbe8f4038603b9b48e1eb303}{set\+\_\+name}} (const std\+::string \+\_\+name)
+\item 
+void \mbox{\hyperlink{class_playlist_a02b7719d182173376913aab825c24142}{set\+\_\+songs}} (const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \+\_\+songs)
+\item 
+void \mbox{\hyperlink{class_playlist_a44e6beb82c23a6963adeace8957a4271}{print\+\_\+all\+\_\+songs}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_playlist_a417c6736c96d1a6ffdf879a56d6f5a49}{creator\+\_\+id}}
+\item 
+std\+::string \mbox{\hyperlink{class_playlist_a6b06305db2f4b7bfadccd994665501cf}{name}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_playlist_a2503942ce9aa5d1ef1c12f4cd37f1891}{songs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_playlist_aef38d55e42995be147977726350f3ada}\label{class_playlist_aef38d55e42995be147977726350f3ada}} 
+\index{Playlist@{Playlist}!Playlist@{Playlist}}
+\index{Playlist@{Playlist}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{Playlist()}{Playlist()}}
+{\footnotesize\ttfamily Playlist\+::\+Playlist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_playlist_aacd9a69e347fc19a9a0787d7a7ce9df4}\label{class_playlist_aacd9a69e347fc19a9a0787d7a7ce9df4}} 
+\index{Playlist@{Playlist}!````~Playlist@{$\sim$Playlist}}
+\index{````~Playlist@{$\sim$Playlist}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{$\sim$Playlist()}{~Playlist()}}
+{\footnotesize\ttfamily Playlist\+::$\sim$\+Playlist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_playlist_a71e41fb1340fc7c6a7836d55351ca467}\label{class_playlist_a71e41fb1340fc7c6a7836d55351ca467}} 
+\index{Playlist@{Playlist}!get\_creator\_id@{get\_creator\_id}}
+\index{get\_creator\_id@{get\_creator\_id}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{get\_creator\_id()}{get\_creator\_id()}}
+{\footnotesize\ttfamily const std\+::string Playlist\+::get\+\_\+creator\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get Creator Id
+
+\begin{DoxyReturn}{Returns}
+Creators id
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_playlist_a65687688b11d2a68a83fb4352c3a7e28}\label{class_playlist_a65687688b11d2a68a83fb4352c3a7e28}} 
+\index{Playlist@{Playlist}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
+{\footnotesize\ttfamily const std\+::string Playlist\+::get\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get Name
+
+\begin{DoxyReturn}{Returns}
+Playlists name
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_playlist_a88aef41f4822e8831414faf1011b53e5}\label{class_playlist_a88aef41f4822e8831414faf1011b53e5}} 
+\index{Playlist@{Playlist}!get\_songs@{get\_songs}}
+\index{get\_songs@{get\_songs}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{get\_songs()}{get\_songs()}}
+{\footnotesize\ttfamily const std\+::vector$<$\mbox{\hyperlink{class_song}{Song}}$>$ Playlist\+::get\+\_\+songs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get Songs
+
+\begin{DoxyReturn}{Returns}
+vector of Songs
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_playlist_aba8040faf6b9d9294fe5a277621ade99}\label{class_playlist_aba8040faf6b9d9294fe5a277621ade99}} 
+\index{Playlist@{Playlist}!operator==@{operator==}}
+\index{operator==@{operator==}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Playlist\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_playlist}{Playlist}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Operator==
+
+Two Playlists are the same if the creators id and the name are the same 
+\begin{DoxyParams}{Parameters}
+{\em other} & object to get compared to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or False
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_playlist_a44e6beb82c23a6963adeace8957a4271}\label{class_playlist_a44e6beb82c23a6963adeace8957a4271}} 
+\index{Playlist@{Playlist}!print\_all\_songs@{print\_all\_songs}}
+\index{print\_all\_songs@{print\_all\_songs}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{print\_all\_songs()}{print\_all\_songs()}}
+{\footnotesize\ttfamily void Playlist\+::print\+\_\+all\+\_\+songs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Simple print function
+
+Calls the print function of every \mbox{\hyperlink{class_song}{Song}} in the playlist \mbox{\Hypertarget{class_playlist_adb0373f13e7429ad3f2d820d899c8f4a}\label{class_playlist_adb0373f13e7429ad3f2d820d899c8f4a}} 
+\index{Playlist@{Playlist}!set\_creator@{set\_creator}}
+\index{set\_creator@{set\_creator}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{set\_creator()}{set\_creator()}}
+{\footnotesize\ttfamily void Playlist\+::set\+\_\+creator (\begin{DoxyParamCaption}\item[{const std\+::string}]{\+\_\+creator\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set Creator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+creator\+\_\+id} & creator id\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_playlist_a2a412926cbe8f4038603b9b48e1eb303}\label{class_playlist_a2a412926cbe8f4038603b9b48e1eb303}} 
+\index{Playlist@{Playlist}!set\_name@{set\_name}}
+\index{set\_name@{set\_name}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{set\_name()}{set\_name()}}
+{\footnotesize\ttfamily void Playlist\+::set\+\_\+name (\begin{DoxyParamCaption}\item[{const std\+::string}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set Name
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+name} & Name of the playlist\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_playlist_a02b7719d182173376913aab825c24142}\label{class_playlist_a02b7719d182173376913aab825c24142}} 
+\index{Playlist@{Playlist}!set\_songs@{set\_songs}}
+\index{set\_songs@{set\_songs}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{set\_songs()}{set\_songs()}}
+{\footnotesize\ttfamily void Playlist\+::set\+\_\+songs (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$}]{\+\_\+songs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the songs of the playlist
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+songs} & vector of Songs\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_playlist_a417c6736c96d1a6ffdf879a56d6f5a49}\label{class_playlist_a417c6736c96d1a6ffdf879a56d6f5a49}} 
+\index{Playlist@{Playlist}!creator\_id@{creator\_id}}
+\index{creator\_id@{creator\_id}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{creator\_id}{creator\_id}}
+{\footnotesize\ttfamily std\+::string Playlist\+::creator\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+Unique creator id
+
+GUID -\/ the id of \mbox{\hyperlink{class_user}{User}} \mbox{\Hypertarget{class_playlist_a6b06305db2f4b7bfadccd994665501cf}\label{class_playlist_a6b06305db2f4b7bfadccd994665501cf}} 
+\index{Playlist@{Playlist}!name@{name}}
+\index{name@{name}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string Playlist\+::name\hspace{0.3cm}{\ttfamily [private]}}
+
+Name
+
+Name of the playlist \mbox{\Hypertarget{class_playlist_a2503942ce9aa5d1ef1c12f4cd37f1891}\label{class_playlist_a2503942ce9aa5d1ef1c12f4cd37f1891}} 
+\index{Playlist@{Playlist}!songs@{songs}}
+\index{songs@{songs}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{songs}{songs}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_song}{Song}}$>$ Playlist\+::songs\hspace{0.3cm}{\ttfamily [private]}}
+
+Songs
+
+All of the songs in the playlist 

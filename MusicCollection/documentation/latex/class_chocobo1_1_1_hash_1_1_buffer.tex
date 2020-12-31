@@ -1,0 +1,55 @@
+\hypertarget{class_chocobo1_1_1_hash_1_1_buffer}{}\doxysection{Chocobo1\+::Hash\+::Buffer$<$ T, N $>$ Class Template Reference}
+\label{class_chocobo1_1_1_hash_1_1_buffer}\index{Chocobo1::Hash::Buffer$<$ T, N $>$@{Chocobo1::Hash::Buffer$<$ T, N $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_aa67e5c974f3b1ff97cd1de9398cead2b}\label{class_chocobo1_1_1_hash_1_1_buffer_aa67e5c974f3b1ff97cd1de9398cead2b}} 
+using {\bfseries value\+\_\+type} = T
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_a8cfa219b0f1297cd7e2308e3fda682a2}\label{class_chocobo1_1_1_hash_1_1_buffer_a8cfa219b0f1297cd7e2308e3fda682a2}} 
+using {\bfseries index\+\_\+type} = Index\+Type
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_a1d0486d8b1870648a51f359241e65331}\label{class_chocobo1_1_1_hash_1_1_buffer_a1d0486d8b1870648a51f359241e65331}} 
+using {\bfseries size\+\_\+type} = std\+::size\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_a57564232bc818abee067a3595410be31}\label{class_chocobo1_1_1_hash_1_1_buffer_a57564232bc818abee067a3595410be31}} 
+constexpr {\bfseries Buffer} (const \mbox{\hyperlink{class_chocobo1_1_1_hash_1_1_buffer}{Buffer}} \&)=default
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_a4f811a3ca70c4272e046260f0678c2b8}\label{class_chocobo1_1_1_hash_1_1_buffer_a4f811a3ca70c4272e046260f0678c2b8}} 
+CONSTEXPR\+\_\+\+CPP17\+\_\+\+CHOCOBO1\+\_\+\+HASH {\bfseries Buffer} (const std\+::initializer\+\_\+list$<$ T $>$ init\+List)
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_ab1b433f5a034e98191c2f2583d1cfeb2}\label{class_chocobo1_1_1_hash_1_1_buffer_ab1b433f5a034e98191c2f2583d1cfeb2}} 
+{\footnotesize template$<$typename Input\+It $>$ }\\constexpr {\bfseries Buffer} (const Input\+It first, const Input\+It last)
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_a4d3e751f525420fd910aa3f425a934b7}\label{class_chocobo1_1_1_hash_1_1_buffer_a4d3e751f525420fd910aa3f425a934b7}} 
+constexpr T \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (const index\+\_\+type pos)
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_ad7a73e2fa5335defa2916d922a004608}\label{class_chocobo1_1_1_hash_1_1_buffer_ad7a73e2fa5335defa2916d922a004608}} 
+constexpr T {\bfseries operator\mbox{[}$\,$\mbox{]}} (const index\+\_\+type pos) const
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_a20a472261512590ba0cfce3cdf7077aa}\label{class_chocobo1_1_1_hash_1_1_buffer_a20a472261512590ba0cfce3cdf7077aa}} 
+CONSTEXPR\+\_\+\+CPP17\+\_\+\+CHOCOBO1\+\_\+\+HASH void {\bfseries fill} (const T \&value, const index\+\_\+type count=1)
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_a9f55d0cf0922354dc0ed5e7e03ccf079}\label{class_chocobo1_1_1_hash_1_1_buffer_a9f55d0cf0922354dc0ed5e7e03ccf079}} 
+{\footnotesize template$<$typename Input\+It $>$ }\\constexpr void {\bfseries push\+\_\+back} (const Input\+It first, const Input\+It last)
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_a67083a8138a90148af9a6599b3e34202}\label{class_chocobo1_1_1_hash_1_1_buffer_a67083a8138a90148af9a6599b3e34202}} 
+constexpr void {\bfseries clear} ()
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_af4ab2c2eebedfc1b5591f43c3cac313a}\label{class_chocobo1_1_1_hash_1_1_buffer_af4ab2c2eebedfc1b5591f43c3cac313a}} 
+constexpr bool {\bfseries empty} () const
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_ac681b822414c04921ddaba3b8cd81794}\label{class_chocobo1_1_1_hash_1_1_buffer_ac681b822414c04921ddaba3b8cd81794}} 
+constexpr size\+\_\+type {\bfseries size} () const
+\item 
+\mbox{\Hypertarget{class_chocobo1_1_1_hash_1_1_buffer_a9952a568278d63062e0a63cde1d6203e}\label{class_chocobo1_1_1_hash_1_1_buffer_a9952a568278d63062e0a63cde1d6203e}} 
+constexpr const T $\ast$ {\bfseries data} () const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+sha3.\+h\end{DoxyCompactItemize}

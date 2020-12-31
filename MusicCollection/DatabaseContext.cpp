@@ -1,6 +1,8 @@
 #include "DatabaseContext.h"
 
 //getters like methods
+
+
 User* Context::get_user_by_username(std::string _username)
 {
 	for (User& user : users)
@@ -136,7 +138,6 @@ std::vector<std::string> Context::get_all_playlists_by_cretor_id(std::string _cr
 	}
 	return playlists_name;
 }
-//
 
 //methods required by the json library
 	//Song
@@ -240,27 +241,23 @@ bool Context::login_validation(std::string _username, std::string _password)
 }
 bool Context::rated_song(std::string _user_id, std::string _song_id)
 {
-	//maybe the rating should me modified
-	for (auto r : ratings)
+	for (Rating r : ratings)
 	{
 		if (r.user_id==_user_id && r.song_id == _song_id)
-		{
 			return true;
-		}
 	}
 	return false;
-
-
 }
 
 bool Context::song_exists(Song _song)
 {
-	for (auto s:songs)
+	for (Song s:songs)
 	{
-		if (s==_song)
-		{
-			return true;
-		}
+		if (s.get_name() == _song.get_name() && 
+			s.get_artist() == _song.get_artist() &&
+			s.get_album() == _song.get_album() &&
+			s.get_genre() == _song.get_genre())
+				return true;
 	}
 	return false;
 }
@@ -269,9 +266,7 @@ bool Context::playlist_exists(Playlist _playlist)
 	for (Playlist p : playlists)
 	{
 		if (p == _playlist)
-		{
 			return true;
-		}
 	}
 	return false;
 }
@@ -283,7 +278,7 @@ bool Context::add_user(User _user)
 		users.push_back(_user);
 		return true;
 	}
-		return false;
+	return false;
 	
 }
 bool Context::add_song(Song _song)
@@ -306,20 +301,17 @@ bool Context::add_playlist(Playlist _playlist)
 }
 bool Context::add_rating(std::string _user_id, std::string _song_id,float _rating)
 {
-	
 	if (rated_song(_user_id,_song_id))
-	{
-		return false; // za sega
-	}
-	Rating r{ _user_id,_song_id,_rating };
+		return false;
+	Rating r{_user_id,_song_id,_rating };
 	ratings.push_back(r);
 	return true;
 }
 
-//working with .json files
+// .json -> vectors
 void Context::Serialization()
 {
-
+	// Users
 	std::ifstream in("Users.json");
 	std::string s;
 	while (in)
@@ -335,7 +327,8 @@ void Context::Serialization()
 		users = json.get<std::vector<User>>();
 		json.clear();
 	}
-	//
+
+	// Songs
 	in.open("Songs.json");
 	s.clear();
 	while (in)
@@ -352,7 +345,8 @@ void Context::Serialization()
 		json.clear();
 
 	}
-	//
+
+	// Playlists
 	in.open("Playlists.json");
 	s.clear();
 	while (in)
@@ -367,7 +361,8 @@ void Context::Serialization()
 		json = json::parse(s);
 		playlists = json.get<std::vector<Playlist>>();
 	}
-	//
+
+	// Ratings
 	in.open("Ratings.json");
 	s.clear();
 	while (in)
@@ -383,6 +378,7 @@ void Context::Serialization()
 		ratings = json.get<std::vector<Rating>>();
 	}
 }
+// vectors -> .json
 void Context::Deserialization()
 {
 	json.clear();

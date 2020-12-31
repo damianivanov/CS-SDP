@@ -1,0 +1,44 @@
+System for music collection with supported users and generating playlists of songs by criterias.\hypertarget{index_functionality}{}\doxysection{Functioality}\label{index_functionality}
+\hypertarget{index_user}{}\doxysubsection{User}\label{index_user}
+
+\begin{DoxyItemize}
+\item Registration
+\item Login
+\item \mbox{\hyperlink{class_user}{User}} Info
+\end{DoxyItemize}\hypertarget{index_changing_users}{}\doxysubsubsection{Changing Users info}\label{index_changing_users}
+
+\begin{DoxyItemize}
+\item Change favorite genres
+\begin{DoxyEnumerate}
+\item add
+\item remove
+\end{DoxyEnumerate}
+\item Change fullname
+\item Change username
+\item Change password
+\item Change birthday
+\end{DoxyItemize}\hypertarget{index_songs}{}\doxysubsection{Song}\label{index_songs}
+
+\begin{DoxyItemize}
+\item Add \mbox{\hyperlink{class_song}{Song}}
+\item Rate \mbox{\hyperlink{class_song}{Song}}
+\end{DoxyItemize}\hypertarget{index_playlists}{}\doxysubsection{Playlist}\label{index_playlists}
+\hypertarget{index_Generating}{}\doxysubsubsection{Generating}\label{index_Generating}
+
+\begin{DoxyItemize}
+\item Generate playlist of Songs by list of criterias and capacity, combined with logical operators AND, OR. Criterias can be one of the following\+:
+\begin{DoxyEnumerate}
+\item \mbox{\hyperlink{struct_rating}{Rating}}, bigger than given value
+\item Including or Excluding a set of genres
+\item Only from the favorite genres of the current logged \mbox{\hyperlink{class_user}{User}}
+\item From/\+After/\+Before a given year
+\item All Songs in the database
+\end{DoxyEnumerate}
+\end{DoxyItemize}\hypertarget{index_w_w_playlists}{}\doxysubsubsection{Working with playlists}\label{index_w_w_playlists}
+
+\begin{DoxyItemize}
+\item Save generated \mbox{\hyperlink{class_playlist}{Playlist}} by name
+\item Load \mbox{\hyperlink{class_playlist}{Playlist}} from the database
+\item Printing information about every \mbox{\hyperlink{class_song}{Song}} in the \mbox{\hyperlink{class_playlist}{Playlist}}
+\item Printing all of the Playlists for the logged \mbox{\hyperlink{class_user}{User}} 
+\end{DoxyItemize}

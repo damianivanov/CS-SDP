@@ -4,6 +4,9 @@
 Playlist::Playlist() {}
 Playlist::~Playlist(){}
 
+/// Simple print function 
+/// 
+/// Calls the print function of every Song in the playlist
 void Playlist::print_all_songs()
 {
 	for (Song s : songs)
@@ -11,14 +14,4 @@ void Playlist::print_all_songs()
 		std::cout << std::endl;
 		s.print();
 	}
-}
-void Playlist::add_song(Song song)
-{
-	if (songs.size()==0 || !std::count(songs.begin(), songs.end(), song))
-	{
-		songs.push_back(song);
-		std::cout << song.get_name() << " added in the Playlist" << std::endl;
-	}
-	else
-		std::cout << song.get_name() << " already in the Playlist" << std::endl;
 }

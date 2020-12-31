@@ -2,13 +2,19 @@
 #include <time.h>
 #include <string>
 
-//Different from GUID and the way that is generated but with the same use
-//GUID Format - 8-4-4-4-12
+///Custom GUID generator
+/// 
+///GUID Format: 8-4-4-4-12 sequences of random lower case letters and digits
+/// ~~~~~~~~~~~~~~~~~~~~~~~~~.cpp
+/// std::string guid = new_guid();
+/// ### Example output
+/// guid = "0b3ec4de-91de-4a0c-8115-b85efdd403a0"
+/// ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-//Generates len random chars (small letters or numbers) as string
-static std::string part(int len) {
+///Generates len random chars (small letters or numbers) as string
+static std::string part(int _len) {
 	std::string temp;
-	for (int i = 0; i < len; i++)
+	for (int i = 0; i < _len; i++)
 	{
 		//0 - int 
 		//1 - char
@@ -25,7 +31,6 @@ static std::string part(int len) {
 	}
 	return temp;
 }
-
 static std::string new_guid() 
 {
 	srand((unsigned)time(NULL));

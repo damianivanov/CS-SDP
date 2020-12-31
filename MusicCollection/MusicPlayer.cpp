@@ -33,22 +33,21 @@ bool MusicPlayer::Register()
 	std::cin >> birthday;
 	std::cin.ignore(INT_MAX, '\n');
 	User new_user(username, password, fullname, birthday, new_guid());
-	bool success = db.add_user(new_user);
-	if (success)
+	if (db.add_user(new_user))
 	{
 		std::cout << "Successfully registered " << new_user.get_username() << std::endl;
 		return true;
 	}
-	else 
-	{
-		std::cout << "User " << user->get_username() << " already exists!" << std::endl;
-		return false;
-	}
-
+	std::cout << "User " << user->get_username() << " already exists!" << std::endl;
+	return false;
 }
 bool MusicPlayer::login()
 {
-
+	if (logged())
+	{
+		std::cout << "You have to loggout first" << std::endl;
+		return true;
+	}
 	std::cout << "--------Login--------" << std::endl;
 	std::string username;
 	std::cout << "Enter a username: ";
@@ -73,7 +72,7 @@ bool MusicPlayer::logout()
 	if (logged())
 	{
 		std::cout << "Successfully logged out from " << user->get_username() << std::endl;
-		user = nullptr;
+		user = new User();
 		return true;
 	}
 	std::cout << "There is no logged user!"<< std::endl;
@@ -124,12 +123,12 @@ bool MusicPlayer::add_favorite_genre()
 {
 	if (!logged())
 	{
-		std::cout << "To be able to add a genre, you have to be logged in. " << std::endl;
+		std::cout << "To be able to add a genre to favorites, you have to be logged in. " << std::endl;
 		return false;
 	}
 	std::cout << "--------Add a genre--------" << std::endl;
 	std::string genre;
-	std::cout << "Enter favorite genre: ";
+	std::cout << "Enter a new favorite genre: ";
 	std::cin >> genre;
 	std::cin.ignore(INT_MAX, '\n');
 	user->add_favorite_genre(genre);
@@ -144,7 +143,7 @@ bool MusicPlayer::remove_favorite_genre()
 	}
 	std::cout << "--------Remove a genre--------" << std::endl;
 	std::string genre;
-	std::cout << "Enter a genre to remove a genre from " << user->genres_print()<<": ";
+	std::cout << "Enter a genre to remove " << user->genres_print()<<": ";
 	std::cin >> genre;
 	std::cin.ignore(INT_MAX, '\n');
 	user->remove_favorite_genre(genre);
@@ -186,7 +185,7 @@ bool MusicPlayer::rate_song()
 			return false;
 		}
 		std::vector<Rating> ratings=db.get_ratings_by_song_id(song->get_id());
-		for (auto r:ratings)
+		for (Rating r:ratings)
 		{
 			new_rating += r.rating;
 		}
@@ -210,6 +209,7 @@ bool MusicPlayer::change_fullname()
 		std::cout << "To be change your full name, you have to be logged in. " << std::endl;
 		return false;
 	}
+	std::cout << "--------Chaning Fullname--------" << std::endl;
 	std::string fullname;
 	std::cout << "Enter new fullname: ";
 	std::getline(std::cin, fullname);
@@ -224,6 +224,7 @@ bool MusicPlayer::change_password()
 		std::cout << "To be able to change your password, you have to be logged in. " << std::endl;
 		return false;
 	}
+	std::cout << "--------Chaning Password--------" << std::endl;
 	std::string password;
 	std::cout << "Enter your OLD password: ";
 	std::cin >> password;
@@ -257,7 +258,7 @@ bool MusicPlayer::change_birthday()
 		std::cout << "To be able to change your birthday, you have to be logged in. " << std::endl;
 		return false;
 	}
-	
+	std::cout << "--------Chaning Birthday--------" << std::endl;
 	std::string birthday;
 	std::cout << "Enter your new birtday (ONLY IN DD/MM/YYYY FORMAT): ";
 	//maybe valdiation method
@@ -274,6 +275,7 @@ bool MusicPlayer::change_username()
 		std::cout << "To be able to change your username, you have to be logged in. " << std::endl;
 		return false;
 	}
+	std::cout << "--------Chaning Username--------" << std::endl;
 	std::string username;
 	std::cout << "Enter a new username: ";
 	std::cin >> username;
@@ -346,7 +348,6 @@ std::vector<Song> MusicPlayer::songs_by_release_year(const std::string keyword)
 	return songs;
 }
 
-//Working with playlists
 bool MusicPlayer::generating_playlist()
 {
 	if (!logged())
@@ -365,14 +366,12 @@ bool MusicPlayer::generating_playlist()
 	std::cout << "	-Songs AFTER release year ---> after" << std::endl;
 	std::cout << "	-Songs BEFORE release year ---> before" << std::endl;
 	std::cout << "	-All songs ---> all" << std::endl;
-																										
+
 	std::string line;
 	std::getline(std::cin, line);
 	std::vector<Song> songs;
 	if (line == "all")
-	{
 		songs = db.get_all_songs();
-	}
 	else
 	{
 		size_t songs_count;
@@ -394,15 +393,13 @@ bool MusicPlayer::load_playlist()
 		std::cout << "To be able to load a playlist, you have to be logged in. " << std::endl;
 		return false;
 	}
-	
 	std::cout << "--------Loading a playlist--------" << std::endl;
 	std::string name;
 	std::cout << "Enter playlist name: ";
 	std::getline(std::cin, name);
 	playlist = db.get_playlist_by_name_and_user_id(name,user->get_id());
-	if (playlist)
+	if (!playlist->get_name().empty())
 	{
-
 		std::cout << "Successfully loaded playlist called " << name << " with " << playlist->get_songs().size()<<" songs:"<< std::endl;
 		playlist->print_all_songs();
 		return true;
@@ -417,10 +414,16 @@ bool MusicPlayer::save_playlist()
 		std::cout << "To save the playlist, you have to be logged in. " << std::endl;
 		return false;
 	}
+	std::cout << "--------Saving Playlist--------" << std::endl;
 	std::string name;
 	std::cout << "Enter playlist's name: ";
 	std::getline(std::cin, name);
 	this->playlist->set_name(name);
+	if (playlist->get_songs().empty())
+	{
+		std::cout << "Can't save empty playlist" << std::endl;
+		return false;
+	}
 	if (db.add_playlist(*playlist))
 	{
 		std::cout << "Successfully added playlist: " << playlist->get_name() << " with " << playlist->get_songs().size() <<" songs!"<< std::endl;
@@ -441,6 +444,15 @@ void MusicPlayer::my_playlists()
 	for (std::string name:playlists)
 		std::cout <<" - " << name << std::endl;
 }
+void MusicPlayer::user_info()
+{
+	if (!logged())
+	{
+		std::cout << "To see users info, you have to be logged in. " << std::endl;
+		return;
+	}
+	user->print_user();
+}
 bool MusicPlayer::print_playlist()
 {
 	if (!logged())
@@ -448,7 +460,7 @@ bool MusicPlayer::print_playlist()
 		std::cout << "To print a playlist, you have to be logged in. " << std::endl;
 		return false;
 	}
-	if (playlist)
+	if (playlist->get_name().empty())
 	{
 		playlist->print_all_songs();
 		return true;
@@ -567,8 +579,9 @@ bool MusicPlayer::get_next_token(std::stringstream& _s,std::string& _str)
 	}
 	return _str!="";
 }
-void MusicPlayer::fill(std::vector<Song> &_songs, size_t _final_size)
+void MusicPlayer::fill(std::vector<Song> &_songs, const size_t _final_size)
 {
+	// if _song is with more songs then the _final_size, we take the first _final_size songs
 	auto end = std::next(_songs.begin(), std::min(_final_size, _songs.size()));
 	std::vector<Song> songs(_songs.begin(), end);
 
@@ -577,6 +590,10 @@ void MusicPlayer::fill(std::vector<Song> &_songs, size_t _final_size)
 		size_t songs_to_fill = _final_size - songs.size();
 		std::vector<Song> fillers = db.get_n_ordered_songs(songs_to_fill + _songs.size()); // the worst case scenario the songs after the query are sorted
 		_songs = merge_or(_songs, fillers);
+		if (_songs.size()>_final_size)
+		{
+			_songs.erase(_songs.end() - (_songs.size() - _final_size), _songs.end());
+		}
 	}
 	else
 		_songs = songs;
