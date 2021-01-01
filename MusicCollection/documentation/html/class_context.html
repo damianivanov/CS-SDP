@@ -161,6 +161,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:aab2f10a0a6e48c243d8b935d6290fa76"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_context.html#aab2f10a0a6e48c243d8b935d6290fa76">formating_spaces</a> = 4</td></tr>
+<tr class="memdesc:aab2f10a0a6e48c243d8b935d6290fa76"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of spaces in the beggining of every line in the .json files  <a href="class_context.html#aab2f10a0a6e48c243d8b935d6290fa76">More...</a><br /></td></tr>
 <tr class="separator:aab2f10a0a6e48c243d8b935d6290fa76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7012ead4fea59c5fe29dfd74b081d6fd"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_context.html#a7012ead4fea59c5fe29dfd74b081d6fd">users_address</a> = &quot;Users.json&quot;</td></tr>
 <tr class="separator:a7012ead4fea59c5fe29dfd74b081d6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,7 +210,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p><a class="el" href="class_context.html#ad6547e7a4eb88c3d6f7cd43d4a9eb8bb">Serialization()</a> method is called when <a class="el" href="class_context.html">Context</a> is created with <a class="el" href="class_context.html#ad6547e7a4eb88c3d6f7cd43d4a9eb8bb">Serialization()</a> - songs,playlists,ratings,users are loaded and converted to ready to use vectors from json files </p>
+<p><a class="el" href="class_context.html#a1999ac108c83c689d709df9289fedbe0">Deserialization()</a> method is called when <a class="el" href="class_context.html">Context</a> is created with <a class="el" href="class_context.html#a1999ac108c83c689d709df9289fedbe0">Deserialization()</a> - songs,playlists,ratings,users are loaded and converted to ready to use vectors from json files </p>
 
 </div>
 </div>
@@ -235,7 +236,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p><a class="el" href="class_context.html#a1999ac108c83c689d709df9289fedbe0">Deserialization()</a> method is called when <a class="el" href="class_context.html">Context</a> is destructed with <a class="el" href="class_context.html#a1999ac108c83c689d709df9289fedbe0">Deserialization()</a> - songs,playlists,ratings,users are saved to json files </p>
+<p><a class="el" href="class_context.html#ad6547e7a4eb88c3d6f7cd43d4a9eb8bb">Serialization()</a> method is called when <a class="el" href="class_context.html">Context</a> is destructed with <a class="el" href="class_context.html#ad6547e7a4eb88c3d6f7cd43d4a9eb8bb">Serialization()</a> - songs,playlists,ratings,users are saved to json files </p>
 
 </div>
 </div>
@@ -386,7 +387,7 @@ Private Attributes</h2></td></tr>
 <li>to_json() - tells the json library how to convert object of specific type to json then the conversation is as easy as: <div class="fragment"><div class="line">std::ofstream out(<span class="stringliteral">&quot;Filename.json&quot;</span>);</div>
 <div class="line">json json = std::vector&lt;Type&gt;();</div>
 <div class="line">out &lt;&lt; json.dump(<a class="code" href="class_context.html#aab2f10a0a6e48c243d8b935d6290fa76">formating_spaces</a>); - formated json file of objects</div>
-<div class="ttc" id="aclass_context_html_aab2f10a0a6e48c243d8b935d6290fa76"><div class="ttname"><a href="class_context.html#aab2f10a0a6e48c243d8b935d6290fa76">Context::formating_spaces</a></div><div class="ttdeci">const unsigned int formating_spaces</div><div class="ttdef"><b>Definition:</b> DatabaseContext.h:168</div></div>
+<div class="ttc" id="aclass_context_html_aab2f10a0a6e48c243d8b935d6290fa76"><div class="ttname"><a href="class_context.html#aab2f10a0a6e48c243d8b935d6290fa76">Context::formating_spaces</a></div><div class="ttdeci">const unsigned int formating_spaces</div><div class="ttdoc">number of spaces in the beggining of every line in the .json files</div><div class="ttdef"><b>Definition:</b> DatabaseContext.h:169</div></div>
 </div><!-- fragment --> </li>
 </ul>
 
@@ -909,6 +910,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>number of spaces in the beggining of every line in the .json files </p>
 
 </div>
 </div>

@@ -11,13 +11,13 @@ class Context
 {
 public:
 
-	/// Serialization() method is called when Context is created
-	/// with Serialization() - songs,playlists,ratings,users are loaded and converted to ready to use vectors from json files
-	Context() {Serialization();}
+	/// Deserialization() method is called when Context is created
+	/// with Deserialization() - songs,playlists,ratings,users are loaded and converted to ready to use vectors from json files
+	Context() {Deserialization();}
 
-	/// Deserialization() method is called when Context is destructed
-	/// with Deserialization() - songs,playlists,ratings,users are saved to json files
-	~Context() {Deserialization();}
+	/// Serialization() method is called when Context is destructed
+	/// with Serialization() - songs,playlists,ratings,users are saved to json files
+	~Context() {Serialization();}
 
 	/// Get User with given username
 	/// 

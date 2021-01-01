@@ -1,6 +1,6 @@
 #include "MusicPlayer.h"
 
-MusicPlayer::MusicPlayer() :user(new User()),playlist(new Playlist()) {}
+MusicPlayer::MusicPlayer() :user(new User()), playlist(new Playlist()) {}
 MusicPlayer::~MusicPlayer() {}
 
 //Working with user
@@ -8,12 +8,18 @@ bool MusicPlayer::Register()
 {
 	std::cout << "--------Register--------" << std::endl;
 	std::string username;
-	do
+	std::cout << "Enter a username: ";
+	std::cin >> username;
+	std::cin.ignore(INT_MAX, '\n');
+
+	while (!db.available_username(username))
 	{
+		std::cout << username << " is already taken" << std::endl;
 		std::cout << "Enter a username: ";
+		username.clear();
 		std::cin >> username;
 		std::cin.ignore(INT_MAX, '\n');
-	} while (!db.available_username(username));
+	}
 
 	std::string password;
 	std::cout << "Enter a password: ";
@@ -75,7 +81,7 @@ bool MusicPlayer::logout()
 		user = new User();
 		return true;
 	}
-	std::cout << "There is no logged user!"<< std::endl;
+	std::cout << "There is no logged user!" << std::endl;
 	return false;
 }
 
@@ -143,7 +149,7 @@ bool MusicPlayer::remove_favorite_genre()
 	}
 	std::cout << "--------Remove a genre--------" << std::endl;
 	std::string genre;
-	std::cout << "Enter a genre to remove " << user->genres_print()<<": ";
+	std::cout << "Enter a genre to remove " << user->genres_print() << ": ";
 	std::cin >> genre;
 	std::cin.ignore(INT_MAX, '\n');
 	user->remove_favorite_genre(genre);
@@ -169,14 +175,14 @@ bool MusicPlayer::rate_song()
 	std::cout << "Enter the rating: ";
 	std::cin >> rating;
 	std::cin.ignore(INT_MAX, '\n');
-	if (rating>6.00 || rating < 2.00)
+	if (rating > 6.00 || rating < 2.00)
 	{
 		std::cout << "Invalid rating, the value should be between 2.00 and 6.00" << std::endl;
 		return false;
 	}
 	Song* song = db.get_song_by_name_and_artist(song_name, artist);
 
-	if (song!=nullptr)
+	if (song != nullptr)
 	{
 		float new_rating = 0.0;
 		if (db.rated_song(user->get_id(), song->get_id()))
@@ -184,8 +190,8 @@ bool MusicPlayer::rate_song()
 			std::cout << "Already voted for " << song_name << " by " << artist << std::endl;
 			return false;
 		}
-		std::vector<Rating> ratings=db.get_ratings_by_song_id(song->get_id());
-		for (Rating r:ratings)
+		std::vector<Rating> ratings = db.get_ratings_by_song_id(song->get_id());
+		for (Rating r : ratings)
 		{
 			new_rating += r.rating;
 		}
@@ -194,7 +200,7 @@ bool MusicPlayer::rate_song()
 
 		song->set_rating(new_rating);
 		db.add_rating(user->get_id(), song->get_id(), rating);
-		std::cout << "You rated with "<<rating<<" "<< song->get_name() << " by " << song->get_artist() << std::endl;
+		std::cout << "You rated with " << rating << " " << song->get_name() << " by " << song->get_artist() << std::endl;
 		return true;
 	}
 	std::cout << "There is no song called " << song_name << " by " << artist << std::endl;
@@ -234,19 +240,33 @@ bool MusicPlayer::change_password()
 		.finalize()
 		.toString();
 
-	if (password==user->get_password())
+	if (password == user->get_password())
 	{
-		std::string new_password;
+		std::string new_password, confirm_password;
 		std::cout << "Enter your new password: ";
 		std::cin >> new_password;
 		std::cin.ignore(INT_MAX, '\n');
-		new_password = Chocobo1::SHA3_512()
-			.addData(new_password.c_str(), new_password.length())
-			.finalize()
-			.toString();
-		user->set_password(new_password);
-		std::cout << "Successfully changed your password. " << std::endl;
-		return true;
+
+		std::cout << "Confrim your new password: ";
+		std::cin >> confirm_password;
+		std::cin.ignore(INT_MAX, '\n');
+		if (confirm_password == new_password)
+		{
+			new_password = Chocobo1::SHA3_512()
+				.addData(new_password.c_str(), new_password.length())
+				.finalize()
+				.toString();
+
+			user->set_password(new_password);
+			std::cout << "Successfully changed your password. " << std::endl;
+			return true;
+		}
+		else
+		{
+			std::cout << "Failed to confirm the new password." << std::endl;
+			return false;
+		}
+
 	}
 	std::cout << "Wrong password." << std::endl;
 	return false;;
@@ -321,7 +341,7 @@ std::vector<Song> MusicPlayer::songs_without_genres()
 	//if there are no favorite genres
 
 	std::vector<std::string> genres;
-	std::string line, tmp;	
+	std::string line, tmp;
 	std::cout << "One or more genres (seperated only with commas): ";
 	std::getline(std::cin, line);
 	std::stringstream s(line);
@@ -332,7 +352,7 @@ std::vector<Song> MusicPlayer::songs_without_genres()
 }
 std::vector<Song> MusicPlayer::songs_by_release_year(const std::string keyword)
 {
-	int year=0;
+	int year = 0;
 	std::cout << "Choose a year: ";
 	std::cin >> year;
 	std::cin.ignore(INT_MAX, '\n');
@@ -340,7 +360,7 @@ std::vector<Song> MusicPlayer::songs_by_release_year(const std::string keyword)
 	std::vector<Song> songs;
 	if (keyword == "from")
 		songs = db.get_songs_from_year(year);
-	else if(keyword == "before")
+	else if (keyword == "before")
 		songs = db.get_songs_before_year(year);
 	else if (keyword == "after")
 		songs = db.get_songs_after_year(year);
@@ -348,44 +368,6 @@ std::vector<Song> MusicPlayer::songs_by_release_year(const std::string keyword)
 	return songs;
 }
 
-bool MusicPlayer::generating_playlist()
-{
-	if (!logged())
-	{
-		std::cout << "To be able to generate playlist, you have to be logged in. " << std::endl;
-		return false;
-	}
-	std::cout << "--------Generating a playlist--------" << std::endl;
-
-	std::cout << "Enter multiple criterias ordered by priority and combined with operators AND , OR: " << std::endl;
-	std::cout << "	-Songs with rating ABOVE the given rating ---> above" << std::endl;
-	std::cout << "	-Songs WITH certain genres ---> with" << std::endl;
-	std::cout << "	-Songs WITHOUT certain genres ---> without" << std::endl;
-	std::cout << "	-Songs within the FAVORITE genres ---> favorite" << std::endl;
-	std::cout << "	-Songs FROM release year ---> from" << std::endl;
-	std::cout << "	-Songs AFTER release year ---> after" << std::endl;
-	std::cout << "	-Songs BEFORE release year ---> before" << std::endl;
-	std::cout << "	-All songs ---> all" << std::endl;
-
-	std::string line;
-	std::getline(std::cin, line);
-	std::vector<Song> songs;
-	if (line == "all")
-		songs = db.get_all_songs();
-	else
-	{
-		size_t songs_count;
-		std::cout << "Enter a song count: ";
-		std::cin >> songs_count;
-		std::cin.ignore(INT_MAX, '\n');
-		songs = evaluate(line);
-		fill(songs, songs_count);
-	}
-	playlist->set_songs(songs);
-	playlist->set_creator(user->get_id());
-	std::cout << "Successfully generated playlist with " << playlist->get_songs().size() << " songs!" << std::endl;
-	return true;
-}
 bool MusicPlayer::load_playlist()
 {
 	if (!logged())
@@ -397,10 +379,10 @@ bool MusicPlayer::load_playlist()
 	std::string name;
 	std::cout << "Enter playlist name: ";
 	std::getline(std::cin, name);
-	playlist = db.get_playlist_by_name_and_user_id(name,user->get_id());
+	playlist = db.get_playlist_by_name_and_user_id(name, user->get_id());
 	if (!playlist->get_name().empty())
 	{
-		std::cout << "Successfully loaded playlist called " << name << " with " << playlist->get_songs().size()<<" songs:"<< std::endl;
+		std::cout << "Successfully loaded playlist called " << name << " with " << playlist->get_songs().size() << " songs:" << std::endl;
 		playlist->print_all_songs();
 		return true;
 	}
@@ -426,13 +408,54 @@ bool MusicPlayer::save_playlist()
 	}
 	if (db.add_playlist(*playlist))
 	{
-		std::cout << "Successfully added playlist: " << playlist->get_name() << " with " << playlist->get_songs().size() <<" songs!"<< std::endl;
+		std::cout << "Successfully added playlist: " << playlist->get_name() << " with " << playlist->get_songs().size() << " songs!" << std::endl;
 		return true;
 	}
 	std::cout << "Playlist " << playlist->get_name() << " already exists!" << std::endl;
 	return true;
 }
-void MusicPlayer::my_playlists() 
+
+bool MusicPlayer::generating_playlist()
+{
+	if (!logged())
+	{
+		std::cout << "To be able to generate playlist, you have to be logged in. " << std::endl;
+		return false;
+	}
+	std::cout << "--------Generating a playlist--------" << std::endl;
+
+	std::cout << "Enter multiple criterias ordered by priority and combined with operators AND , OR: " << std::endl;
+	std::cout << "	-Songs with rating ABOVE the given rating ---> above" << std::endl;
+	std::cout << "	-Songs WITH certain genres ---> with" << std::endl;
+	std::cout << "	-Songs WITHOUT certain genres ---> without" << std::endl;
+	std::cout << "	-Songs within the FAVORITE genres ---> favorite" << std::endl;
+	std::cout << "	-Songs FROM release year ---> from" << std::endl;
+	std::cout << "	-Songs AFTER release year ---> after" << std::endl;
+	std::cout << "	-Songs BEFORE release year ---> before" << std::endl;
+	std::cout << "	-All songs ---> all" << std::endl;
+
+	std::string line;
+	std::cout << "> ";
+	std::getline(std::cin, line);
+	std::vector<Song> songs;
+	if (line == "all")
+		songs = db.get_n_ordered_songs(db.get_all_songs().size());
+	else
+	{
+		size_t songs_count;
+		std::cout << "Enter a song count: ";
+		std::cin >> songs_count;
+		std::cin.ignore(INT_MAX, '\n');
+		songs = evaluate(line);
+		fill(songs, songs_count);
+	}
+	playlist->set_songs(songs);
+	playlist->set_creator(user->get_id());
+	std::cout << "Successfully generated playlist with " << playlist->get_songs().size() << " songs!" << std::endl;
+	return true;
+}
+
+void MusicPlayer::my_playlists()
 {
 	if (!logged())
 	{
@@ -440,9 +463,9 @@ void MusicPlayer::my_playlists()
 		return;
 	}
 	std::vector<std::string> playlists = db.get_all_playlists_by_cretor_id(user->get_id());
-	std::cout << "All playlists by: "<<user->get_username() << std::endl;
-	for (std::string name:playlists)
-		std::cout <<" - " << name << std::endl;
+	std::cout << "All playlists by: " << user->get_username() << std::endl;
+	for (std::string name : playlists)
+		std::cout << " - " << name << std::endl;
 }
 void MusicPlayer::user_info()
 {
@@ -469,19 +492,19 @@ bool MusicPlayer::print_playlist()
 	return false;
 }
 
-std::vector<Song> MusicPlayer::filter(std::string _option) 
+std::vector<Song> MusicPlayer::filter(std::string _option)
 {
 	transform(_option.begin(), _option.end(), _option.begin(), ::tolower);
 
 	if (_option == "above")
 		return songs_above_rating();
 	else if (_option == "with")
-		return songs_with_genres();	
-	else if(_option == "without")
+		return songs_with_genres();
+	else if (_option == "without")
 		return songs_without_genres();
-	else if(_option == "favorite")
+	else if (_option == "favorite")
 		return songs_with_genres(user->get_favorite_genres());
-	else if(_option == "from" || _option == "after" || _option == "before")
+	else if (_option == "from" || _option == "after" || _option == "before")
 		return songs_by_release_year(_option);
 	else
 	{
@@ -491,15 +514,15 @@ std::vector<Song> MusicPlayer::filter(std::string _option)
 }
 std::vector<Song> MusicPlayer::evaluate(const std::string _expression)
 {
-	std::string token,tmp;
+	std::string token, tmp;
 	std::stringstream s(_expression);
 	std::vector<Song> songs;
-	while (get_next_token(s,tmp))
+	while (get_next_token(s, tmp))
 	{
 		// above AND (favorite OR after) AND before
 		if (tmp == "AND")
 		{
-			get_next_token(s,tmp);
+			get_next_token(s, tmp);
 			if (std::count(tmp.begin(), tmp.end(), ' ') != 0) // => expression
 			{
 				if (songs.empty())
@@ -528,9 +551,9 @@ std::vector<Song> MusicPlayer::evaluate(const std::string _expression)
 				songs = merge_or(filter(token), filter(tmp));
 		}
 		else
-			token=tmp;
+			token = tmp;
 	}
-	if (songs.empty()&&!token.empty())
+	if (songs.empty() && !token.empty())
 	{
 		songs = filter(token);
 	}
@@ -542,9 +565,9 @@ std::vector<Song> MusicPlayer::merge_or(const std::vector<Song> _l, const std::v
 	std::vector<Song> s(_l);
 	std::copy_if(_r.begin(), _r.end(), std::back_inserter(s), [&](const Song _song)
 		{
-			return std::find_if(_l.begin(), _l.end(), [&](const Song s) 
+			return std::find_if(_l.begin(), _l.end(), [&](const Song s)
 				{
-					return s.get_id() == _song.get_id(); 
+					return s.get_id() == _song.get_id();
 				}) == _l.end();
 		});
 	return s;
@@ -559,27 +582,27 @@ std::vector<Song> MusicPlayer::merge_and(const std::vector<Song> _l, const std::
 	return s;
 }
 
-bool MusicPlayer::get_next_token(std::stringstream& _s,std::string& _str)
+bool MusicPlayer::get_next_token(std::stringstream& _s, std::string& _str)
 {
 	_str = "";
 	std::getline(_s, _str, ' ');
 	if (_str[0] == '(')
 	{
 		std::string curr_expression = _str.substr(1, _str.size() - 1);
-		while (std::getline(_s, _str,' '))
+		while (std::getline(_s, _str, ' '))
 		{
 			if (_str[_str.size() - 1] == ')')
 				curr_expression += ' ' + _str.substr(0, _str.size() - 1);
 			else
-				curr_expression +=  ' ' + _str;
+				curr_expression += ' ' + _str;
 		}
 		_str = curr_expression;
 		return true;
 
 	}
-	return _str!="";
+	return _str != "";
 }
-void MusicPlayer::fill(std::vector<Song> &_songs, const size_t _final_size)
+void MusicPlayer::fill(std::vector<Song>& _songs, const size_t _final_size)
 {
 	// if _song is with more songs then the _final_size, we take the first _final_size songs
 	auto end = std::next(_songs.begin(), std::min(_final_size, _songs.size()));
@@ -590,7 +613,7 @@ void MusicPlayer::fill(std::vector<Song> &_songs, const size_t _final_size)
 		size_t songs_to_fill = _final_size - songs.size();
 		std::vector<Song> fillers = db.get_n_ordered_songs(songs_to_fill + _songs.size()); // the worst case scenario the songs after the query are sorted
 		_songs = merge_or(_songs, fillers);
-		if (_songs.size()>_final_size)
+		if (_songs.size() > _final_size)
 		{
 			_songs.erase(_songs.end() - (_songs.size() - _final_size), _songs.end());
 		}

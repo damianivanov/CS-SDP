@@ -36,6 +36,15 @@
         "release year": 2020
     },
     {
+        "album": "",
+        "artist": "Elvis Presley",
+        "genre": "pop",
+        "id": "r1g073n2-p567-0cha-0l34-6775tn4w03av",
+        "name": "Can't Help Falling In Love",
+        "rating": 0.0,
+        "release year": 1961
+    },
+    {
         "album": "Hollywood's Bleeding",
         "artist": "Post Malone",
         "genre": "pop",
@@ -52,6 +61,15 @@
         "name": "Faith",
         "rating": 0.0,
         "release year": 2020
+    },
+    {
+        "album": "Nothing But The Best",
+        "artist": "Frank Sinatra",
+        "genre": "jazz",
+        "id": "jj12045n-h8fr-r423-240h-o3awpii07u17",
+        "name": "Fly Me To The Moon",
+        "rating": 0.0,
+        "release year": 2008
     },
     {
         "album": "After Hours",
@@ -72,12 +90,30 @@
         "release year": 2019
     },
     {
+        "album": "Nothing But The Best",
+        "artist": "Frank Sinatra",
+        "genre": "jazz",
+        "id": "548yq781-5jm5-44k4-42v5-1j8c05sdib74",
+        "name": "Luck Be a Lady",
+        "rating": 0.0,
+        "release year": 2008
+    },
+    {
+        "album": "Nothing But The Best",
+        "artist": "Frank Sinatra",
+        "genre": "jazz",
+        "id": "1m82c7o6-hgso-rom5-f636-l173jnni571h",
+        "name": "New York",
+        "rating": 0.0,
+        "release year": 2008
+    },
+    {
         "album": "Hollywood's Bleeding",
         "artist": "Post Malone",
         "genre": "pop",
         "id": "6cek2u62-3455-y2tu-6v1b-8w7c6e8x4qqn",
         "name": "Saint-Tropez",
-        "rating": 0.0,
+        "rating": 4.980000019073486,
         "release year": 2019
     },
     {
@@ -106,6 +142,24 @@
         "name": "Snowchild",
         "rating": 0.0,
         "release year": 2020
+    },
+    {
+        "album": "Nothing But The Best",
+        "artist": "Frank Sinatra",
+        "genre": "jazz",
+        "id": "00wmethq-rw20-657o-05pd-i2v7l617lr4a",
+        "name": "That's Life",
+        "rating": 0.0,
+        "release year": 2008
+    },
+    {
+        "album": "Nothing But The Best",
+        "artist": "Frank Sinatra",
+        "genre": "jazz",
+        "id": "j164p860-ab8i-4ael-z08w-8bhmcpg17676",
+        "name": "The Way You Look Tonight",
+        "rating": 0.0,
+        "release year": 2008
     },
     {
         "album": "After Hours",

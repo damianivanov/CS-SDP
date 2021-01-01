@@ -63,7 +63,7 @@ void \mbox{\hyperlink{class_context_a1999ac108c83c689d709df9289fedbe0}{Deseriali
 \begin{DoxyCompactItemize}
 \item 
 const unsigned int \mbox{\hyperlink{class_context_aab2f10a0a6e48c243d8b935d6290fa76}{formating\+\_\+spaces}} = 4
-\item 
+\begin{DoxyCompactList}\small\item\em number of spaces in the beggining of every line in the .json files \end{DoxyCompactList}\item 
 const std\+::string \mbox{\hyperlink{class_context_a7012ead4fea59c5fe29dfd74b081d6fd}{users\+\_\+address}} = \char`\"{}Users.\+json\char`\"{}
 \item 
 const std\+::string \mbox{\hyperlink{class_context_a67efb70d6ddbbcee0916beb5676fdea5}{playlists\+\_\+address}} = \char`\"{}Songs.\+json\char`\"{}
@@ -91,13 +91,13 @@ std\+::vector$<$ \mbox{\hyperlink{struct_rating}{Rating}} $>$ \mbox{\hyperlink{c
 \doxysubsubsection{\texorpdfstring{Context()}{Context()}}
 {\footnotesize\ttfamily Context\+::\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\hyperlink{class_context_ad6547e7a4eb88c3d6f7cd43d4a9eb8bb}{Serialization()}} method is called when \mbox{\hyperlink{class_context}{Context}} is created with \mbox{\hyperlink{class_context_ad6547e7a4eb88c3d6f7cd43d4a9eb8bb}{Serialization()}} -\/ songs,playlists,ratings,users are loaded and converted to ready to use vectors from json files \mbox{\Hypertarget{class_context_a2d34e4556448e40693f61d15e091b604}\label{class_context_a2d34e4556448e40693f61d15e091b604}} 
+\mbox{\hyperlink{class_context_a1999ac108c83c689d709df9289fedbe0}{Deserialization()}} method is called when \mbox{\hyperlink{class_context}{Context}} is created with \mbox{\hyperlink{class_context_a1999ac108c83c689d709df9289fedbe0}{Deserialization()}} -\/ songs,playlists,ratings,users are loaded and converted to ready to use vectors from json files \mbox{\Hypertarget{class_context_a2d34e4556448e40693f61d15e091b604}\label{class_context_a2d34e4556448e40693f61d15e091b604}} 
 \index{Context@{Context}!````~Context@{$\sim$Context}}
 \index{````~Context@{$\sim$Context}!Context@{Context}}
 \doxysubsubsection{\texorpdfstring{$\sim$Context()}{~Context()}}
 {\footnotesize\ttfamily Context\+::$\sim$\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\hyperlink{class_context_a1999ac108c83c689d709df9289fedbe0}{Deserialization()}} method is called when \mbox{\hyperlink{class_context}{Context}} is destructed with \mbox{\hyperlink{class_context_a1999ac108c83c689d709df9289fedbe0}{Deserialization()}} -\/ songs,playlists,ratings,users are saved to json files 
+\mbox{\hyperlink{class_context_ad6547e7a4eb88c3d6f7cd43d4a9eb8bb}{Serialization()}} method is called when \mbox{\hyperlink{class_context}{Context}} is destructed with \mbox{\hyperlink{class_context_ad6547e7a4eb88c3d6f7cd43d4a9eb8bb}{Serialization()}} -\/ songs,playlists,ratings,users are saved to json files 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_context_a8401c84e112fd5e11db2ad1528d66af5}\label{class_context_a8401c84e112fd5e11db2ad1528d66af5}} 
@@ -443,6 +443,10 @@ True if there is song with this information, False if there is not
 \index{formating\_spaces@{formating\_spaces}!Context@{Context}}
 \doxysubsubsection{\texorpdfstring{formating\_spaces}{formating\_spaces}}
 {\footnotesize\ttfamily const unsigned int Context\+::formating\+\_\+spaces = 4\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+number of spaces in the beggining of every line in the .json files 
 
 \mbox{\Hypertarget{class_context_a6966cb238bae109f891f21ee73adf90c}\label{class_context_a6966cb238bae109f891f21ee73adf90c}} 
 \index{Context@{Context}!json@{json}}

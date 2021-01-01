@@ -79,7 +79,7 @@ public:
 	/// Takes user input for the size of the playlsit and the criterias, and passes it to evaluate(const std::string _expression)
 	/// then calls fill(std::vector<Song> &_songs, const size_t _final_size)
 	/// and assigns it to playlist with creators id and songs
-	/// <returns>False only if there is no logged User, otherwise True</returns>
+	/// <returns>False only if there is no logged User, otherwise True </returns>
 	bool generating_playlist();
 
 	/// Saves a playlist to the database
