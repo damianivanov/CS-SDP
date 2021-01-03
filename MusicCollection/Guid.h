@@ -10,7 +10,6 @@
 /// ### Example output
 /// guid = "0b3ec4de-91de-4a0c-8115-b85efdd403a0"
 /// ~~~~~~~~~~~~~~~~~~~~~~~~~
-
 ///Generates len random chars (small letters or numbers) as string
 static std::string part(int _len) {
 	std::string temp;

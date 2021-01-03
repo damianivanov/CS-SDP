@@ -12,6 +12,7 @@ void Repl::run()
 		std::string input;
 		std::cout << "> ";
 		std::getline(std::cin, input);
+		clear_whitespaces(input);
 
 		if (input == "help")
 			help();

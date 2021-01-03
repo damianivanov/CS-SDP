@@ -155,6 +155,7 @@
     <ClInclude Include="Rating.h" />
     <ClInclude Include="Repl.h" />
     <ClInclude Include="Song.h" />
+    <ClInclude Include="StringHelpers.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>

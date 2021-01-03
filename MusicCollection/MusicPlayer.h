@@ -1,8 +1,7 @@
 #pragma once
-#include <sstream>
 #include <limits>
 #include "DatabaseContext.h"
-
+#include "StringHelpers.h"
 class MusicPlayer
 {
 public:
@@ -168,19 +167,12 @@ private:
 	/// <returns>vector of Song</returns>
 	std::vector<Song> merge_and(const std::vector<Song> _l, const std::vector<Song> _r);
 
-	/// Gets the next token 
-	/// 
-	/// Gets the next token from stringstream _s and saves it in _str
-	/// <param name="_s">stringstream by reference</param>
-	/// <param name="_str">string by reference</param>
-	/// <returns>True if there is next token, False if there is not</returns>
-	bool get_next_token(std::stringstream& _s, std::string& _str);
-
 	/// Fills vector of Song with Songs from the database
 	/// 
 	/// Calculates how many songs it needs to fill to _final_size
 	/// <param name="_songs">current vector of Song by reference</param>
 	/// <param name="_final_size">desired final size of the vector of Song</param>
 	void fill(std::vector<Song> &_songs, const size_t _final_size);
+
 };
 	
