@@ -514,7 +514,10 @@ std::vector<Song> MusicPlayer::evaluate(const std::string _expression)
 	//single criteria: "after","favorite" etc. //edit it can be expression ()
 	if (songs.empty() && !left_token.empty())
 	{
-		songs = evaluate(left_token);
+		if (is_expression(left_token))
+			songs = evaluate(left_token);
+		else
+			songs = filter(left_token);
 	}
 	return songs;
 }
