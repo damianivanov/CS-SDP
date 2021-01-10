@@ -13,20 +13,20 @@
 \item 
 bool \mbox{\hyperlink{class_music_player_ac81f8601e9bacacacc9351f3fa390524}{logged}} ()
 \item 
-bool \mbox{\hyperlink{class_music_player_ac4b8dc9bd66aa41a0d155ea737b82b3c}{Register}} ()
+void \mbox{\hyperlink{class_music_player_a0ba79f55e7a990fbdacc49eb23c503cf}{Register}} ()
 \item 
 bool \mbox{\hyperlink{class_music_player_a8b117d34086de00a7cd0643d2f0d1cfe}{login}} ()
 \item 
-bool \mbox{\hyperlink{class_music_player_ab878b914a304a2fdcb8833ae5e87ad48}{logout}} ()
-\item 
+void \mbox{\hyperlink{class_music_player_af03501119404983504cea010624905be}{logout}} ()
+\begin{DoxyCompactList}\small\item\em The bussines logic behind the logout. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_music_player_a815ab622e884d9ba6e6a5fdf3bbbdbe8}{change\+\_\+username}} ()
 \item 
 bool \mbox{\hyperlink{class_music_player_a0b285aed7845099ac6f72851b0b6b986}{change\+\_\+password}} ()
 \item 
-bool \mbox{\hyperlink{class_music_player_a6e6e02c116451c8447a3e0ffca5622a5}{change\+\_\+birthday}} ()
-\item 
-bool \mbox{\hyperlink{class_music_player_aaf78c6e05f728a0c63d110b2f7b1e394}{change\+\_\+fullname}} ()
-\item 
+void \mbox{\hyperlink{class_music_player_aa9b1b0c5624eedcf5f7ce1c335fb8a00}{change\+\_\+birthday}} ()
+\begin{DoxyCompactList}\small\item\em The logic behind changing birthday. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_player_a62a45890377acf0b8fc587602b87ebd0}{change\+\_\+fullname}} ()
+\begin{DoxyCompactList}\small\item\em The logic behind changing fullname. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_music_player_a71bce6631866522465f29a81b017c87a}{add\+\_\+favorite\+\_\+genre}} ()
 \item 
 bool \mbox{\hyperlink{class_music_player_ac8607d3319613f4f32cd2d676b258db2}{remove\+\_\+favorite\+\_\+genre}} ()
@@ -62,13 +62,9 @@ std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_
 \item 
 std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_music_player_a3b91d0ab60163cc7289ea53df6a5c5ac}{evaluate}} (const std\+::string \+\_\+expression)
 \item 
-std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_music_player_ab4ecb5b72fd0cb24f3a6d590941b804f}{merge\+\_\+or}} (const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \+\_\+l, const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \+\_\+r)
-\item 
-std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \mbox{\hyperlink{class_music_player_a6ab6959886b1052ba7ac7712e66be207}{merge\+\_\+and}} (const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \+\_\+l, const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \+\_\+r)
-\item 
-bool \mbox{\hyperlink{class_music_player_a231abd79481922cccb7910f69f597dc1}{get\+\_\+next\+\_\+token}} (std\+::stringstream \&\+\_\+s, std\+::string \&\+\_\+str)
-\item 
 void \mbox{\hyperlink{class_music_player_a7e75df53fd01d8152f5b53af6f56e7e8}{fill}} (std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \&\+\_\+songs, const size\+\_\+t \+\_\+final\+\_\+size)
+\item 
+bool \mbox{\hyperlink{class_music_player_a48d327aaa1a5953bd3104533d6170aa9}{vote\+\_\+song}} (\mbox{\hyperlink{class_song}{Song}} $\ast$\+\_\+song, float \+\_\+rating)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -108,28 +104,26 @@ The logic for adding favorite genre
 \begin{DoxyReturn}{Returns}
 True if it was successful and False if there is no logged \mbox{\hyperlink{class_user}{User}}
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_music_player_a6e6e02c116451c8447a3e0ffca5622a5}\label{class_music_player_a6e6e02c116451c8447a3e0ffca5622a5}} 
+\mbox{\Hypertarget{class_music_player_aa9b1b0c5624eedcf5f7ce1c335fb8a00}\label{class_music_player_aa9b1b0c5624eedcf5f7ce1c335fb8a00}} 
 \index{MusicPlayer@{MusicPlayer}!change\_birthday@{change\_birthday}}
 \index{change\_birthday@{change\_birthday}!MusicPlayer@{MusicPlayer}}
 \doxysubsubsection{\texorpdfstring{change\_birthday()}{change\_birthday()}}
-{\footnotesize\ttfamily bool Music\+Player\+::change\+\_\+birthday (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Music\+Player\+::change\+\_\+birthday (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-The logic behind changing birthday
 
-\begin{DoxyReturn}{Returns}
-True if the change is successful and False if its not or there is no logged \mbox{\hyperlink{class_user}{User}} 
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_music_player_aaf78c6e05f728a0c63d110b2f7b1e394}\label{class_music_player_aaf78c6e05f728a0c63d110b2f7b1e394}} 
+
+The logic behind changing birthday. 
+
+\mbox{\Hypertarget{class_music_player_a62a45890377acf0b8fc587602b87ebd0}\label{class_music_player_a62a45890377acf0b8fc587602b87ebd0}} 
 \index{MusicPlayer@{MusicPlayer}!change\_fullname@{change\_fullname}}
 \index{change\_fullname@{change\_fullname}!MusicPlayer@{MusicPlayer}}
 \doxysubsubsection{\texorpdfstring{change\_fullname()}{change\_fullname()}}
-{\footnotesize\ttfamily bool Music\+Player\+::change\+\_\+fullname (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Music\+Player\+::change\+\_\+fullname (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-The logic behind changing fullname
 
-\begin{DoxyReturn}{Returns}
-True if the change is successful and False if its not or there is no logged \mbox{\hyperlink{class_user}{User}} 
-\end{DoxyReturn}
+
+The logic behind changing fullname. 
+
 \mbox{\Hypertarget{class_music_player_a0b285aed7845099ac6f72851b0b6b986}\label{class_music_player_a0b285aed7845099ac6f72851b0b6b986}} 
 \index{MusicPlayer@{MusicPlayer}!change\_password@{change\_password}}
 \index{change\_password@{change\_password}!MusicPlayer@{MusicPlayer}}
@@ -223,24 +217,6 @@ Big bussines logic for generating playlist
 Takes user input for the size of the playlsit and the criterias, and passes it to \mbox{\hyperlink{class_music_player_a3b91d0ab60163cc7289ea53df6a5c5ac}{evaluate(const std\+::string \+\_\+expression)}} then calls \mbox{\hyperlink{class_music_player_a7e75df53fd01d8152f5b53af6f56e7e8}{fill(std\+::vector$<$\+Song$>$ \&\+\_\+songs, const size\+\_\+t \+\_\+final\+\_\+size)}} and assigns it to playlist with creators id and songs \begin{DoxyReturn}{Returns}
 False only if there is no logged \mbox{\hyperlink{class_user}{User}}, otherwise True 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_music_player_a231abd79481922cccb7910f69f597dc1}\label{class_music_player_a231abd79481922cccb7910f69f597dc1}} 
-\index{MusicPlayer@{MusicPlayer}!get\_next\_token@{get\_next\_token}}
-\index{get\_next\_token@{get\_next\_token}!MusicPlayer@{MusicPlayer}}
-\doxysubsubsection{\texorpdfstring{get\_next\_token()}{get\_next\_token()}}
-{\footnotesize\ttfamily bool Music\+Player\+::get\+\_\+next\+\_\+token (\begin{DoxyParamCaption}\item[{std\+::stringstream \&}]{\+\_\+s,  }\item[{std\+::string \&}]{\+\_\+str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-Gets the next token
-
-Gets the next token from stringstream \+\_\+s and saves it in \+\_\+str 
-\begin{DoxyParams}{Parameters}
-{\em \+\_\+s} & stringstream by reference\\
-\hline
-{\em \+\_\+str} & string by reference\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-True if there is next token, False if there is not
-\end{DoxyReturn}
 \mbox{\Hypertarget{class_music_player_ae8e4dc1e91423d5de0f2da662c60b1bd}\label{class_music_player_ae8e4dc1e91423d5de0f2da662c60b1bd}} 
 \index{MusicPlayer@{MusicPlayer}!load\_playlist@{load\_playlist}}
 \index{load\_playlist@{load\_playlist}!MusicPlayer@{MusicPlayer}}
@@ -272,53 +248,16 @@ The bussines logic for login with existing user
 It can be unsuccessful if the username is wrong or the password is wrong \begin{DoxyReturn}{Returns}
 True if the login is successful and False if there is already logged \mbox{\hyperlink{class_user}{User}} or unsuccessful authentication 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_music_player_ab878b914a304a2fdcb8833ae5e87ad48}\label{class_music_player_ab878b914a304a2fdcb8833ae5e87ad48}} 
+\mbox{\Hypertarget{class_music_player_af03501119404983504cea010624905be}\label{class_music_player_af03501119404983504cea010624905be}} 
 \index{MusicPlayer@{MusicPlayer}!logout@{logout}}
 \index{logout@{logout}!MusicPlayer@{MusicPlayer}}
 \doxysubsubsection{\texorpdfstring{logout()}{logout()}}
-{\footnotesize\ttfamily bool Music\+Player\+::logout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Music\+Player\+::logout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-The bussines logic behind the logout
 
-\begin{DoxyReturn}{Returns}
-True if the logout is successful and False if there is no logged \mbox{\hyperlink{class_user}{User}} 
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_music_player_a6ab6959886b1052ba7ac7712e66be207}\label{class_music_player_a6ab6959886b1052ba7ac7712e66be207}} 
-\index{MusicPlayer@{MusicPlayer}!merge\_and@{merge\_and}}
-\index{merge\_and@{merge\_and}!MusicPlayer@{MusicPlayer}}
-\doxysubsubsection{\texorpdfstring{merge\_and()}{merge\_and()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ Music\+Player\+::merge\+\_\+and (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$}]{\+\_\+l,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$}]{\+\_\+r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Merging two vectors of Songs with operator AND
+The bussines logic behind the logout. 
 
-The result is vector of Songs that are in both left and right hand side vector 
-\begin{DoxyParams}{Parameters}
-{\em \+\_\+l} & left hand side vector of Songs\\
-\hline
-{\em \+\_\+r} & right hand side vector of Songs\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-vector of \mbox{\hyperlink{class_song}{Song}}
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_music_player_ab4ecb5b72fd0cb24f3a6d590941b804f}\label{class_music_player_ab4ecb5b72fd0cb24f3a6d590941b804f}} 
-\index{MusicPlayer@{MusicPlayer}!merge\_or@{merge\_or}}
-\index{merge\_or@{merge\_or}!MusicPlayer@{MusicPlayer}}
-\doxysubsubsection{\texorpdfstring{merge\_or()}{merge\_or()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ Music\+Player\+::merge\+\_\+or (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$}]{\+\_\+l,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$}]{\+\_\+r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-Merging two vectors of Songs with operator OR
-
-New vector is combination of left hand side vector and songs from the right hand side vector ONLY if they are not in the result yet. 
-\begin{DoxyParams}{Parameters}
-{\em \+\_\+l} & left hand side vector of Songs\\
-\hline
-{\em \+\_\+r} & right hand side vector of Songs\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-vector of \mbox{\hyperlink{class_song}{Song}}
-\end{DoxyReturn}
 \mbox{\Hypertarget{class_music_player_a405555ed6ac4f0375734c1593b7efbab}\label{class_music_player_a405555ed6ac4f0375734c1593b7efbab}} 
 \index{MusicPlayer@{MusicPlayer}!my\_playlists@{my\_playlists}}
 \index{my\_playlists@{my\_playlists}!MusicPlayer@{MusicPlayer}}
@@ -346,23 +285,20 @@ True if the print is successful and False if there is no logged \mbox{\hyperlink
 \doxysubsubsection{\texorpdfstring{rate\_song()}{rate\_song()}}
 {\footnotesize\ttfamily bool Music\+Player\+::rate\+\_\+song (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-The logic behind \mbox{\hyperlink{struct_rating}{Rating}} a \mbox{\hyperlink{class_song}{Song}} by \mbox{\hyperlink{class_user}{User}}
+\mbox{\hyperlink{struct_rating}{Rating}} a \mbox{\hyperlink{class_song}{Song}} by the logged \mbox{\hyperlink{class_user}{User}}
 
 \mbox{\hyperlink{struct_rating}{Rating}} should be in interval \mbox{[}2.\+00,6.\+00\mbox{]} \begin{DoxyReturn}{Returns}
 True if the \mbox{\hyperlink{struct_rating}{Rating}} is saved and False if there is no \mbox{\hyperlink{class_song}{Song}} with that name,already \mbox{\hyperlink{class_user}{User}} voted for this \mbox{\hyperlink{class_song}{Song}}, or there is no logged \mbox{\hyperlink{class_user}{User}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_music_player_ac4b8dc9bd66aa41a0d155ea737b82b3c}\label{class_music_player_ac4b8dc9bd66aa41a0d155ea737b82b3c}} 
+\mbox{\Hypertarget{class_music_player_a0ba79f55e7a990fbdacc49eb23c503cf}\label{class_music_player_a0ba79f55e7a990fbdacc49eb23c503cf}} 
 \index{MusicPlayer@{MusicPlayer}!Register@{Register}}
 \index{Register@{Register}!MusicPlayer@{MusicPlayer}}
 \doxysubsubsection{\texorpdfstring{Register()}{Register()}}
-{\footnotesize\ttfamily bool Music\+Player\+::\+Register (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Music\+Player\+::\+Register (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 The bussines logic behind registering a new user
 
-It can be unsuccessful if the username is taken \begin{DoxyReturn}{Returns}
-True if the registration is successful and False if the username is taken
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_music_player_ac8607d3319613f4f32cd2d676b258db2}\label{class_music_player_ac8607d3319613f4f32cd2d676b258db2}} 
+Takes new username until its available \mbox{\Hypertarget{class_music_player_ac8607d3319613f4f32cd2d676b258db2}\label{class_music_player_ac8607d3319613f4f32cd2d676b258db2}} 
 \index{MusicPlayer@{MusicPlayer}!remove\_favorite\_genre@{remove\_favorite\_genre}}
 \index{remove\_favorite\_genre@{remove\_favorite\_genre}!MusicPlayer@{MusicPlayer}}
 \doxysubsubsection{\texorpdfstring{remove\_favorite\_genre()}{remove\_favorite\_genre()}}
@@ -443,6 +379,24 @@ vector of \mbox{\hyperlink{class_song}{Song}}
 
 Prints Users information. 
 
+\mbox{\Hypertarget{class_music_player_a48d327aaa1a5953bd3104533d6170aa9}\label{class_music_player_a48d327aaa1a5953bd3104533d6170aa9}} 
+\index{MusicPlayer@{MusicPlayer}!vote\_song@{vote\_song}}
+\index{vote\_song@{vote\_song}!MusicPlayer@{MusicPlayer}}
+\doxysubsubsection{\texorpdfstring{vote\_song()}{vote\_song()}}
+{\footnotesize\ttfamily bool Music\+Player\+::vote\+\_\+song (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_song}{Song}} $\ast$}]{\+\_\+song,  }\item[{float}]{\+\_\+rating }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+The logic behind \mbox{\hyperlink{struct_rating}{Rating}} a \mbox{\hyperlink{class_song}{Song}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+song} & Pointer to a song\\
+\hline
+{\em \+\_\+rating} & \mbox{\hyperlink{struct_rating}{Rating}} value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the song is succesfully rated and new \mbox{\hyperlink{struct_rating}{Rating}} is added to the database, False if there is already rating for that song by this user
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}

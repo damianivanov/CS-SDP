@@ -3,7 +3,8 @@
 #include <algorithm>
 #include <time.h>
 #include <vector>
-#include "Guid.h"
+#include "Guid.cpp"
+#include "StringHelpers.cpp"
 #include "Playlist.h"
 class Playlist;
 
@@ -33,10 +34,10 @@ public:
 		std::string _id="",
 		std::vector<std::string> _favorite_genres = std::vector<std::string>()
 		);
-	User& operator=(const User& other);
 	~User();
 
 	//getters
+
 	/// Simple getter for the username
 	///
 	/// @returns username
@@ -65,7 +66,7 @@ public:
 	/// Simple getter for the vector of favorite genres
 	///
 	/// @returns the vector with the favorite genres
-	const std::vector<std::string>& get_favorite_genres() const { return this->favorite_genres; }
+	const std::vector<std::string> get_favorite_genres() const { return this->favorite_genres; }
 
 	//setters
 	/// Simple setter for the username
@@ -95,11 +96,6 @@ public:
 
 	/// Simple setter for the birthday
 	/// 
-	/// @param _birthday - new birthday tm structure 
-	void set_birthday(tm _birthday) { this->birthday = _birthday; }
-
-	/// Simple setter for the birthday
-	/// 
 	/// @param _birthday - new birthday string
 	void set_birthday(std::string _birthday) { this->birthday = string_to_tm(_birthday); }
 
@@ -113,18 +109,10 @@ public:
 	/// @param _genre - removes the given genre from the list with favorites
 	void remove_favorite_genre(std::string _genre);
 
-	/// Beautiful print for favorite genres 
+	/// Beautiful print for User 
 	/// 
 	/// used only for printing in console, not in any business logic
-	/// @returns beautiful string containing all favorite genres
-	std::string genres_print() const;
-
-	/// Converting tm structure to string
-	/// 
-	/// Used for saving in .json files
-	/// @returns string in format DD/MM/YYYY representing the birthday
-	const std::string birthday_to_string() const;
-
+	/// @returns beautiful string containing all information about User
 	void print_user();
 
 private:
@@ -159,16 +147,4 @@ private:
 	/// GUID generated when objected is created with new_guid() - extremely low chances of duplicates
 	std::string id;
 
-private:
-	/// helper function for converting string (most likely user input) to structure tm
-	/// 
-	/// @param _str - const string in format DD/MM/YYYY
-	/// @returns tm structure with ready to use properties: tm_year,tm_mon,tm_mday
-	tm string_to_tm(const std::string _str);
-
-	/// helper function for copying User object
-	/// 
-	/// 
-	/// @param other - const reference to the object, to get copied from
-	void copy(const User& _other);
 };

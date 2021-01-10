@@ -5,7 +5,7 @@ var class_context =
     [ "add_playlist", "class_context.html#a8401c84e112fd5e11db2ad1528d66af5", null ],
     [ "add_rating", "class_context.html#a74dde706ef053a304bd586c7d8141722", null ],
     [ "add_song", "class_context.html#a1095036cec434b0c0fada30884adf863", null ],
-    [ "add_user", "class_context.html#a564f4b551a6e25d1f9dcd4b6731437f5", null ],
+    [ "add_user", "class_context.html#aebb507217c892c3186924e0acb7857d1", null ],
     [ "available_username", "class_context.html#a2be7bfb3912f76d9b7c17a6fd7df5c73", null ],
     [ "Deserialization", "class_context.html#a1999ac108c83c689d709df9289fedbe0", null ],
     [ "get_all_playlists_by_cretor_id", "class_context.html#a3629cf15f330473d91f92ef03d60f64f", null ],

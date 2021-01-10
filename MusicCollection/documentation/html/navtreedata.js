@@ -25,6 +25,8 @@
 var NAVTREE =
 [
   [ "Music Collection", "index.html", [
+    [ "Main Idea", "index.html#mainIdea", null ],
+    [ "Project requirments", "index.html#requirments", null ],
     [ "Functioality", "index.html#functionality", [
       [ "User", "index.html#user", [
         [ "Changing Users info", "index.html#changing_users", null ]
@@ -35,6 +37,7 @@ var NAVTREE =
         [ "Working with playlists", "index.html#w_w_playlists", null ]
       ] ]
     ] ],
+    [ "Used Libraries", "index.html#usedLibraries", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

@@ -143,19 +143,20 @@
     <ClCompile Include="MusicCollection.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="Playlist.cpp" />
+    <ClCompile Include="PlaylistGeneratingHelpers.cpp" />
     <ClCompile Include="Repl.cpp" />
     <ClCompile Include="Song.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatabaseContext.h" />
-    <ClInclude Include="Guid.h" />
+    <ClInclude Include="Guid.cpp" />
     <ClInclude Include="MusicPlayer.h" />
     <ClInclude Include="Playlist.h" />
     <ClInclude Include="Rating.h" />
     <ClInclude Include="Repl.h" />
     <ClInclude Include="Song.h" />
-    <ClInclude Include="StringHelpers.h" />
+    <ClInclude Include="StringHelpers.cpp" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>

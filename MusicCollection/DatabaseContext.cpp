@@ -1,8 +1,6 @@
 #include "DatabaseContext.h"
 
 //getters like methods
-
-
 User* Context::get_user_by_username(std::string _username)
 {
 	for (User& user : users)
@@ -16,8 +14,10 @@ Song* Context::get_song_by_name_and_artist(std::string _name, std::string _artis
 {
 	transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
 	transform(_artist.begin(), _artist.end(), _artist.begin(), ::tolower);
+
 	for (Song& song : songs)
 	{
+		//tmp variables so i don't change to lower case the name and the artist in the database
 		std::string name = song.get_name();
 		std::string artist = song.get_artist();
 
@@ -32,6 +32,7 @@ Song* Context::get_song_by_name_and_artist(std::string _name, std::string _artis
 Playlist* Context::get_playlist_by_name_and_user_id(std::string _name, std::string _user_id)
 {
 	transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
+
 	for (Playlist& playlist : playlists)
 	{
 		std::string name = playlist.get_name();
@@ -61,8 +62,8 @@ std::vector<Song> Context::get_n_ordered_songs(size_t _count)
 		{
 			return s1.get_name() < s2.get_name();
 		});
-
-	auto end = std::next(songs.begin(), std::min(_count, songs.size()));
+	//sorting by name in asc order
+	std::vector<Song>::iterator end = std::next(songs.begin(), std::min(_count, songs.size()));
 	std::vector<Song> result(songs.begin(), end);
 	return result;
 }
@@ -72,7 +73,7 @@ std::vector<Song> Context::get_songs_by_list_of_genres(std::vector<std::string> 
 	std::vector<Song> s;
 	std::copy_if(songs.begin(), songs.end(), std::back_inserter(s), [&](Song _song)
 		{
-			return std::find(_genres.begin(), _genres.end(), _song.get_genre()) != _genres.end();
+			return std::find(_genres.begin(), _genres.end(), _song.get_genre()) != _genres.end(); //if the genre of the song is in the list of genres
 		});
 	return s;
 }
@@ -81,7 +82,7 @@ std::vector<Song> Context::get_songs_except_genres(std::vector<std::string> _gen
 	std::vector<Song> s;
 	std::copy_if(songs.begin(), songs.end(), std::back_inserter(s), [&](Song _song)
 		{
-			return std::find(_genres.begin(), _genres.end(), _song.get_genre()) == _genres.end();
+			return std::find(_genres.begin(), _genres.end(), _song.get_genre()) == _genres.end();//if the genre of the song is NOT in the list of genres
 		});
 	return s;
 }
@@ -94,7 +95,7 @@ std::vector<Song> Context::get_songs_by_rating(float _rating)
 		});
 	sort(s.begin(), s.end(), [](Song& s1, Song& s2)
 		{
-			return s1.get_rating() > s2.get_rating();
+			return s1.get_rating() > s2.get_rating(); //sorting the song in desc order
 		});
 	return s;
 }
@@ -118,7 +119,6 @@ std::vector<Song> Context::get_songs_before_year(int _year)
 }
 std::vector<Song> Context::get_songs_after_year(int _year)
 {
-
 	std::vector<Song> s;
 	std::copy_if(songs.begin(), songs.end(), std::back_inserter(s), [&](Song _song)
 		{
@@ -129,7 +129,7 @@ std::vector<Song> Context::get_songs_after_year(int _year)
 std::vector<std::string> Context::get_all_playlists_by_cretor_id(std::string _crteator_id)
 {
 	std::vector<std::string> playlists_name;
-	for (Playlist& p : playlists)
+	for (const Playlist& p : playlists)
 	{
 		if (p.get_creator_id() == _crteator_id)
 		{
@@ -178,7 +178,6 @@ void from_json(const json& j, Playlist& p)
 	p.set_creator(j.at("creator id"));
 	p.set_name(j.at("name"));
 	p.set_songs((j.at("songs")));
-
 }
 
 //User
@@ -188,7 +187,7 @@ void to_json(json& j, const User& u)
 		{"username", u.get_username()},
 		{"password", u.get_password()},
 		{"fullname", u.get_fullname()},
-		{"birthday", u.birthday_to_string()},
+		{"birthday", birthday_to_string(u.get_birthday())},
 		{"favorite genres", u.get_favorite_genres()},
 		{"id",u.get_id()}
 	};
@@ -231,27 +230,21 @@ bool Context::login_validation(std::string _username, std::string _password)
 	if (user == nullptr)
 		return false;
 
-	std::string result = user->get_password();
-	std::string candidate = Chocobo1::SHA3_512()
-		.addData(_password.c_str(), _password.length())
-		.finalize()
-		.toString();
-
-	return result == candidate;
+	return user->get_password() == _password;
 }
+
 bool Context::rated_song(std::string _user_id, std::string _song_id)
 {
-	for (Rating r : ratings)
+	for (const Rating r : ratings)
 	{
 		if (r.user_id == _user_id && r.song_id == _song_id)
 			return true;
 	}
 	return false;
 }
-
 bool Context::song_exists(Song _song)
 {
-	for (Song s : songs)
+	for (const Song s : songs)
 	{
 		if (s.get_name() == _song.get_name() &&
 			s.get_artist() == _song.get_artist() &&
@@ -263,7 +256,7 @@ bool Context::song_exists(Song _song)
 }
 bool Context::playlist_exists(Playlist _playlist)
 {
-	for (Playlist p : playlists)
+	for  (Playlist p : playlists)
 	{
 		if (p == _playlist)
 			return true;
@@ -271,15 +264,9 @@ bool Context::playlist_exists(Playlist _playlist)
 	return false;
 }
 
-bool Context::add_user(User _user)
+void Context::add_user(User _user)
 {
-	if (available_username(_user.get_username()))
-	{
-		users.push_back(_user);
-		return true;
-	}
-	return false;
-
+	users.push_back(_user);
 }
 bool Context::add_song(Song _song)
 {
@@ -308,80 +295,54 @@ bool Context::add_rating(std::string _user_id, std::string _song_id, float _rati
 	return true;
 }
 
-// vectors of objects  -> .json
+// .json -> vectors of objects
 void Context::Deserialization()
 {
 	// Users
 	std::ifstream in("Users.json");
-	std::string s;
-	while (in)
+	if (in.peek() != std::ifstream::traits_type::eof())
 	{
-		std::string line;
-		std::getline(in, line);
-		s.append(line);
-	}
-	in.close();
-	if (!s.empty())
-	{
-		json = json::parse(s);
+		in >> json;
 		users = json.get<std::vector<User>>();
-		json.clear();
 	}
+	json.clear();
+	in.close();
 
 	// Songs
 	in.open("Songs.json");
-	s.clear();
-	while (in)
+	if (in.peek() != std::ifstream::traits_type::eof())
 	{
-		std::string line;
-		std::getline(in, line);
-		s.append(line);
-	}
-	in.close();
-	if (!s.empty())
-	{
-		json = json::parse(s);
+		in >> json;
 		songs = json.get<std::vector<Song>>();
-		json.clear();
-
 	}
+	json.clear();
+	in.close();
 
 	// Playlists
 	in.open("Playlists.json");
-	s.clear();
-	while (in)
+	if (in.peek() != std::ifstream::traits_type::eof())
 	{
-		std::string line;
-		std::getline(in, line);
-		s.append(line);
-	}
-	in.close();
-	if (!s.empty())
-	{
-		json = json::parse(s);
+		in >> json;
 		playlists = json.get<std::vector<Playlist>>();
 	}
+	json.clear();
+	in.close();
 
 	// Ratings
 	in.open("Ratings.json");
-	s.clear();
-	while (in)
+	if (in.peek() != std::ifstream::traits_type::eof())
 	{
-		std::string line;
-		std::getline(in, line);
-		s.append(line);
-	}
-	in.close();
-	if (!s.empty())
-	{
-		json = json::parse(s);
+		in >> json;
 		ratings = json.get<std::vector<Rating>>();
 	}
+	json.clear();
+	in.close();
 }
-// .json -> vectors of objects
+// vectors of objects  -> .json
 void Context::Serialization()
 {
 	json.clear();
+
 	json = users;
 	std::ofstream out("Users.json");
 	out << json.dump(formating_spaces);
@@ -409,4 +370,3 @@ void Context::Serialization()
 
 }
 //
-

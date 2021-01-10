@@ -47,7 +47,7 @@ bool \mbox{\hyperlink{class_context_a50cb3e5f2e7f6f93d982ee7c6f1c8f2e}{song\+\_\
 \item 
 bool \mbox{\hyperlink{class_context_a7d351967e8f921271f7dae22835db38c}{playlist\+\_\+exists}} (\mbox{\hyperlink{class_playlist}{Playlist}} \+\_\+playlist)
 \item 
-bool \mbox{\hyperlink{class_context_a564f4b551a6e25d1f9dcd4b6731437f5}{add\+\_\+user}} (\mbox{\hyperlink{class_user}{User}} \+\_\+user)
+void \mbox{\hyperlink{class_context_aebb507217c892c3186924e0acb7857d1}{add\+\_\+user}} (\mbox{\hyperlink{class_user}{User}} \+\_\+user)
 \item 
 bool \mbox{\hyperlink{class_context_a1095036cec434b0c0fada30884adf863}{add\+\_\+song}} (\mbox{\hyperlink{class_song}{Song}} \+\_\+song)
 \item 
@@ -132,13 +132,14 @@ True if the adding is successful,else if its not
 {\footnotesize\ttfamily bool Context\+::add\+\_\+song (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_song}{Song}}}]{\+\_\+song }\end{DoxyParamCaption})}
 
 Adds \mbox{\hyperlink{class_song}{Song}} to the database If song\+\_\+exists(\+\_\+song) returns true which means there is a \mbox{\hyperlink{class_song}{Song}} with the same name,artist,album and genre this function dont add \+\_\+song to the database and return false, else returns true and adds \+\_\+song ~\newline
- \mbox{\Hypertarget{class_context_a564f4b551a6e25d1f9dcd4b6731437f5}\label{class_context_a564f4b551a6e25d1f9dcd4b6731437f5}} 
+ \mbox{\Hypertarget{class_context_aebb507217c892c3186924e0acb7857d1}\label{class_context_aebb507217c892c3186924e0acb7857d1}} 
 \index{Context@{Context}!add\_user@{add\_user}}
 \index{add\_user@{add\_user}!Context@{Context}}
 \doxysubsubsection{\texorpdfstring{add\_user()}{add\_user()}}
-{\footnotesize\ttfamily bool Context\+::add\+\_\+user (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_user}{User}}}]{\+\_\+user }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Context\+::add\+\_\+user (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_user}{User}}}]{\+\_\+user }\end{DoxyParamCaption})}
 
-Adds \mbox{\hyperlink{class_user}{User}} to the database If \mbox{\hyperlink{class_context_a2be7bfb3912f76d9b7c17a6fd7df5c73}{available\+\_\+username()}} returns true which means there is not a \mbox{\hyperlink{class_user}{User}} with the same username this function add \+\_\+user to the database and return true, else returns false \mbox{\Hypertarget{class_context_a2be7bfb3912f76d9b7c17a6fd7df5c73}\label{class_context_a2be7bfb3912f76d9b7c17a6fd7df5c73}} 
+Adds \mbox{\hyperlink{class_user}{User}} to the database Before using this method you have to make sure that the username is not taken via \mbox{\hyperlink{class_context_a2be7bfb3912f76d9b7c17a6fd7df5c73}{available\+\_\+username()}} ~\newline
+ \mbox{\Hypertarget{class_context_a2be7bfb3912f76d9b7c17a6fd7df5c73}\label{class_context_a2be7bfb3912f76d9b7c17a6fd7df5c73}} 
 \index{Context@{Context}!available\_username@{available\_username}}
 \index{available\_username@{available\_username}!Context@{Context}}
 \doxysubsubsection{\texorpdfstring{available\_username()}{available\_username()}}

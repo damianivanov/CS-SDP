@@ -145,8 +145,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a50cb3e5f2e7f6f93d982ee7c6f1c8f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d351967e8f921271f7dae22835db38c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_context.html#a7d351967e8f921271f7dae22835db38c">playlist_exists</a> (<a class="el" href="class_playlist.html">Playlist</a> _playlist)</td></tr>
 <tr class="separator:a7d351967e8f921271f7dae22835db38c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a564f4b551a6e25d1f9dcd4b6731437f5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_context.html#a564f4b551a6e25d1f9dcd4b6731437f5">add_user</a> (<a class="el" href="class_user.html">User</a> _user)</td></tr>
-<tr class="separator:a564f4b551a6e25d1f9dcd4b6731437f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebb507217c892c3186924e0acb7857d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_context.html#aebb507217c892c3186924e0acb7857d1">add_user</a> (<a class="el" href="class_user.html">User</a> _user)</td></tr>
+<tr class="separator:aebb507217c892c3186924e0acb7857d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1095036cec434b0c0fada30884adf863"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_context.html#a1095036cec434b0c0fada30884adf863">add_song</a> (<a class="el" href="class_song.html">Song</a> _song)</td></tr>
 <tr class="separator:a1095036cec434b0c0fada30884adf863"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8401c84e112fd5e11db2ad1528d66af5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_context.html#a8401c84e112fd5e11db2ad1528d66af5">add_playlist</a> (<a class="el" href="class_playlist.html">Playlist</a> _playlist)</td></tr>
@@ -324,14 +324,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a564f4b551a6e25d1f9dcd4b6731437f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a564f4b551a6e25d1f9dcd4b6731437f5">&#9670;&nbsp;</a></span>add_user()</h2>
+<a id="aebb507217c892c3186924e0acb7857d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebb507217c892c3186924e0acb7857d1">&#9670;&nbsp;</a></span>add_user()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Context::add_user </td>
+          <td class="memname">void Context::add_user </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_user.html">User</a>&#160;</td>
           <td class="paramname"><em>_user</em></td><td>)</td>
@@ -339,7 +339,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Adds <a class="el" href="class_user.html">User</a> to the database If <a class="el" href="class_context.html#a2be7bfb3912f76d9b7c17a6fd7df5c73">available_username()</a> returns true which means there is not a <a class="el" href="class_user.html">User</a> with the same username this function add _user to the database and return true, else returns false </p>
+<p>Adds <a class="el" href="class_user.html">User</a> to the database Before using this method you have to make sure that the username is not taken via <a class="el" href="class_context.html#a2be7bfb3912f76d9b7c17a6fd7df5c73">available_username()</a> <br  />
+ </p>
 
 </div>
 </div>
@@ -387,7 +388,7 @@ Private Attributes</h2></td></tr>
 <li>to_json() - tells the json library how to convert object of specific type to json then the conversation is as easy as: <div class="fragment"><div class="line">std::ofstream out(<span class="stringliteral">&quot;Filename.json&quot;</span>);</div>
 <div class="line">json json = std::vector&lt;Type&gt;();</div>
 <div class="line">out &lt;&lt; json.dump(<a class="code" href="class_context.html#aab2f10a0a6e48c243d8b935d6290fa76">formating_spaces</a>); - formated json file of objects</div>
-<div class="ttc" id="aclass_context_html_aab2f10a0a6e48c243d8b935d6290fa76"><div class="ttname"><a href="class_context.html#aab2f10a0a6e48c243d8b935d6290fa76">Context::formating_spaces</a></div><div class="ttdeci">const unsigned int formating_spaces</div><div class="ttdoc">number of spaces in the beggining of every line in the .json files</div><div class="ttdef"><b>Definition:</b> DatabaseContext.h:169</div></div>
+<div class="ttc" id="aclass_context_html_aab2f10a0a6e48c243d8b935d6290fa76"><div class="ttname"><a href="class_context.html#aab2f10a0a6e48c243d8b935d6290fa76">Context::formating_spaces</a></div><div class="ttdeci">const unsigned int formating_spaces</div><div class="ttdoc">number of spaces in the beggining of every line in the .json files</div><div class="ttdef"><b>Definition:</b> DatabaseContext.h:167</div></div>
 </div><!-- fragment --> </li>
 </ul>
 

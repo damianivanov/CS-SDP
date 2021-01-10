@@ -2,7 +2,6 @@
 #include <fstream>
 #include "Playlist.h"
 #include "Rating.h"
-#include "sha3.h"
 #include "nlohmann/json.hpp"
 
 using json = nlohmann::json;
@@ -118,9 +117,8 @@ public:
 	bool playlist_exists(Playlist _playlist);
 
 	/// Adds User to the database
-	/// If available_username() returns true which means there is not a User with the same username
-	/// this function add _user to the database and return true, else returns false
-	bool add_user(User _user);
+	/// Before using this method you have to make sure that the username is not taken via available_username() 
+	void add_user(User _user);
 
 	/// Adds Song to the database
 	/// If song_exists(_song) returns true which means there is a Song with the same name,artist,album and genre

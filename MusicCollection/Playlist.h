@@ -1,8 +1,6 @@
 ﻿#pragma once
 #include "User.h"
 #include "Song.h"
-
-
 class User;
 
 class Playlist
@@ -71,5 +69,3 @@ private:
 	std::vector<Song> songs;
 
 };
-
-

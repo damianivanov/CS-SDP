@@ -1,7 +1,8 @@
 #pragma once
 #include <limits>
+#include "sha3.h"
 #include "DatabaseContext.h"
-#include "StringHelpers.h"
+#include "PlaylistGeneratingHelpers.cpp"
 class MusicPlayer
 {
 public:
@@ -10,13 +11,13 @@ public:
 	/// Checks if there is logged user
 	/// Default value of users id is with id = ""
 	/// <returns>True if there is logged user and False if there is not one</returns>
-	bool logged() { return !user->get_id().empty(); }
+	bool logged() {
+		return user != nullptr;} // !user->get_id().empty(); }
 
 	/// The bussines logic behind registering a new user
 	/// 
-	/// It can be unsuccessful if the username is taken
-	/// <returns>True if the registration is successful and False if the username is taken</returns>
-	bool Register(); //i used lower case "register", because it's reserved word
+	/// Takes new username until its available
+	void Register(); //i used lower case "register", because it's reserved word
 
 	/// The bussines logic for login with existing user
 	/// 
@@ -25,9 +26,7 @@ public:
 	bool login();
 
 	/// The bussines logic behind the logout 
-	/// 
-	/// <returns>True if the logout is successful and False if there is no logged User </returns>
-	bool logout();
+	void logout();
 
 
 	//methods that need logged in user 
@@ -43,14 +42,10 @@ public:
 	bool change_password();
 
 	/// The logic behind changing birthday
-	///
-	/// <returns>True if the change is successful and False if its not or there is no logged User </returns>
-	bool change_birthday();
+	void change_birthday();
 
 	/// The logic behind changing fullname
-	///
-	/// <returns>True if the change is successful and False if its not or there is no logged User </returns>
-	bool change_fullname();
+	void change_fullname();
 
 	/// The logic for adding favorite genre
 	/// 
@@ -67,7 +62,7 @@ public:
 	/// <returns>True if it was successful and False if the song already exists or there is no logged User</returns>
 	bool create_song();
 
-	/// The logic behind Rating a Song by User
+	/// Rating a Song by the logged User
 	/// 
 	/// Rating should be in interval [2.00,6.00]
 	/// <returns>True if the Rating is saved and False if there is no Song with that name,already User voted for this Song, or there is no logged User </returns>
@@ -146,26 +141,10 @@ private:
 
 	/// Evaluates the given expression recursively
 	/// 
+	/// Contains heavy logic for the song filtering
 	/// <param name="_expression">expression of combined criterias</param>
 	/// <returns>vector of Song</returns>
 	std::vector<Song> evaluate(const std::string _expression);
-
-	/// Merging two vectors of Songs with operator OR
-	/// 
-	/// New vector is combination of left hand side vector and songs from the right hand side vector 
-	/// ONLY if they are not in the result yet.
-	/// <param name="_l">left hand side vector of Songs</param>
-	/// <param name="_r">right hand side vector of Songs</param>
-	/// <returns>vector of Song</returns>
-	std::vector<Song> merge_or(const std::vector<Song> _l, const std::vector<Song> _r);
-
-	/// Merging two vectors of Songs with operator AND
-	/// 
-	/// The result is vector of Songs that are in both left and right hand side vector
-	/// <param name="_l">left hand side vector of Songs</param>
-	/// <param name="_r">right hand side vector of Songs</param>
-	/// <returns>vector of Song</returns>
-	std::vector<Song> merge_and(const std::vector<Song> _l, const std::vector<Song> _r);
 
 	/// Fills vector of Song with Songs from the database
 	/// 
@@ -174,5 +153,10 @@ private:
 	/// <param name="_final_size">desired final size of the vector of Song</param>
 	void fill(std::vector<Song> &_songs, const size_t _final_size);
 
+	/// The logic behind Rating a Song
+	/// 
+	/// <param name="_song">Pointer to a song</param>
+	/// <param name="_rating">Rating value</param>
+	/// <returns>True if the song is succesfully rated and new Rating is added to the database, False if there is already rating for that song by this user</returns>
+	bool vote_song(Song* _song, float _rating);
 };
-	

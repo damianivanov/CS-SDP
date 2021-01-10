@@ -5,7 +5,16 @@ Repl::~Repl() { delete mp; }
 
 void Repl::run()
 {
-	std::cout << "--------Welcome to SpotiFly--------" << std::endl;
+	std::string logo =
+		"@@@@@@@@  @@@@@@@@    @@@@@@@   @@@@@@@@  @@@@  @@@@@@@@  @@      @@    @@ \n"
+		"@@    @@  @@     @@  @@     @@     @@      @@   @@        @@       @@  @@  \n"
+		"@@        @@     @@  @@     @@     @@      @@   @@        @@        @@@@   \n"
+		"@@@@@@@@  @@@@@@@@   @@     @@     @@      @@   @@@@@@    @@         @@    \n"
+		"      @@  @@         @@     @@     @@      @@   @@        @@         @@    \n"
+		"@@    @@  @@         @@     @@     @@      @@   @@        @@         @@    \n"
+		"@@@@@@@@  @@          @@@@@@@      @@     @@@@  @@        @@@@@@@@   @@	\n";
+
+	std::cout << logo<< std::endl;
 	std::cout << "Enter a command or type \"help\" to see all supported commands " << std::endl;
 	while (true)
 	{
@@ -22,38 +31,44 @@ void Repl::run()
 			mp->login();
 		else if (input == "register")
 			mp->Register();
-		else if (input == "logout")
-			mp->logout();
-		else if (input == "change username")
-			mp->change_username();
-		else if (input == "user info")
-			mp->user_info();
-		else if (input == "change password")
-			mp->change_password();
-		else if (input == "change fullname")
-			mp->change_fullname();
-		else if (input == "change birthday")
-			mp->change_birthday();
-		else if (input == "add favorite")
-			mp->add_favorite_genre();
-		else if (input == "remove favorite")
-			mp->remove_favorite_genre();
-		else if (input == "add song")
-			mp->create_song();
-		else if (input == "rate song")
-			mp->rate_song();
-		else if (input == "generate playlist")
-			mp->generating_playlist();
-		else if (input == "save playlist")
-			mp->save_playlist();
-		else if (input == "load playlist")
-			mp->load_playlist();
-		else if (input == "print playlist")
-			mp->print_playlist();
-		else if (input == "my playlists")
-			mp->my_playlists();
+		else if (mp->logged())
+		{
+			if (input == "logout")
+				mp->logout();
+			else if (input == "change username")
+				mp->change_username();
+			else if (input == "user info")
+				mp->user_info();
+			else if (input == "change password")
+				mp->change_password();
+			else if (input == "change fullname")
+				mp->change_fullname();
+			else if (input == "change birthday")
+				mp->change_birthday();
+			else if (input == "add favorite")
+				mp->add_favorite_genre();
+			else if (input == "remove favorite")
+				mp->remove_favorite_genre();
+			else if (input == "add song")
+				mp->create_song();
+			else if (input == "rate song")
+				mp->rate_song();
+			else if (input == "generate playlist")
+				mp->generating_playlist();
+			else if (input == "save playlist")
+				mp->save_playlist();
+			else if (input == "load playlist")
+				mp->load_playlist();
+			else if (input == "print playlist")
+				mp->print_playlist();
+			else if (input == "my playlists")
+				mp->my_playlists();
+			else
+				std::cout << input << " - is not recognized as valid command" << std::endl;
+		}
 		else
-			std::cout << input << " - is not recognized as valid command" << std::endl;	
+			std::cout <<" The supported comands for not logged users are only: help,login,register,exit	" << std::endl;
+
 	}
 }
 
