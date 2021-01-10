@@ -439,13 +439,11 @@ std::vector<Song> MusicPlayer::filter(std::string _option)
 }
 std::vector<Song> MusicPlayer::evaluate(const std::string _expression)
 {
-	//after AND (before AND above) AND favorite
 	std::string left_token, right_token;
 	std::stringstream s(_expression);
 	std::vector<Song> songs;
 	while (get_next_token(s, right_token))
 	{
-		// above AND (favorite OR after) AND before
 		if (right_token == "AND")
 		{
 			get_next_token(s, right_token);
@@ -512,6 +510,7 @@ std::vector<Song> MusicPlayer::evaluate(const std::string _expression)
 			left_token = right_token;
 	}
 	//single criteria: "after","favorite" etc. //edit it can be expression ()
+	// this is one of the base cases for the recursion of evaluate
 	if (songs.empty() && !left_token.empty())
 	{
 		if (is_expression(left_token))
