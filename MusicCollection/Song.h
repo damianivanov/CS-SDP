@@ -1,4 +1,4 @@
-	#pragma once
+#pragma once
 #include <iostream>
 #include <ctime>
 class Song
@@ -8,7 +8,7 @@ public:
 	~Song();
 
 	/// Construction Song by: -id,artist,name,genre,album,release year,rating
-	Song(std::string _id,std::string _artist, std::string _name, std::string _genre, std::string album, int _release_year, float _rating = 0.0);
+	Song(std::string _id, std::string _artist, std::string _name, std::string _genre, std::string album, int _release_year, float _rating = 0.0);
 	/// <returns>If two songs have the same id, which means they are the same</returns>
 	bool operator==(const Song& other) { return this->id == other.id; }
 
@@ -36,7 +36,7 @@ public:
 	/// Setter for genre
 	void set_genre(const std::string _genre) { this->genre = _genre; }
 	/// Setter for rating
-	void set_rating(const float _rating) { this->rating =	_rating; }
+	void set_rating(const float _rating) { this->rating = _rating; }
 	/// Setter for album
 	void set_album(const std::string _album) { this->album = _album; }
 	/// Setter for the release year

@@ -2,7 +2,7 @@
 #include "Playlist.h"
 
 Playlist::Playlist() {}
-Playlist::~Playlist(){}
+Playlist::~Playlist() {}
 
 /// Simple print function 
 /// 

@@ -17,7 +17,7 @@ static std::string part(int _len) {
 		}
 		else {
 			char c = rand() % 26 + 'a'; //letters
-			temp.append(1,c);
+			temp.append(1, c);
 		}
 	}
 	return temp;
@@ -32,7 +32,7 @@ static std::string part(int _len) {
 /// guid = "0b3ec4de-91de-4a0c-8115-b85efdd403a0"
 /// ~~~~~~~~~~~~~~~~~~~~~~~~~
 ///Generates len random chars (small letters or numbers) as string
-static std::string new_guid() 
+static std::string new_guid()
 {
 	srand((unsigned)time(NULL));
 	std::string guid;

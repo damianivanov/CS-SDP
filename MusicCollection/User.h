@@ -27,13 +27,13 @@ public:
 	/// <param name="_birthday">birthday</param>
 	/// <param name="_id">id</param>
 	/// <param name="_favorite_genres">vector with favorite genres</param>
-	User(std::string _username, 
-		std::string _password, 
-		std::string _fullname, 
-		std::string _birthday, 
-		std::string _id="",
+	User(std::string _username,
+		std::string _password,
+		std::string _fullname,
+		std::string _birthday,
+		std::string _id = "",
 		std::vector<std::string> _favorite_genres = std::vector<std::string>()
-		);
+	);
 	~User();
 
 	//getters

@@ -256,7 +256,7 @@ bool Context::song_exists(Song _song)
 }
 bool Context::playlist_exists(Playlist _playlist)
 {
-	for  (Playlist p : playlists)
+	for (Playlist p : playlists)
 	{
 		if (p == _playlist)
 			return true;

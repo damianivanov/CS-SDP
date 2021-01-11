@@ -14,7 +14,7 @@ var searchData=
   ['set_5fpassword_97',['set_password',['../class_user.html#af9efada31f5b33adf3c13efb2278da5f',1,'User']]],
   ['set_5frating_98',['set_rating',['../class_song.html#aac43bf4a3c0f7fd4e2352363d41057ed',1,'Song']]],
   ['set_5frelease_5fyear_99',['set_release_year',['../class_song.html#af94ad0be95737f754223ac5caabf99ed',1,'Song']]],
-  ['set_5fsongs_100',['set_songs',['../class_playlist.html#a02b7719d182173376913aab825c24142',1,'Playlist']]],
+  ['set_5fsongs_100',['set_songs',['../class_playlist.html#a41fc91d6979ed871c74055649ebe56aa',1,'Playlist']]],
   ['set_5fusername_101',['set_username',['../class_user.html#a5b678803bc132f5bfd75b8e986ae5128',1,'User']]],
   ['song_102',['Song',['../class_song.html',1,'Song'],['../class_song.html#a1a73ff262627ce78860ec622859cf249',1,'Song::Song()'],['../class_song.html#aca74baec9f82d3bac63ceee7d19e3522',1,'Song::Song(std::string _id, std::string _artist, std::string _name, std::string _genre, std::string album, int _release_year, float _rating=0.0)']]],
   ['song_5fexists_103',['song_exists',['../class_context.html#a50cb3e5f2e7f6f93d982ee7c6f1c8f2e',1,'Context']]],

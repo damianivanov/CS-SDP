@@ -45,7 +45,7 @@ public:
 	/// Set the songs of the playlist
 	/// 
 	/// <param name="_songs">vector of Songs</param>
-	void set_songs(const std::vector<Song> _songs) {this->songs = _songs; }
+	void set_songs(const std::vector<Song>& _songs) {this->songs = _songs; }
 
 	/// Simple print function 
 	/// 

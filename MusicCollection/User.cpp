@@ -1,18 +1,18 @@
 #pragma once
 #include "User.h"
 
-User::User() :username(""), password(""), fullname(""),id("") 
+User::User() :username(""), password(""), fullname(""), id("")
 {
 	time_t now = time(0);
 	localtime_s(&birthday, &now);
 }
 User::~User() {}
-User::User(std::string _username, 
-		std::string _password, 
-		std::string _fullname, 
-		std::string _birthday,
-		std::string _id,
-		std::vector<std::string> _favorite_genres
+User::User(std::string _username,
+	std::string _password,
+	std::string _fullname,
+	std::string _birthday,
+	std::string _id,
+	std::vector<std::string> _favorite_genres
 )
 {
 	username = _username;
@@ -27,10 +27,10 @@ void User::add_favorite_genre(std::string _genre)
 {
 	transform(_genre.begin(), _genre.end(), _genre.begin(), ::tolower);
 
-	for (std::string genre: favorite_genres)
+	for (std::string genre : favorite_genres)
 	{
 		transform(genre.begin(), genre.end(), genre.begin(), ::tolower);
-		if (genre ==_genre)
+		if (genre == _genre)
 			return;
 	}
 	favorite_genres.push_back(_genre);

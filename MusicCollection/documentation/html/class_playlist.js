@@ -9,7 +9,7 @@ var class_playlist =
     [ "print_all_songs", "class_playlist.html#a44e6beb82c23a6963adeace8957a4271", null ],
     [ "set_creator", "class_playlist.html#adb0373f13e7429ad3f2d820d899c8f4a", null ],
     [ "set_name", "class_playlist.html#a2a412926cbe8f4038603b9b48e1eb303", null ],
-    [ "set_songs", "class_playlist.html#a02b7719d182173376913aab825c24142", null ],
+    [ "set_songs", "class_playlist.html#a41fc91d6979ed871c74055649ebe56aa", null ],
     [ "creator_id", "class_playlist.html#a417c6736c96d1a6ffdf879a56d6f5a49", null ],
     [ "name", "class_playlist.html#a6b06305db2f4b7bfadccd994665501cf", null ],
     [ "songs", "class_playlist.html#a2503942ce9aa5d1ef1c12f4cd37f1891", null ]

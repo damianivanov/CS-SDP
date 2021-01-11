@@ -12,11 +12,11 @@ public:
 
 	/// Deserialization() method is called when Context is created
 	/// with Deserialization() - songs,playlists,ratings,users are loaded and converted to ready to use vectors from json files
-	Context() {Deserialization();}
+	Context() { Deserialization(); }
 
 	/// Serialization() method is called when Context is destructed
 	/// with Serialization() - songs,playlists,ratings,users are saved to json files
-	~Context() {Serialization();}
+	~Context() { Serialization(); }
 
 	/// Get User with given username
 	/// 
@@ -71,7 +71,7 @@ public:
 	/// <param name="_rating">given rating</param>
 	/// <returns>vector Song</returns>
 	std::vector<Song> get_songs_by_rating(float _rating);
- 
+
 	/// All songs with realease year equal than _year
 	/// <param name="_year">year</param>
 	/// <returns>vector Song</returns>
@@ -129,7 +129,7 @@ public:
 	/// If playlist_exists(_playlist) returns true which means there is a Playlist with the same name and creator
 	/// this function dont add _playlist to the database and returns false, else returns true and adds _playlist 
 	bool add_playlist(Playlist _playlist);
-	
+
 	/// Bussines logic behind adding rating
 	/// uses rated_song() to determine if there is already vote for _song by _user
 	/// <param name="_user_id">User id</param>
@@ -165,7 +165,7 @@ public:
 private:
 	/// number of spaces in the beggining of every line in the .json files
 	const unsigned int formating_spaces = 4;
-	
+
 	const std::string users_address = "Users.json";
 	const std::string playlists_address = "Songs.json";
 	const std::string songs_address = "Playlists.json";

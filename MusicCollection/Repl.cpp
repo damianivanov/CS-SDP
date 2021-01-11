@@ -14,7 +14,7 @@ void Repl::run()
 		"@@    @@  @@         @@     @@     @@      @@   @@        @@         @@    \n"
 		"@@@@@@@@  @@          @@@@@@@      @@     @@@@  @@        @@@@@@@@   @@	\n";
 
-	std::cout << logo<< std::endl;
+	std::cout << logo << std::endl;
 	std::cout << "Enter a command or type \"help\" to see all supported commands " << std::endl;
 	while (true)
 	{
@@ -67,7 +67,7 @@ void Repl::run()
 				std::cout << input << " - is not recognized as valid command" << std::endl;
 		}
 		else
-			std::cout <<" The supported comands for not logged users are only: help,login,register,exit	" << std::endl;
+			std::cout << " The supported comands for not logged users are only: help,login,register,exit" << std::endl;
 
 	}
 }

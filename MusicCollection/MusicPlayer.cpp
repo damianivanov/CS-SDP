@@ -1,10 +1,10 @@
 #include "MusicPlayer.h"
 
 MusicPlayer::MusicPlayer() :user(nullptr), playlist(nullptr) {}
-MusicPlayer::~MusicPlayer() { 
+MusicPlayer::~MusicPlayer() {
 	user = nullptr;
 	playlist = nullptr;
- }
+}
 
 //Working with user
 void MusicPlayer::Register()
@@ -262,7 +262,7 @@ bool MusicPlayer::load_playlist()
 
 	playlist = db.get_playlist_by_name_and_user_id(name, user->get_id());
 
-	if (playlist!=nullptr)
+	if (playlist != nullptr)
 	{
 		std::cout << "Successfully loaded playlist called " << name << " with " << playlist->get_songs().size() << " songs:" << std::endl;
 		playlist->print_all_songs();
@@ -347,7 +347,7 @@ void MusicPlayer::user_info()
 }
 bool MusicPlayer::print_playlist()
 {
-	if (playlist!=nullptr)
+	if (playlist != nullptr)
 	{
 		playlist->print_all_songs();
 		return true;
@@ -455,7 +455,7 @@ std::vector<Song> MusicPlayer::evaluate(const std::string _expression)
 					left_token.clear();
 					right_token.clear();
 				}
-				else 
+				else
 				{
 					songs = merge_and(songs, evaluate(right_token));
 					right_token.clear();
@@ -487,7 +487,7 @@ std::vector<Song> MusicPlayer::evaluate(const std::string _expression)
 					left_token.clear();
 					right_token.clear();
 				}
-				else 
+				else
 				{
 					songs = merge_or(songs, evaluate(right_token));
 					right_token.clear();
@@ -497,7 +497,7 @@ std::vector<Song> MusicPlayer::evaluate(const std::string _expression)
 			{
 				if (left_token.empty())
 					songs = merge_or(songs, filter(right_token));
-				else 
+				else
 				{
 					songs = merge_or(filter(left_token), filter(right_token));
 					// so we dont go to the last if which is for cases when there is a single criteria
@@ -540,7 +540,7 @@ void MusicPlayer::fill(std::vector<Song>& _songs, const size_t _final_size)
 		_songs = songs;
 
 }
-bool MusicPlayer::vote_song(Song* _song,float _rating)
+bool MusicPlayer::vote_song(Song* _song, float _rating)
 {
 	if (db.rated_song(user->get_id(), _song->get_id()))
 	{

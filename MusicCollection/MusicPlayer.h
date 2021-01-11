@@ -12,11 +12,12 @@ public:
 	/// Default value of users id is with id = ""
 	/// <returns>True if there is logged user and False if there is not one</returns>
 	bool logged() {
-		return user != nullptr;} // !user->get_id().empty(); }
+		return user != nullptr;
+	} // !user->get_id().empty(); }
 
-	/// The bussines logic behind registering a new user
-	/// 
-	/// Takes new username until its available
+/// The bussines logic behind registering a new user
+/// 
+/// Takes new username until its available
 	void Register(); //i used lower case "register", because it's reserved word
 
 	/// The bussines logic for login with existing user
@@ -151,7 +152,7 @@ private:
 	/// Calculates how many songs it needs to fill to _final_size
 	/// <param name="_songs">current vector of Song by reference</param>
 	/// <param name="_final_size">desired final size of the vector of Song</param>
-	void fill(std::vector<Song> &_songs, const size_t _final_size);
+	void fill(std::vector<Song>& _songs, const size_t _final_size);
 
 	/// The logic behind Rating a Song
 	/// 

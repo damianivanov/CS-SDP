@@ -74,7 +74,7 @@ static const std::string genres_print(const std::vector<std::string> _genres)
 	s.pop_back();
 	s.pop_back();
 	s.append(" }");
-	if (s.size()<3)
+	if (s.size() < 3)
 	{
 		return "{ }";
 	}
@@ -85,7 +85,7 @@ static const std::string genres_print(const std::vector<std::string> _genres)
 /// 
 /// Used for saving in .json files
 /// @returns string in format DD/MM/YYYY representing the birthday
-static const std::string birthday_to_string(const tm& _birthday) 
+static const std::string birthday_to_string(const tm& _birthday)
 {
 	std::string s;
 	s.append(std::to_string(_birthday.tm_mday));
