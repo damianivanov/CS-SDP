@@ -33,7 +33,10 @@ static std::vector<Song> merge_and(const std::vector<Song> _l, const std::vector
 	std::vector<Song> s;
 	std::copy_if(_l.begin(), _l.end(), std::back_inserter(s), [&](const Song _song)
 		{
-			return std::find_if(_r.begin(), _r.end(), [&](const Song s) { return s.get_id() == _song.get_id(); }) != _r.end();
+			return std::find_if(_r.begin(), _r.end(), [&](const Song s) 
+				{ 
+					return s.get_id() == _song.get_id(); 
+				}) != _r.end();
 		});
 	return s;
 }

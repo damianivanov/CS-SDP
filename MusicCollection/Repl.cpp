@@ -5,7 +5,7 @@ Repl::~Repl() { delete mp; }
 
 void Repl::run()
 {
-	std::string logo =
+	 const std::string logo =
 		"@@@@@@@@  @@@@@@@@    @@@@@@@   @@@@@@@@  @@@@  @@@@@@@@  @@      @@    @@ \n"
 		"@@    @@  @@     @@  @@     @@     @@      @@   @@        @@       @@  @@  \n"
 		"@@        @@     @@  @@     @@     @@      @@   @@        @@        @@@@   \n"

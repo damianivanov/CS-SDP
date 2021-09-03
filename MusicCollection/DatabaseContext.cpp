@@ -251,6 +251,9 @@ bool Context::song_exists(Song _song)
 			s.get_album() == _song.get_album() &&
 			s.get_genre() == _song.get_genre())
 			return true;
+		/*After submission
+			if(s==_song)
+		*/
 	}
 	return false;
 }

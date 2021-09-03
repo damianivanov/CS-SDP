@@ -313,9 +313,14 @@ bool MusicPlayer::generating_playlist()
 	std::cout << "> ";
 	std::getline(std::cin, line);
 	clear_whitespaces(line);
+
 	std::vector<Song> songs;
 	if (line == "all")
 		songs = db.get_n_ordered_songs(db.get_all_songs().size());
+	/*After submission
+	* not sorting the songs will be way faster
+	* songs = db.get_all_songs();
+	*/
 	else
 	{
 		size_t songs_count;
@@ -323,7 +328,7 @@ bool MusicPlayer::generating_playlist()
 		std::cin >> songs_count;
 		std::cin.ignore(INT_MAX, '\n');
 		songs = evaluate(line);
-		int size_before_fill = songs.size();
+		int size_before_fill = songs.size(); // not needed after some refactoring
 		std::cout << "Songs from the search query: " << size_before_fill << std::endl;
 		fill(songs, songs_count);
 		std::cout << "Songs after filling up songs: " << songs.size() << std::endl;
@@ -354,6 +359,35 @@ bool MusicPlayer::print_playlist()
 	}
 	std::cout << "There is no loaded playlist!" << std::endl;
 	return false;
+}
+bool MusicPlayer::vote_song(Song* _song, float _rating)
+{
+	if (db.rated_song(user->get_id(), _song->get_id()))
+	{
+		std::cout << "Already voted for " << _song->get_name() << " by " << _song->get_artist() << std::endl;
+		return false;
+	}
+
+	std::vector<Rating> ratings = db.get_ratings_by_song_id(_song->get_id());
+	float new_rating = 0.0;
+	/*
+		After the submission
+		float new_rating= _song->get_rating()*ratings.size();
+		instead of the for loop
+		after the change this will be O(const) complexity, instead of O(n) (linear)
+	*/
+
+	for (Rating r : ratings)
+	{
+		new_rating += r.rating;
+	}
+	new_rating += _rating;
+	new_rating /= ratings.size() + 1;
+
+	_song->set_rating(new_rating);
+	db.add_rating(user->get_id(), _song->get_id(), _rating);
+	std::cout << "You rated with " << _rating << " " << _song->get_name() << " by " << _song->get_artist() << std::endl;
+	return true;
 }
 
 std::vector<Song> MusicPlayer::songs_above_rating()
@@ -417,7 +451,7 @@ std::vector<Song> MusicPlayer::songs_by_release_year(const std::string keyword)
 	return songs;
 }
 
-std::vector<Song> MusicPlayer::filter(std::string _option)
+std::vector<Song> MusicPlayer::filter(std::string _option)	
 {
 	transform(_option.begin(), _option.end(), _option.begin(), ::tolower);
 
@@ -439,6 +473,7 @@ std::vector<Song> MusicPlayer::filter(std::string _option)
 }
 std::vector<Song> MusicPlayer::evaluate(const std::string _expression)
 {
+	// after AND (before AND favorite) AND above
 	std::string left_token, right_token;
 	std::stringstream s(_expression);
 	std::vector<Song> songs;
@@ -539,26 +574,4 @@ void MusicPlayer::fill(std::vector<Song>& _songs, const size_t _final_size)
 	else
 		_songs = songs;
 
-}
-bool MusicPlayer::vote_song(Song* _song, float _rating)
-{
-	if (db.rated_song(user->get_id(), _song->get_id()))
-	{
-		std::cout << "Already voted for " << _song->get_name() << " by " << _song->get_artist() << std::endl;
-		return false;
-	}
-
-	std::vector<Rating> ratings = db.get_ratings_by_song_id(_song->get_id());
-	float new_rating = 0.0;
-	for (Rating r : ratings)
-	{
-		new_rating += r.rating;
-	}
-	new_rating += _rating;
-	new_rating /= ratings.size() + 1;
-
-	_song->set_rating(new_rating);
-	db.add_rating(user->get_id(), _song->get_id(), _rating);
-	std::cout << "You rated with " << _rating << " " << _song->get_name() << " by " << _song->get_artist() << std::endl;
-	return true;
 }

@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include <ctime>
 class Song
 {
 public:
@@ -11,6 +10,14 @@ public:
 	Song(std::string _id, std::string _artist, std::string _name, std::string _genre, std::string album, int _release_year, float _rating = 0.0);
 	/// <returns>If two songs have the same id, which means they are the same</returns>
 	bool operator==(const Song& other) { return this->id == other.id; }
+	/*
+		After submission
+		bool operator==(const Song& other) 
+		{ return s.get_name() == _song.get_name() &&
+				s.get_artist() == _song.get_artist() &&
+				s.get_album() == _song.get_album() &&
+				s.get_genre() == _song.get_genre();}
+	*/
 
 	/// <returns>Artist of the song</returns>
 	const std::string get_artist() const { return this->artist; }
